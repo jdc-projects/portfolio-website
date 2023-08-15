@@ -17,8 +17,12 @@ const navs: navs = [
     route: '/'
   },
   {
-    name: 'Test',
-    route: '/test/'
+    name: 'About',
+    route: '/about/'
+  },
+  {
+    name: 'Experience',
+    route: '/experience/'
   },
 ]
 

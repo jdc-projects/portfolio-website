@@ -3,7 +3,7 @@
 import '@mantine/core/styles.css';
 
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import Header from '../components/Header';
+import Header, { navs } from '../components/Header';
 import Footer from '../components/Footer';
 
 export const metadata = {
@@ -11,7 +11,7 @@ export const metadata = {
   description: 'A personal website built using Next.js',
 };
 
-const navs = [
+const navs: navs = [
   {
     name: 'Home',
     route: '/'

@@ -1,5 +1,4 @@
 import { Container, Center, Text, Paper, Flex, Anchor } from '@mantine/core';
-import { Head } from 'next/document';
 
 type nav = { name: string; route: string; }
 export type navs = Array<nav>

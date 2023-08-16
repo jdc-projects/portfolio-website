@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import { Title, Text, Anchor, Blockquote, Code } from '@mantine/core'
+import { Title, Text, Anchor, Blockquote, Code, List, ListItem, Image } from '@mantine/core'
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -26,7 +26,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: (props) => <Anchor href={props.href} title={props.title} >{props.children}</Anchor>,
     blockquote: (props) => <Blockquote>{props.children}</Blockquote>,
     code: MDCode,
+    // this is necessary to make code blocks work properly with Mantine
     pre: (props) => <>{props.children}</>,
+    img: (props) => <Image src={props.src} alt={props.alt} title={props.title} />,
     h1: (props) => <Title order={1} >{props.children}</Title>,
     h2: (props) => <Title order={2} >{props.children}</Title>,
     h3: (props) => <Title order={3} >{props.children}</Title>,
@@ -34,6 +36,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: (props) => <Title order={5} >{props.children}</Title>,
     h6: (props) => <Title order={6} >{props.children}</Title>,
     p: (props) => <Text>{props.children}</Text>,
-    ...components,
+    em: (props) => <Text fs="italic">{props.children}</Text>,
+    strong: (props) => <Text fw={700}>{props.children}</Text>,
+    li: (props) => <ListItem>{props.children}</ListItem>,
+    ol: (props) => <List type='ordered' >{props.children}</List>,
+    ul: (props) => <List type='unordered' >{props.children}</List>,
   }
 }

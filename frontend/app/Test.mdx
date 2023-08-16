@@ -2,63 +2,12 @@
 
 You can import and use React components in MDX files.
 
-[test](test.com "title")
+* item 1
+* item 2
+* item 3
 
-> A greater than…
+1. item 1
+2. item 2
+3. item 3
 
-Before break\
-after break
-
-Some `inline` code
-
-```tsx
-// VisuallyHidden component source code
-import React from 'react';
-import {
-  Box,
-  BoxProps,
-  StylesApiProps,
-  factory,
-  ElementProps,
-  useProps,
-  useStyles,
-  Factory,
-} from '../../core';
-import classes from './VisuallyHidden.module.css';
-
-export type VisuallyHiddenStylesNames = 'root';
-
-export interface VisuallyHiddenProps
-  extends BoxProps,
-    StylesApiProps<VisuallyHiddenFactory>,
-    ElementProps<'div'> {}
-
-export type VisuallyHiddenFactory = Factory<{
-  props: VisuallyHiddenProps;
-  ref: HTMLDivElement;
-  stylesNames: VisuallyHiddenStylesNames;
-}>;
-
-const defaultProps: Partial<VisuallyHiddenProps> = {};
-
-export const VisuallyHidden = factory<VisuallyHiddenFactory>((_props, ref) => {
-  const props = useProps('VisuallyHidden', defaultProps, _props);
-  const { classNames, className, style, styles, unstyled, vars, ...others } = props;
-
-  const getStyles = useStyles<VisuallyHiddenFactory>({
-    name: 'VisuallyHidden',
-    classes,
-    props,
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-  });
-
-  return <Box component="span" ref={ref} {...getStyles('root')} {...others} />;
-});
-
-VisuallyHidden.classes = classes;
-VisuallyHidden.displayName = '@mantine/core/VisuallyHidden';
-```
+![Alt text](https://images.unsplash.com/photo-1688920556232-321bd176d0b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80)

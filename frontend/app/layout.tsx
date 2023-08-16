@@ -24,6 +24,10 @@ const navs: navs = [
     name: 'Experience',
     route: '/experience/'
   },
+  {
+    name: 'Projects',
+    route: '/projects/'
+  },
 ]
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

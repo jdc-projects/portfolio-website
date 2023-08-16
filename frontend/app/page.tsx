@@ -1,9 +1,7 @@
-import { Slider } from '@mantine/core';
+import Test from './Test.mdx'
 
 export default function app() {
   return (
-    <Slider
-      color="red"
-    />
+    <Test />
   );
 }

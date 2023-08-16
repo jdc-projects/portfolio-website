@@ -1,9 +1,13 @@
-import { Center, Text } from '@mantine/core'
+import { Container, Center, Text } from '@mantine/core'
 
 export default function Footer() {
   return (
-    <Center h={50} >
-        <Text >© Copyright Jack Chapman 2023. All rights reserved.</Text>
-    </Center>
+    <Container pos="sticky" top="100%" >
+      <footer>
+        <Center h={50} pos="sticky" top="100%" >
+            <Text >© Copyright Jack Chapman 2023. All rights reserved.</Text>
+        </Center>
+      </footer>
+    </Container>
   )
 }

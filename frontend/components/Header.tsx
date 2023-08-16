@@ -1,4 +1,5 @@
-import { Center, Flex, Anchor } from '@mantine/core';
+import { Container, Center, Text, Paper, Flex, Anchor } from '@mantine/core';
+import { Head } from 'next/document';
 
 type nav = { name: string; route: string; }
 export type navs = Array<nav>
@@ -9,10 +10,18 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   return (
-    <Flex h={50} gap='md' justify='center' align='center' direction='row'>
-      {props.navs.map((nav: nav) => {
-        return <Anchor href={nav.route} target='_self' underline='never' c='black' key={nav.name} >{nav.name}</Anchor>
-      })}
-    </Flex>
+    <Container >
+      <header>
+        <Center h={100} >
+          <Paper h={50} w={1000} shadow="md" p="md" >
+            <Flex gap='md' justify='center' align='center' direction='row'>
+              {props.navs.map((nav: nav) => {
+                return <Anchor href={nav.route} target='_self' underline='never' c='black' key={nav.name} ><Text >{nav.name}</Text></Anchor>
+              })}
+            </Flex>
+          </Paper>
+        </Center>
+      </header>
+    </Container>
   )
 }

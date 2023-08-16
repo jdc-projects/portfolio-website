@@ -1,7 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
 import { Title, Text, Anchor, Blockquote, Code } from '@mantine/core'
-import { CodeHighlight } from '@mantine/code-highlight'
-import Link from 'next/link'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any

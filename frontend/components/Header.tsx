@@ -15,7 +15,7 @@ export default function Header(props: HeaderProps) {
           <Paper h={50} w={1000} shadow="md" p="md" >
             <Flex gap='md' justify='center' align='center' direction='row'>
               {props.navs.map((nav: nav) => {
-                return <Anchor href={nav.route} target='_self' underline='never' c='black' key={nav.name} ><Text >{nav.name}</Text></Anchor>
+                return <Anchor href={nav.route} target='_self' underline='never' c='black' key={nav.name} ><Text fw={500} >{nav.name}</Text></Anchor>
               })}
             </Flex>
           </Paper>

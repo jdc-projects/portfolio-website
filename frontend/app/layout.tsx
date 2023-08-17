@@ -6,6 +6,25 @@ import { MantineProvider, ColorSchemeScript, Container, Center, Paper } from '@m
 import Header, { navs } from '../components/Header';
 import Footer from '../components/Footer';
 
+const mantineTheme = {
+  components: {
+    Image: {
+      defaultProps: {
+        fit: "contain",
+        h: "auto",
+        radius: "md",
+      }
+    },
+    Paper: {
+      defaultProps: {
+        shadow: "md",
+        p: "md",
+        w: 1000,
+      }
+    },
+  }
+}
+
 export const metadata = {
   title: 'Personal Website',
   description: 'A personal website built using Next.js',
@@ -37,11 +56,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider >
+        <MantineProvider theme={mantineTheme}>
           <Container mih="100%" pos="relative" >
             <Header navs={navs} />
             <Center >
-              <Paper w={1000} shadow="md" p="md" >
+              <Paper >
                 {children}
               </Paper>
             </Center>

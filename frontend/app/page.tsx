@@ -1,5 +1,5 @@
 import { SimpleGrid, Container } from '@mantine/core'
-import Image from '../components/wrapper/Image'
+import Image from 'components/Image'
 
 import Intro from './intro.mdx'
 import WorkProfilePhoto from './work-profile-photo.jpg'

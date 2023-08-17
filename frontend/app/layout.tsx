@@ -3,8 +3,8 @@
 import '@mantine/core/styles.css';
 
 import { MantineProvider, ColorSchemeScript, Container, Center, Paper } from '@mantine/core';
-import Header, { navs } from '../components/Header';
-import Footer from '../components/Footer';
+import Header, { navs } from 'components/Header';
+import Footer from 'components/Footer';
 
 const mantineTheme = {
   components: {

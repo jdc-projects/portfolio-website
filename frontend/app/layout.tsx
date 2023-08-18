@@ -1,12 +1,16 @@
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
-import '@mantine/core/styles.css';
+import '@mantine/core/styles.css'
 
-import { MantineProvider, ColorSchemeScript, Container, Center, Paper } from '@mantine/core';
-import Header, { navs } from 'components/Header';
-import Footer from 'components/Footer';
+import { MantineProvider, MantineTheme, DEFAULT_THEME, ColorSchemeScript, Container, Center, Paper, Space, Divider } from '@mantine/core'
+import Header, { navs } from 'components/Header'
+import Footer from 'components/Footer'
 
-const mantineTheme = {
+const mantineTheme: MantineTheme = {
+  ...DEFAULT_THEME,
+
+  defaultRadius: 'md',
+
   components: {
     Image: {
       defaultProps: {
@@ -15,20 +19,18 @@ const mantineTheme = {
         radius: "md",
       }
     },
-    Paper: {
+    Space: {
       defaultProps: {
-        shadow: "md",
-        p: "md",
-        w: 1000,
+        h: 'md'
       }
-    },
-  }
+    }
+  },
 }
 
 export const metadata = {
   title: 'Personal Website',
   description: 'A personal website built using Next.js',
-};
+}
 
 const navs: navs = [
   {
@@ -56,12 +58,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider theme={mantineTheme}>
-          <Container mih="100%" pos="relative" >
-            <Header navs={navs} />
+        <MantineProvider theme={mantineTheme} >
+          <Container mih="100%" pos="relative" bg="lightgray" >
+            <Space />
             <Center >
-              <Paper >
+              <Paper w="90%" px='md' shadow='xs' >
+                <Space />
+                <Header navs={navs} />
+                <Space />
+                <Divider />
+                <Space />
                 {children}
+                <Space />
               </Paper>
             </Center>
             <Footer />
@@ -69,5 +77,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </MantineProvider>
       </body>
     </html>
-  );
+  )
 }

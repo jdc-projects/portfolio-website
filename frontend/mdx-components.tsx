@@ -10,7 +10,7 @@ const MDCode = (props: any) => {
   // className is the language of the code block
   // so if it is undefined, we can assume it's inline
   const isBlock = props.className === undefined ? false : true
-  const language = isBlock ? props.className.split("-").at(-1) : undefined;
+  const language = isBlock ? props.className.split("-").at(-1) : undefined
 
   return (
     <Code block={isBlock} >

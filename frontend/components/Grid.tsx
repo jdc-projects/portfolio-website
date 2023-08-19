@@ -4,17 +4,15 @@ import { GridProps as MantineGridProps, GridColProps as MantineGridColProps, Gri
 import { ReactNode } from 'react'
 
 type GridProps = MantineGridProps & {
-  children: ReactNode,
 }
 
-type ColProps = MantineGridColProps & {
-  children: ReactNode,
+type GridColProps = MantineGridColProps & {
 }
 
 export function Grid(props: GridProps) {
   return <MantineGrid {...props} >{props.children}</MantineGrid>
 }
 
-export function GridCol(props: ColProps) {
+export function GridCol(props: GridColProps) {
   return <MantineGrid.Col {...props} >{props.children}</MantineGrid.Col>
 }

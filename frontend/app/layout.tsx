@@ -41,12 +41,8 @@ export const metadata = {
 
 const navs: navs = [
   {
-    name: 'Home',
-    route: '/'
-  },
-  {
     name: 'About',
-    route: '/about/'
+    route: '/'
   },
   {
     name: 'Experience',
@@ -69,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Container mih="100%" pos="relative" bg="lightgray" >
             <Space />
             <Center >
-              <Paper w="90%" px='md' shadow='xs' >
+              <Paper w={1200} miw={1200} px='md' shadow='xs' mx='xl' >
                 <Space />
                 <Header navs={navs} />
                 <Space />

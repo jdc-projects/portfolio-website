@@ -1,4 +1,4 @@
-import { Flex, Anchor, Button } from '@mantine/core'
+import { Container, Flex, Anchor, Button } from '@mantine/core'
 import Image from 'components/Image'
 import { Grid, GridCol } from 'components/Grid'
 
@@ -16,10 +16,14 @@ export default function Header(props: HeaderProps) {
     <header>
       <Grid>
         <GridCol span={2} >
-          <Image src={Icon} alt="Placeholder logo" w={50} ml={20} />
+          <Container w={90} ml={10} >
+            <Anchor href='/' target='_self' underline='never' >
+              <Image src={Icon} alt="Website logo" />
+            </Anchor>
+          </Container>
         </GridCol>
         <GridCol span={8}>
-          <Flex gap='lg' justify='center' align='center' direction='row' h='100%' >
+          <Flex gap='xl' justify='center' align='center' direction='row' h='100%' >
             {props.navs.map((nav: nav) => {
               return (
                 <Anchor href={nav.route} target='_self' underline='never' c='black' size='xl' fw={500} key={nav.name} >

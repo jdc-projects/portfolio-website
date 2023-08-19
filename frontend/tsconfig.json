@@ -24,7 +24,8 @@
       }
     ],
     "paths": {
-      "components/*": ["./components/*"]
+      "components/*": ["./components/*"],
+      "app/*": ["./app/*"],
     },
   },
   "include": [

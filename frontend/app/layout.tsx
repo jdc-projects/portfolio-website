@@ -17,13 +17,19 @@ const mantineTheme: MantineTheme = {
         fit: "contain",
         h: "auto",
         radius: "md",
-      }
+        fallbackSrc: "https://placehold.co/600x400?text=Placeholder",
+      },
     },
     Space: {
       defaultProps: {
         h: 'md'
-      }
-    }
+      },
+    },
+    Button: {
+      defaultProps: {
+        size: 'md'
+      },
+    },
   },
 }
 

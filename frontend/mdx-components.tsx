@@ -1,10 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
 import { Title, Text, Anchor, Blockquote, Code, List, ListItem, Image } from '@mantine/core'
-
-// This file allows you to provide custom React components
-// to be used in MDX files. You can import and use any
-// React component you want, including components from
-// other libraries.
+import { CodeHighlight } from '@mantine/code-highlight'
 
 const MDCode = (props: any) => {
   // className is the language of the code block
@@ -13,9 +9,10 @@ const MDCode = (props: any) => {
   const language = isBlock ? props.className.split("-").at(-1) : undefined
 
   return (
-    <Code block={isBlock} >
-      {props.children}
-    </Code>
+    isBlock ?
+      <CodeHighlight code={props.children} language={language} />
+    :
+      <Code>{props.children}</Code>
   )
 }
 

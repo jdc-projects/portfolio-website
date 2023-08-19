@@ -1,8 +1,8 @@
 import { Flex, Anchor, Button } from '@mantine/core'
-import Image from "components/Image"
-import { Grid, GridCol } from "components/Grid"
+import Image from 'components/Image'
+import { Grid, GridCol } from 'components/Grid'
 
-import Icon from "app/icon.png"
+import Icon from 'app/icon.png'
 
 type nav = { name: string, route: string, }
 export type navs = Array<nav>

@@ -1,6 +1,7 @@
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
 import '@mantine/core/styles.css'
+import '@mantine/code-highlight/styles.css'
 
 import { MantineProvider, MantineTheme, DEFAULT_THEME, ColorSchemeScript, Container, Center, Paper, Space, Divider } from '@mantine/core'
 import Header, { navs } from 'components/Header'

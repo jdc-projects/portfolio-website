@@ -1,7 +1,7 @@
 'use client'
 
-import { GridProps as MantineGridProps, GridColProps as MantineGridColProps, Grid as MantineGrid } from "@mantine/core"
-import { ReactNode } from "react"
+import { GridProps as MantineGridProps, GridColProps as MantineGridColProps, Grid as MantineGrid } from '@mantine/core'
+import { ReactNode } from 'react'
 
 type GridProps = MantineGridProps & {
   children: ReactNode,

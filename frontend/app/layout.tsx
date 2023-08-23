@@ -58,10 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript forceColorScheme="light" />
       </head>
       <body>
-        <MantineProvider theme={mantineTheme} >
+        <MantineProvider forceColorScheme="light" theme={mantineTheme} >
           <Container mih="100%" pos="relative" bg="lightgray" >
             <Space />
             <Center >

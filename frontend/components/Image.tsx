@@ -6,5 +6,5 @@ type ImageProps = MantineImageProps & {
 }
 
 export default function Image(props: ImageProps) {
-  return <MantineImage component={NextImage} {...props} />
+  return <MantineImage component={NextImage} {...props} height={1000} width={1000} />
 }

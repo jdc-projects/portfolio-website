@@ -2,6 +2,8 @@ import { Container, Flex, Anchor, Button } from '@mantine/core'
 import Image from 'components/Image'
 import { Grid, GridCol } from 'components/Grid'
 
+import Logo from 'app/icon.png'
+
 type nav = { name: string, route: string, }
 export type navs = Array<nav>
 
@@ -16,7 +18,7 @@ export default function Header(props: HeaderProps) {
         <GridCol span={2} >
           <Container w={90} ml={10} >
             <Anchor href='/' target='_self' underline='never' >
-              <Image src='/icon.png' alt="Website logo" />
+              <Image src={Logo} alt="Website logo" />
             </Anchor>
           </Container>
         </GridCol>

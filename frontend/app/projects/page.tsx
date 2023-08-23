@@ -22,7 +22,9 @@ export default async function Page(props: ProjectPageProps) {
 
 async function getProjects() {
   const projectsDir = path.join(process.cwd(), 'public', 'projects')
-  const projectDirs = (await fs.readdir(projectsDir, { withFileTypes: true })).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name)
+  const projectDirs = (await fs.readdir(projectsDir, { withFileTypes: true }))
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name)
 
   const projects: Array<ProjectInfo> = await Promise.all(projectDirs.map(async projectDir => {
     const projectPage = path.join(projectsDir, projectDir, 'page.mdx')

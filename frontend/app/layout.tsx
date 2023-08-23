@@ -46,11 +46,11 @@ const navs: navs = [
   },
   {
     name: 'Experience',
-    route: '/experience/'
+    route: '/experience'
   },
   {
     name: 'Projects',
-    route: '/projects/'
+    route: '/projects'
   },
 ]
 

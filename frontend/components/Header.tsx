@@ -17,7 +17,7 @@ export default function Header(props: HeaderProps) {
     <header>
       <Grid>
         <GridCol span={2} >
-          <Container w={90} ml={10} >
+          <Container w={60} ml={20} >
             <Anchor href='/' underline='never' >
               <Image src={Logo} alt="Website logo" />
             </Anchor>

@@ -13,6 +13,12 @@ const mantineTheme: MantineTheme = {
   defaultRadius: 'md',
 
   components: {
+    Container: {
+      defaultProps: {
+        m: 0,
+        p: 0,
+      },
+    },
     Image: {
       defaultProps: {
         fit: "contain",

@@ -32,6 +32,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # Leverage output traces to reduce image size
 COPY --from=builder --chown=node /app/.next/standalone ./
 COPY --from=builder --chown=node /app/.next/static ./.next/static
+COPY --from=builder --chown=node /app/public ./public
 
 USER node
 

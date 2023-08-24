@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import grayMatter from 'gray-matter'
-import { Flex } from "@mantine/core"
+import { Flex, Text, Space } from "@mantine/core"
 import ProjectCard from 'components/ProjectCard'
 
 export type ProjectInfo = {
@@ -20,9 +20,16 @@ export default async function Page() {
   })
 
   return (
-    <Flex gap='xl' justify='center' align='center' direction='row' wrap='wrap' >
-      {projectCards}
-    </Flex>
+    <>
+      <Text ta='center' >
+        Take a look at some of the projects I have worked on:
+      </Text>
+      <Space/>
+      <Flex gap='lg' justify='center' align='center' direction='row' wrap='wrap' >
+        {projectCards}
+      </Flex>
+      <Space/>
+    </>
   )
 }
 

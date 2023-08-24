@@ -22,12 +22,12 @@ const MDCode = (props: any) => {
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Allows customizing built-in components, e.g. to add styling.
-    a: (props) => <Anchor href={props.href} title={props.title} >{props.children}</Anchor>,
+    a: (props) => <Anchor href={props.href as string} >{props.children}</Anchor>,
     blockquote: (props) => <Blockquote>{props.children}</Blockquote>,
     code: MDCode,
     // this is necessary to make code blocks work properly with Mantine
     pre: (props) => <>{props.children}</>,
-    img: (props) => <Image src={props.src} alt={props.alt} title={props.title} />,
+    img: (props) => <Image src={props.src as string} alt={props.alt as string} title={props.title} />,
     h1: (props) => <Title order={1} >{props.children}</Title>,
     h2: (props) => <Title order={2} >{props.children}</Title>,
     h3: (props) => <Title order={3} >{props.children}</Title>,

@@ -1,27 +1,32 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
-import { Text } from '@mantine/core';
+import ProjectCard from 'components/ProjectCard';
 
-type ProjectInfo = {
+export type ProjectInfo = {
   route: string,
   title: string,
+  description: string,
   thumbnail: string,
+  thumbnailAlt: string,
 }
 
-type ProjectPageProps = {
-}
-
-export default async function Page(props: ProjectPageProps) {
+export default async function Page() {
   const projects = await getProjects();
 
+  const projectCards = projects.map(project => {
+    return <ProjectCard projectInfo={project} key={project.route} />
+  })
+
   return (
-    <Text>{projects[0].title}</Text>
+    <>
+      {projectCards}
+    </>
   )
 }
 
 async function getProjects() {
-  const projectsDir = path.join(process.cwd(), 'public', 'projects')
+  const projectsDir = path.join(process.cwd(), 'app', 'projects')
   const projectDirs = (await fs.readdir(projectsDir, { withFileTypes: true }))
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
@@ -32,9 +37,11 @@ async function getProjects() {
     const projectMatter = grayMatter(projectContent)
 
     return {
-      route: projectDir, // this isn't correct, but will do for now
+      route: ('/projects/' + projectDir),
       title: projectMatter.data.title,
-      thumbnail: path.join(projectDir, projectMatter.data.thumbnail),
+      description: projectMatter.data.description,
+      thumbnail: projectMatter.data.thumbnail,
+      thumbnailAlt: projectMatter.data.thumbnailAlt,
     }
   }))
 

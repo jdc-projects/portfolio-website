@@ -1,6 +1,5 @@
-import { Container, Text, Center } from '@mantine/core'
+import { Container, Paper, Text, Flex } from '@mantine/core'
 import { ProjectInfo } from 'app/projects/page'
-import { Card, CardSection } from 'components/Card'
 import Anchor from 'components/Anchor'
 import Image from 'components/Image'
 
@@ -12,29 +11,19 @@ export default function ProjectCard(props: ProjectCardProps) {
   return (
     <Container w={200} >
       <Anchor href={props.projectInfo.route} underline='never' >
-        <Card shadow='xs' >
-          <CardSection>
-            <Center>
-              <Image src={props.projectInfo.thumbnail} w={160} h={150} fit='cover' alt={props.projectInfo.thumbnailAlt} />
-            </Center>
-          </CardSection>
+        <Paper shadow='md' withBorder={true} radius='md' >
+          <Flex direction='column' align='center' >
+            <Image src={props.projectInfo.thumbnail} mt={8} w={180} h={150} radius='sm' fit='cover' alt={props.projectInfo.thumbnailAlt} />
 
-          <CardSection>
-            <Center>
-              <Text fw={500} size="lg" mt="md">
-                {props.projectInfo.title}
-              </Text>
-            </Center>
-          </CardSection>
+            <Text fw={500} size='lg' mt='md' c='black' >
+              {props.projectInfo.title}
+            </Text>
 
-          <CardSection>
-            <Center>
-              <Text mt="xs" c="dimmed" size="sm">
-                {props.projectInfo.description}
-              </Text>
-            </Center>
-          </CardSection>
-        </Card>
+            <Text my='xs' c='dimmed' size='sm' >
+              {props.projectInfo.description}
+            </Text>
+          </Flex>
+        </Paper>
       </Anchor>
     </Container>
   )

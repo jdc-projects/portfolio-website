@@ -1,7 +1,8 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import grayMatter from 'gray-matter';
-import ProjectCard from 'components/ProjectCard';
+import { promises as fs } from 'fs'
+import path from 'path'
+import grayMatter from 'gray-matter'
+import { Flex } from "@mantine/core"
+import ProjectCard from 'components/ProjectCard'
 
 export type ProjectInfo = {
   route: string,
@@ -19,9 +20,9 @@ export default async function Page() {
   })
 
   return (
-    <>
+    <Flex gap='xl' justify='center' align='center' direction='row' wrap='wrap' >
       {projectCards}
-    </>
+    </Flex>
   )
 }
 

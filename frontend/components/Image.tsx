@@ -1,6 +1,7 @@
 import NextImage, { ImageProps as NextImageProps } from 'next/image'
 import { Image as MantineImage, ImageProps as MantineImageProps } from '@mantine/core'
-import sharp from 'sharp'
+import sharp, { Metadata } from 'sharp'
+import axios from 'axios'
 
 type ImageProps = NextImageProps & MantineImageProps & {
   alt: string,
@@ -17,23 +18,22 @@ export default async function Image(props: ImageProps) {
   return <MantineImage component={NextImage} {...props} width={dimensions.width} height={dimensions.height} />
 }
 
-async function getImageDimensions(src: string) {
-  let dimensions : Dimensions = {
-    width: undefined,
-    height: undefined,
-  }
+async function getImageDimensions(src: string): Promise<Dimensions> {
+  let image: any = undefined
 
   const isLocalPublicPath = (src.at(0) === '/')
+  const isRemotePath = (src.slice(0, 4) === 'http')
 
   if (isLocalPublicPath) {
-    const filepath = 'public' + src
-    const metadata = await sharp(filepath).metadata()
-
-    dimensions = {
-      width: metadata.width,
-      height: metadata.height,
-    }
+    image = 'public' + src
+  } else if (isRemotePath) {
+    image = (await axios({ url: src, responseType: "arraybuffer" })).data as Buffer;
   }
 
-  return dimensions
+  const metadata: Metadata = await sharp(image).metadata()
+
+  return {
+    width: metadata.width,
+    height: metadata.height,
+  }
 }

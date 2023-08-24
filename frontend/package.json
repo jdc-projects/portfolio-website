@@ -21,6 +21,7 @@
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "axios": "1.4.0",
     "fs": "0.0.1-security",
     "gray-matter": "4.0.3",
     "next": "13.4.15",

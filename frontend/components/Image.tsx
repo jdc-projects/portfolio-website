@@ -1,8 +1,8 @@
-import NextImage from 'next/image'
+import NextImage, { ImageProps as NextImageProps } from 'next/image'
 import { Image as MantineImage, ImageProps as MantineImageProps } from '@mantine/core'
 import sharp from 'sharp'
 
-type ImageProps = MantineImageProps & {
+type ImageProps = NextImageProps & MantineImageProps & {
   alt: string,
 }
 

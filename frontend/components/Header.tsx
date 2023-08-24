@@ -18,7 +18,7 @@ export default function Header(props: HeaderProps) {
       <Grid>
         <GridCol span={2} >
           <Container w={90} ml={10} >
-            <Anchor href='/' >
+            <Anchor href='/' underline='never' >
               <Image src={Logo} alt="Website logo" />
             </Anchor>
           </Container>
@@ -27,7 +27,7 @@ export default function Header(props: HeaderProps) {
           <Flex gap='xl' justify='center' align='center' direction='row' h='100%' >
             {props.navs.map((nav: nav) => {
               return (
-                <Anchor href={nav.route} c='black' size='xl' fw={500} key={nav.name} >
+                <Anchor href={nav.route} underline='never' c='black' size='xl' fw={500} key={nav.name} >
                   {nav.name}
                 </Anchor>
               )

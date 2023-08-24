@@ -1,5 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
-import { Title, Text, Anchor, Blockquote, Code, List, ListItem, Image } from '@mantine/core'
+import { Title, Text, Blockquote, Code, List, ListItem } from '@mantine/core'
+import Image from 'components/Image'
+import Anchor from 'components/Anchor'
 import { CodeHighlight } from '@mantine/code-highlight'
 
 const MDCode = (props: any) => {

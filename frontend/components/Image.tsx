@@ -19,7 +19,7 @@ export default async function Image(props: ImageProps) {
 }
 
 async function getImageDimensions(src: string): Promise<Dimensions> {
-  let image: any = undefined
+  let image: string | Buffer
 
   const isLocalPublicPath = (src.at(0) === '/')
   const isRemotePath = (src.slice(0, 4) === 'http')

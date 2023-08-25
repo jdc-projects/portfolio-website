@@ -15,7 +15,7 @@ type Dimensions = {
 export default async function Image(props: ImageProps) {
   const dimensions : Dimensions = (props.src.src === undefined) ? await getImageDimensions(props.src) : {width: props.src.width, height: props.src.height}
 
-  return <MantineImage component={NextImage} {...props} width={dimensions.width} height={dimensions.height} />
+  return <MantineImage component={NextImage} {...props} placeholder="blur" width={dimensions.width} height={dimensions.height} />
 }
 
 async function getImageDimensions(src: string): Promise<Dimensions> {

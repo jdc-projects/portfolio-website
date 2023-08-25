@@ -1,4 +1,5 @@
 ARG IMAGE_TAG=20.5.1-alpine
+ARG PM2_VERSION=5.2.2
 
 # Install dependencies only when needed
 FROM node:${IMAGE_TAG} AS deps
@@ -21,10 +22,11 @@ RUN npm run build
 
 # Production image, copy all the files and run next
 FROM node:${IMAGE_TAG} AS runner
+ARG PM2_VERSION
 WORKDIR /app
 
 # Install PM2 to manage node processes
-RUN npm install pm2 --location=global
+RUN npm install pm2@${PM2_VERSION} --location=global
 
 # Disable telemetry during runtime
 ENV NEXT_TELEMETRY_DISABLED 1

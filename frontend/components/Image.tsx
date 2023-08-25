@@ -2,6 +2,7 @@ import NextImage, { ImageProps as NextImageProps } from 'next/image'
 import { Image as MantineImage, ImageProps as MantineImageProps } from '@mantine/core'
 import sharp, { Metadata } from 'sharp'
 import axios from 'axios'
+import { assert } from 'console'
 
 type ImageProps = NextImageProps & MantineImageProps & {
   alt: string,
@@ -26,7 +27,8 @@ async function getImageDimensions(src: string): Promise<Dimensions> {
 
   if (isLocalPublicPath) {
     image = 'public' + src
-  } else if (isRemotePath) {
+  } else {
+    assert(isRemotePath)
     image = (await axios({ url: src, responseType: "arraybuffer" })).data as Buffer;
   }
 

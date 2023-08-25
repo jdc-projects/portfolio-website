@@ -29,7 +29,6 @@
     "postcss": "8.4.27",
     "postcss-preset-mantine": "1.7.0",
     "postcss-simple-vars": "7.0.1",
-    "preact": "10.17.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "0.32.5",

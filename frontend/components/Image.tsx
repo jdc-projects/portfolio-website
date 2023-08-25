@@ -14,9 +14,13 @@ type Dimensions = {
 }
 
 export default async function Image(props: ImageProps) {
-  const dimensions : Dimensions = (props.src.src === undefined) ? await getImageDimensions(props.src) : {width: props.src.width, height: props.src.height}
+  const isFilePathImage = props.src.src !== undefined
+  const dimensions : Dimensions = isFilePathImage ? {width: props.src.width, height: props.src.height} : await getImageDimensions(props.src)
 
-  return <MantineImage component={NextImage} {...props} placeholder="blur" width={dimensions.width} height={dimensions.height} />
+  return (
+    <MantineImage component={NextImage} {...props} {...dimensions}
+      placeholder={isFilePathImage ? 'blur' : 'empty'} />
+  )
 }
 
 async function getImageDimensions(src: string): Promise<Dimensions> {

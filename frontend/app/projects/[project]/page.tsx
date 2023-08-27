@@ -1,6 +1,5 @@
 import { getProjectsInfo, getProjectInfo } from 'utils/projects'
-import { defaultComponents } from 'utils/markdown'
-import ReactMarkdown from 'react-markdown'
+import Markdown from 'components/Markdown'
 
 type ProjectPageProps = {
   params: {
@@ -11,7 +10,7 @@ type ProjectPageProps = {
 export default async function Page(props: ProjectPageProps) {
   const projectInfo = (await getProjectInfo(props.params.project))
 
-  return <ReactMarkdown components={defaultComponents} >{projectInfo.content}</ReactMarkdown>
+  return <Markdown>{projectInfo.content}</Markdown>
 }
 
 export async function generateStaticParams() {

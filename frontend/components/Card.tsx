@@ -7,13 +7,12 @@ type CardProps = MantineCardProps & {
 }
 
 type CardSectionProps = MantinCardSectionProps & {
-  children: ReactNode,
 }
 
 export function Card(props: CardProps) {
-  return <MantineCard {...props} >{props.children}</MantineCard>
+  return <MantineCard {...props} />
 }
 
 export function CardSection(props: CardSectionProps) {
-  return <MantineCard.Section {...props} >{props.children}</MantineCard.Section>
+  return <MantineCard.Section {...props} />
 }

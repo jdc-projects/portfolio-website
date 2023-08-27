@@ -9,9 +9,9 @@ type GridColProps = MantineGridColProps & {
 }
 
 export function Grid(props: GridProps) {
-  return <MantineGrid {...props} >{props.children}</MantineGrid>
+  return <MantineGrid {...props} />
 }
 
 export function GridCol(props: GridColProps) {
-  return <MantineGrid.Col {...props} >{props.children}</MantineGrid.Col>
+  return <MantineGrid.Col {...props} />
 }

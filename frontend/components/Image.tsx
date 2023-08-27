@@ -18,8 +18,9 @@ export default async function Image(props: ImageProps) {
   const dimensions : Dimensions = isFilePathImage ? {width: props.src.width, height: props.src.height} : await getImageDimensions(props.src)
 
   return (
-    <MantineImage component={NextImage} {...props} {...dimensions}
-      placeholder={isFilePathImage ? 'blur' : 'empty'} />
+    <MantineImage component={NextImage} {...dimensions}
+      placeholder={isFilePathImage ? 'blur' : 'empty'}
+      {...props} />
   )
 }
 

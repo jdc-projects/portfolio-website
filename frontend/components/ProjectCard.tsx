@@ -1,5 +1,5 @@
 import { Container, Paper, Text, Flex } from '@mantine/core'
-import { ProjectInfo } from 'app/projects/page'
+import { ProjectInfo } from 'utils/projects'
 import Anchor from 'components/Anchor'
 import Image from 'components/Image'
 

@@ -9,3 +9,14 @@ layout: 'project'
 # Title
 
 This is a placeholder for an actual project writeup.
+
+this is `inline` code
+
+```js
+import React from 'react';
+import { Code } from '@mantine/core';
+
+function Demo() {
+  return <Code>React.createElement()</Code>;
+}
+```

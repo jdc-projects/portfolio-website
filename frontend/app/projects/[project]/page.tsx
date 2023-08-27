@@ -1,4 +1,7 @@
+import { Flex, Text, Space } from "@mantine/core"
 import { getProjectsInfo, getProjectInfo } from 'utils/projects'
+import { IconArrowLeft } from "@tabler/icons-react"
+import Anchor from 'components/Anchor'
 import Markdown from 'components/Markdown'
 
 type ProjectPageProps = {
@@ -10,7 +13,17 @@ type ProjectPageProps = {
 export default async function Page(props: ProjectPageProps) {
   const projectInfo = await getProjectInfo(props.params.project)
 
-  return <Markdown>{projectInfo.content}</Markdown>
+  return (
+    <>
+      <Anchor href='/projects' underline='never' >
+        <Flex direction='row' justify='flex-start' align='center' >
+          <IconArrowLeft/><Text>Back to Projects</Text>
+        </Flex>
+      </Anchor>
+      <Space/>
+      <Markdown>{projectInfo.content}</Markdown>
+    </>
+  )
 }
 
 export async function generateStaticParams() {

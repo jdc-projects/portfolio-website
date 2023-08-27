@@ -5,7 +5,7 @@ export default function Footer() {
     <Container pos='sticky' top='100%' >
       <footer>
         <Center h={50} >
-            <Text >© Copyright Jack Chapman 2023. All rights reserved.</Text>
+            <Text >© Copyright Jack Chapman {new Date().getFullYear()}. All rights reserved.</Text>
         </Center>
       </footer>
     </Container>

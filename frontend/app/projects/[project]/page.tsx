@@ -8,7 +8,7 @@ type ProjectPageProps = {
 }
 
 export default async function Page(props: ProjectPageProps) {
-  const projectInfo = (await getProjectInfo(props.params.project))
+  const projectInfo = await getProjectInfo(props.params.project)
 
   return <Markdown>{projectInfo.content}</Markdown>
 }

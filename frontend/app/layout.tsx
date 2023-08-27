@@ -64,22 +64,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript forceColorScheme="light" />
+        <ColorSchemeScript defaultColorScheme="light" />
       </head>
       <body>
-        <MantineProvider forceColorScheme="light" theme={mantineTheme} >
-          <Container mih="100%" pos="relative" bg="lightgray" >
+        <MantineProvider defaultColorScheme="light" theme={mantineTheme} >
+          <Container mih="100%" pos="relative" >
+            <Space />
+            <Header navs={navs} />
+            <Space />
+            <Divider />
             <Space />
             <Center >
-              <Paper w={1200} miw={1200} px='md' shadow='xs' mx='xl' >
-                <Space />
-                <Header navs={navs} />
-                <Space />
-                <Divider />
+              <Container w={1200} miw={1200} px='md' mx='xl' >
                 <Space />
                 {children}
                 <Space />
-              </Paper>
+              </Container>
             </Center>
             <Footer />
           </Container>

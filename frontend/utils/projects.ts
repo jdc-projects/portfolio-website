@@ -14,7 +14,7 @@ export type ProjectInfo = {
 }
 
 export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
-  const projectsDir = path.join(process.cwd(), 'projects')
+  const projectsDir = path.join(process.cwd(), 'content', 'projects')
   const projectDirs = (await fs.readdir(projectsDir, { withFileTypes: true }))
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
@@ -37,7 +37,7 @@ export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
 }
 
 export async function getProjectInfo(project: string): Promise<ProjectInfo> {
-  const projectDir = path.join(process.cwd(), 'projects', project)
+  const projectDir = path.join(process.cwd(), 'content', 'projects', project)
   const projectContentPath = path.join(projectDir, 'page.md')
   const projectData = await readLocalFile(projectContentPath)
 

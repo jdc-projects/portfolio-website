@@ -27,7 +27,7 @@ export default function Header(props: HeaderProps) {
           <Flex gap='xl' justify='center' align='center' direction='row' h='100%' >
             {props.navs.map((nav: nav) => {
               return (
-                <Anchor href={nav.route} underline='never' c='var(--default-mantine-color)' size='xl' fw={500} key={nav.name} >
+                <Anchor href={nav.route} underline='never' c='currentColor' size='xl' fw={500} key={nav.name} >
                   {nav.name}
                 </Anchor>
               )

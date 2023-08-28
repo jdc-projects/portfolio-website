@@ -17,7 +17,8 @@ export default async function Page(props: ProjectPageProps) {
     <>
       <Anchor href='/projects' underline='never' >
         <Flex direction='row' justify='flex-start' align='center' >
-          <IconArrowLeft/><Text>Back to Projects</Text>
+          <IconArrowLeft stroke={1.5} color="var(--mantine-color-blue-filled)" />
+          <Text c='blue' >Back to Projects</Text>
         </Flex>
       </Anchor>
       <Space/>

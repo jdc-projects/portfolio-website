@@ -5,7 +5,7 @@ import { getExperiencesInfo } from "utils/experience"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   let experienceMenu = (await getExperiencesInfo()).map(experience => {
-    return <Anchor href={experience.route} >{experience.title}</Anchor>
+    return <Anchor href={experience.route} key={experience.name} >{experience.title}</Anchor>
   })
 
   return (

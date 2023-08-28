@@ -3,7 +3,6 @@ title: 'Placeholder Project'
 description: 'this is the description'
 thumbnail: '/logo.png'
 thumbnailAlt: 'alt text'
-layout: 'project'
 ---
 
 # Title

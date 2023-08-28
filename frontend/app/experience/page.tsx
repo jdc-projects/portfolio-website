@@ -1,9 +1,12 @@
-import { Slider } from '@mantine/core'
+import Markdown from 'components/Markdown'
+import { join } from 'path'
+import { fixLocalPath } from 'utils/filepath'
+import { readLocalFile } from 'utils/markdown'
 
-export default function Page() {
+export default async function Page() {
+  const summary = (await readLocalFile(fixLocalPath(join(__dirname, 'summary.md')))).content
+
   return (
-    <Slider
-      color='blue'
-    />
+    <Markdown>{summary}</Markdown>
   )
 }

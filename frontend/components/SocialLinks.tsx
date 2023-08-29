@@ -6,7 +6,7 @@ export default function SocialLinks() {
   return (
     <Flex direction='row' gap='xl' >
       <Anchor href='https://github.com/jd-chapman' ><IconBrandGithub size={48} /></Anchor>
-      <Anchor href='www.linkedin.com/in/jack-chapman-' ><IconBrandLinkedin size={48} /></Anchor>
+      <Anchor href='https://www.linkedin.com/in/jack-chapman-' ><IconBrandLinkedin size={48} /></Anchor>
     </Flex>
   )
 }

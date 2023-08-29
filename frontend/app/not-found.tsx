@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <Flex direction='column' align='center' >
       <IconError404 size={400} stroke={1.5} />
-      <Text>Oops! You're not supposed to be here!</Text>
+      <Text>{"Oops! You're not supposed to be here!"}</Text>
       <Anchor href='/'>Go Back Home</Anchor>
     </Flex>
   )

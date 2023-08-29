@@ -10,12 +10,12 @@ type ProjectCardProps = {
 export default function ProjectCard(props: ProjectCardProps) {
   return (
     <Container>
-      <Anchor href={props.projectInfo.route} underline='never' >
+      <Anchor href={props.projectInfo.route} underline='never' c='currentColor' >
         <Paper shadow='md' withBorder={true} radius='md' w={350} h={380} >
           <Flex direction='column' align='center' >
             <Image src={props.projectInfo.thumbnail} mt={12} w={320} h={250} radius='sm' fit='cover' alt={props.projectInfo.thumbnailAlt} />
 
-            <Text fw={500} size='lg' mt='md' c='black' ta='center' mx={20} >
+            <Text fw={500} size='lg' mt='md' ta='center' mx={20} >
               {props.projectInfo.title}
             </Text>
 

@@ -11,7 +11,7 @@ export default function ProjectCard(props: ProjectCardProps) {
   return (
     <Container>
       <Anchor href={props.projectInfo.route} underline='never' c='currentColor' >
-        <Paper shadow='md' withBorder={true} radius='md' w={350} h={380} >
+        <Paper withBorder={true} radius='md' w={350} h={380} >
           <Flex direction='column' align='center' >
             <Image src={props.projectInfo.thumbnail} mt={12} w={320} h={250} radius='sm' fit='cover' alt={props.projectInfo.thumbnailAlt} />
 

@@ -8,9 +8,9 @@ export type ExperienceInfo = {
   contentPath: string,
   content: string,
   title: string,
-  description: string,
-  startDate: string,
-  endDate: string,
+  company: string
+  startYear: number,
+  endYear: number,
 }
 
 export async function getExperiencesInfo(): Promise<Array<ExperienceInfo>> {
@@ -29,9 +29,9 @@ export async function getExperiencesInfo(): Promise<Array<ExperienceInfo>> {
       contentPath: experienceContentPath,
       content: experienceData.content,
       title: experienceData.data.title,
-      description: experienceData.data.description,
-      startDate: experienceData.data.startDate,
-      endDate: experienceData.data.endDate,
+      company: experienceData.data.company,
+      startYear: experienceData.data.startYear,
+      endYear: experienceData.data.endYear,
     }
   }))
 }
@@ -47,8 +47,8 @@ export async function getExperienceInfo(experience: string): Promise<ExperienceI
     contentPath: experienceContentPath,
     content: experienceData.content,
     title: experienceData.data.title,
-    description: experienceData.data.description,
-    startDate: experienceData.data.startDate,
-    endDate: experienceData.data.endDate,
+    company: experienceData.data.company,
+    startYear: experienceData.data.startYear as unknown as number,
+    endYear: experienceData.data.endYear as unknown as number,
   }
 }

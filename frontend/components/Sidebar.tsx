@@ -1,8 +1,12 @@
-import { Flex, Paper, Text, Space } from '@mantine/core'
+import { Flex, Paper, Text } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import { IconChevronRight } from '@tabler/icons-react'
 
-type nav = { name: string, route: string, }
+type nav = {
+  name: string,
+  route: string,
+  description?: string | undefined,
+}
 export type navs = Array<nav>
 
 type SidebarProps = {
@@ -16,11 +20,13 @@ export default function Sidebar(props: SidebarProps) {
         return (
           <Anchor href={nav.route} key={nav.name} underline='never' c='currentColor' >
             <Paper withBorder={true} radius='md' w='100%'  >
-              <Flex direction='row' align='center' justify='space-between' h={50} >
-                <Text ml={10} >{nav.name}</Text>
-                <Flex direction='row' >
+              <Flex direction='row' align='center' justify='space-between' h={60} >
+                <Flex direction='column' ml={10} >
+                  <Text>{nav.name}</Text>
+                  <Text c='dimmed'>{nav.description}</Text>
+                </Flex>
+                <Flex direction='row' mr={10} >
                   <IconChevronRight stroke={1.5} />
-                  <Space h={0} w={10} />
                 </Flex>
               </Flex>
             </Paper>

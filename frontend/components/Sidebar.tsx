@@ -21,7 +21,7 @@ export default function Sidebar(props: SidebarProps) {
           <Anchor href={nav.route} key={nav.name} underline='never' c='currentColor' >
             <Paper withBorder={true} radius='md' w='100%'  >
               <Flex direction='row' align='center' justify='space-between' h={60} >
-                <Flex direction='column' ml={10} >
+                <Flex direction='column' ml={15} >
                   <Text>{nav.name}</Text>
                   <Text c='dimmed'>{nav.description}</Text>
                 </Flex>

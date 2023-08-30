@@ -2,4 +2,4 @@
 
 ## Technology Architecture Consultant
 
-I'm a technology generalist with experience of solution architecture, software and devops engineering, and electronic design.
+I'm a quick-learning and adaptable generalist with experience of solution architecture, devops and infrastructure engineering, and software development.

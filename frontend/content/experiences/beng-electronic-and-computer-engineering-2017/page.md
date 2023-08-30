@@ -1,6 +1,6 @@
 ---
 title: BEng Electronic & Computer Engineering
-company: UWE
+company: University of the West of England
 startYear: 2017
 endYear: 2022
 ---

@@ -2,6 +2,7 @@ import { Container, Flex, Button } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import Image from 'components/Image'
 import { Grid, GridCol } from 'components/Grid'
+import ColourSchemeToggleButton from './ColourSchemeToggleButton'
 
 import Logo from 'app/icon.png'
 
@@ -36,6 +37,7 @@ export default function Header(props: HeaderProps) {
         </GridCol>
         <GridCol span={2}>
           <Flex gap='lg' justify='right' align='center' direction='row' h='100%' >
+            <ColourSchemeToggleButton/>
             <Button mr={100} >Contact Me</Button>
           </Flex>
         </GridCol>

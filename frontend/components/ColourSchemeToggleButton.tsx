@@ -10,7 +10,7 @@ export default function ColourSchemeToggleButton(props: ColourSchemeToggleButton
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
-    <UnstyledButton h={50} w={50} mr={5} variant="transparent" color='currentColor' {...props} onClick={() => toggleColorScheme()} >
+    <UnstyledButton h={50} w={50} mr={5} {...props} onClick={() => toggleColorScheme()} >
       <Center>
         {colorScheme === 'dark' ? <IconSun/> : <IconMoon/>}
       </Center>

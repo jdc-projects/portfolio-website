@@ -1,7 +1,5 @@
-Hi, I'm Jack Chapman
+# Hello, I'm Jack
 
-I'm a technology consultant with experience of solution architecture, software engineering, and electronic design.
+## Technology Architecture Consultant
 
-***** infrastructure stuff *****
-
-***** something about being an all-rounder / generalist / jack-of-all-trades *****
+I'm a technology generalist with experience of solution architecture, software and devops engineering, and electronic design.

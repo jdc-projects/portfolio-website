@@ -3,7 +3,7 @@ import Image from 'components/Image'
 import Anchor from 'components/Anchor'
 import { Table, TableThead, TableTh, TableTr, TableTd } from 'components/Table'
 import { CodeHighlight } from '@mantine/code-highlight'
-import ReactMarkdown, { Options, Components } from 'react-markdown'
+import ReactMarkdown, { Options, Components as ReactMarkdownComponents } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 function MD_code(props: any) {
@@ -42,7 +42,9 @@ function MD_li(props: any) {
 
 type TableAlign = "center" | "justify" | "left" | "right" | "char" | undefined
 
-const defaultComponents: Components = {
+export type Components = ReactMarkdownComponents
+
+export const defaultComponents: Components = {
   // Allows customizing built-in components, e.g. to add styling.
   a: (props) => <Anchor href={props.href as string} >{props.children}</Anchor>,
   blockquote: (props) => <Blockquote>{props.children}</Blockquote>,

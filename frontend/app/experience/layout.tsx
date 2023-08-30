@@ -42,11 +42,10 @@ function sortExperiences(experiences: Array<ExperienceInfo>): Array<ExperienceIn
 
     // all of this is horrible, there has to be a nicer way to do this
     for (let i = 0; (i < sortedExperiences.length) && !isSorted; i++) {
-      const sortedExperience = sortedExperiences[i]
       const experienceStartYear = experience.startYear as unknown as number
-      const sortedExperienceStartYear = sortedExperience.startYear as unknown as number
+      const sortedExperienceStartYear = sortedExperiences[i].startYear as unknown as number
       const experienceEndYear = experience.endYear !== null ? experience.endYear as unknown as number : 10000
-      const sortedExperienceEndYear = sortedExperience.endYear !== null ? sortedExperience.endYear as unknown as number : 10000
+      const sortedExperienceEndYear = sortedExperiences[i].endYear !== null ? sortedExperiences[i].endYear as unknown as number : 10000
 
       if (experienceEndYear > sortedExperienceEndYear) {
         sortedExperiences.splice(i, 0, experience)

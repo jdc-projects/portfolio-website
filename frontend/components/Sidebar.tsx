@@ -22,8 +22,8 @@ export default function Sidebar(props: SidebarProps) {
             <Paper withBorder={true} radius='md' w='100%'  >
               <Flex direction='row' align='center' justify='space-between' h={60} >
                 <Flex direction='column' ml={15} >
-                  <Text>{nav.name}</Text>
-                  <Text c='dimmed'>{nav.description}</Text>
+                  <Text size='lg' fw={500} >{nav.name}</Text>
+                  <Text size='xs' c='dimmed' >{nav.description}</Text>
                 </Flex>
                 <Flex direction='row' mr={10} >
                   <IconChevronRight stroke={1.5} />

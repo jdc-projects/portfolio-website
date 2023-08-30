@@ -1,5 +1,5 @@
 ---
-title: BEng Electronic and Computer Engineering
+title: BEng Electronic & Computer Engineering
 company: UWE
 startYear: 2017
 endYear: 2022

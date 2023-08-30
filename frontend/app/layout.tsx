@@ -47,7 +47,7 @@ export const metadata = {
 
 const navs: navs = [
   {
-    name: 'About',
+    name: 'Home',
     route: '/'
   },
   {

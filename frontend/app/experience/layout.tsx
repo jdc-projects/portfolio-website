@@ -1,4 +1,4 @@
-import { Flex } from "@mantine/core"
+import { Flex, Container } from "@mantine/core"
 import { Grid, GridCol } from "components/Grid"
 import Sidebar, { navs } from "components/Sidebar"
 import { getExperiencesInfo } from "utils/experience"
@@ -25,7 +25,9 @@ export default async function Layout({ children }: { children: React.ReactNode }
         </Flex>
       </GridCol>
       <GridCol span={9}>
-        {children}
+        <Container ml={20} >
+          {children}
+        </Container>
       </GridCol>
     </Grid>
   )

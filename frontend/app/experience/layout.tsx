@@ -26,7 +26,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
         </Flex>
       </GridCol>
       <GridCol span={8}>
-        <Container ml={20} >
+        <Container ml={20} mt={5} >
           {children}
         </Container>
       </GridCol>

@@ -1,4 +1,4 @@
-import { Flex, Text, Space } from "@mantine/core"
+import { Flex, Text, Container } from "@mantine/core"
 import { getProjectsInfo, getProjectInfo } from 'utils/projects'
 import { IconArrowLeft } from "@tabler/icons-react"
 import Anchor from 'components/Anchor'
@@ -21,8 +21,9 @@ export default async function Page(props: ProjectPageProps) {
           <Text>Back to Projects</Text>
         </Flex>
       </Anchor>
-      <Space/>
-      <Markdown>{projectInfo.content}</Markdown>
+      <Container m={20} >
+        <Markdown>{projectInfo.content}</Markdown>
+      </Container>
     </>
   )
 }

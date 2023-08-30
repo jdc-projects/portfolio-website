@@ -40,7 +40,6 @@ function sortExperiences(experiences: Array<ExperienceInfo>): Array<ExperienceIn
   experiences.forEach(experience => {
     let isSorted = false
 
-    // all of this is horrible, there has to be a nicer way to do this
     for (let i = 0; (i < sortedExperiences.length) && !isSorted; i++) {
       const experienceStartYear = experience.startYear as unknown as number
       const sortedExperienceStartYear = sortedExperiences[i].startYear as unknown as number

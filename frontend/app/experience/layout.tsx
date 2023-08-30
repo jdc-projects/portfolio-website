@@ -1,26 +1,32 @@
 import { Flex } from "@mantine/core"
 import { Grid, GridCol } from "components/Grid"
-import Anchor from "components/Anchor"
+import Sidebar, { navs } from "components/Sidebar"
 import { getExperiencesInfo } from "utils/experience"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
-  let experienceMenu = (await getExperiencesInfo()).map(experience => {
-    return <Anchor href={experience.route} key={experience.name} >{experience.title}</Anchor>
+  const experiences = await getExperiencesInfo()
+
+  const navs: navs = (await getExperiencesInfo()).map(experience => {
+    return {
+      name: experience.title,
+      route: experience.route,
+    }
+  })
+  navs.unshift({
+    name: 'Summary',
+    route: '/experience',
   })
 
   return (
-    <>
-      <Grid>
-        <GridCol span={3}>
-          <Flex direction='column' >
-            <Anchor href='/experience' >Summary</Anchor>
-            {experienceMenu}
-          </Flex>
-        </GridCol>
-        <GridCol span={9}>
-          {children}
-        </GridCol>
-      </Grid>
-    </>
+    <Grid>
+      <GridCol span={3}>
+        <Flex direction='column' >
+          <Sidebar navs={navs} />
+        </Flex>
+      </GridCol>
+      <GridCol span={9}>
+        {children}
+      </GridCol>
+    </Grid>
   )
 }

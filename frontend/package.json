@@ -10,11 +10,11 @@
     "clean": "rm -rf .next out node_modules next-env.d.ts"
   },
   "dependencies": {
-    "@mantine/code-highlight": "7.0.0-beta.2",
-    "@mantine/core": "7.0.0-beta.2",
-    "@mantine/hooks": "7.0.0-beta.2",
+    "@mantine/code-highlight": "7.0.0-beta.3",
+    "@mantine/core": "7.0.0-beta.3",
+    "@mantine/hooks": "7.0.0-beta.3",
     "@tabler/icons-react": "2.32.0",
-    "@types/node": "20.5.7",
+    "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "axios": "1.5.0",

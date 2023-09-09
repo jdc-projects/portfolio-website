@@ -14,8 +14,8 @@ const font = Roboto({
 })
 
 export const metadata = {
-  title: 'Personal Website',
-  description: 'A personal website built using Next.js',
+  title: 'Jack Chapman',
+  description: "Jack Chapman's portfolio website.",
 }
 
 const navs: navs = [

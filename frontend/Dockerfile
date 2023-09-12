@@ -1,4 +1,4 @@
-ARG IMAGE_TAG=20.5.1-alpine
+ARG IMAGE_TAG=20.6.1-alpine3.18
 ARG PM2_VERSION=5.3.0
 
 # Install dependencies only when needed

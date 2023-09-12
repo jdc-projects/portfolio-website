@@ -2,7 +2,7 @@ import { Container, Flex, Button } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import Image from 'components/Image'
 import { Grid, GridCol } from 'components/Grid'
-import ColourSchemeToggleButton from './ColourSchemeToggleButton'
+import ColourSchemeToggleButton from 'components/ColourSchemeToggleButton'
 
 import Logo from 'app/icon.png'
 

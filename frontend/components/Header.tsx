@@ -1,19 +1,16 @@
-import { Container, Flex, Button } from '@mantine/core'
+import { Container } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import Image from 'components/Image'
 import { Grid, GridCol } from 'components/Grid'
-import ColourSchemeToggleButton from 'components/ColourSchemeToggleButton'
+import HeaderNavigation, { navs } from './HeaderNavigation'
 
 import Logo from 'app/icon.png'
-
-type nav = { name: string, route: string, }
-export type navs = Array<nav>
 
 type HeaderProps = {
   navs: navs,
 }
 
-export default function Header(props: HeaderProps) {
+export default async function Header(props: HeaderProps) {
   return (
     <header>
       <Grid>
@@ -24,23 +21,7 @@ export default function Header(props: HeaderProps) {
             </Anchor>
           </Container>
         </GridCol>
-        <GridCol span={8}>
-          <Flex gap='xl' justify='center' align='center' direction='row' h='100%' >
-            {props.navs.map((nav: nav) => {
-              return (
-                <Anchor href={nav.route} underline='never' c='currentColor' size='xl' fw={500} key={nav.name} >
-                  {nav.name}
-                </Anchor>
-              )
-            })}
-          </Flex>
-        </GridCol>
-        <GridCol span={2}>
-          <Flex gap='lg' justify='right' align='center' direction='row' h='100%' >
-            <ColourSchemeToggleButton/>
-            <Button mr={100} >Contact Me</Button>
-          </Flex>
-        </GridCol>
+        <HeaderNavigation navs={props.navs}/>
       </Grid>
     </header>
   )

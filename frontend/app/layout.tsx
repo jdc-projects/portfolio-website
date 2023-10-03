@@ -55,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               defaultProps: {
                 m: 0,
                 p: 0,
+                fluid: true,
               },
             },
             Image: {
@@ -84,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Divider />
             <Space />
             <Center >
-              <Container w={1200} miw={1200} px='md' mx='xl' >
+              <Container w={2000} miw={1200} px='md' mx='xl' >
                 <Space />
                 {children}
                 <Space />

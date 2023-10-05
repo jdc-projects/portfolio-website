@@ -19,7 +19,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
   })
 
   return (
-    <Grid>
+    <Grid w={1200} >
       <GridCol span={4}>
         <Flex direction='column' >
           <Sidebar navs={navs} />

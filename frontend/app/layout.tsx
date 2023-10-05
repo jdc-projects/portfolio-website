@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Divider />
             <Space />
             <Center >
-              <Container fluid={false} miw={1200} px='md' mx='xl' >
+              <Container px='md' mx='xl' >
                 <Space />
                 {children}
                 <Space />

@@ -1,7 +1,6 @@
-import { Title, Text, Blockquote, Code, List, ListItem, Checkbox } from '@mantine/core'
+import { Title, Text, Blockquote, Code, List, ListItem, Checkbox, Table, TableThead, TableTh, TableTr, TableTd } from '@mantine/core'
 import Image from 'components/Image'
 import Anchor from 'components/Anchor'
-import { Table, TableThead, TableTh, TableTr, TableTd } from 'components/Table'
 import { CodeHighlight } from '@mantine/code-highlight'
 import ReactMarkdown, { Options, Components as ReactMarkdownComponents } from 'react-markdown'
 import remarkGfm from 'remark-gfm'

@@ -1,7 +1,6 @@
 'use client'
 
-import { GridCol } from 'components/Grid'
-import { Flex, Burger } from '@mantine/core'
+import { Flex, Burger, GridCol } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import ColourSchemeToggleButton from 'components/ColourSchemeToggleButton'
 import Anchor from 'components/Anchor'

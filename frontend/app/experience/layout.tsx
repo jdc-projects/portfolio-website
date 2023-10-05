@@ -1,5 +1,4 @@
-import { Flex, Container } from "@mantine/core"
-import { Grid, GridCol } from "components/Grid"
+import { Flex, Container, Grid, GridCol } from "@mantine/core"
 import Sidebar, { navs } from "components/Sidebar"
 import { getExperiencesInfo, ExperienceInfo } from "utils/experience"
 

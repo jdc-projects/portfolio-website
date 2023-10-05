@@ -1,7 +1,6 @@
-import { Container } from '@mantine/core'
+import { Container, Grid, GridCol } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import Image from 'components/Image'
-import { Grid, GridCol } from 'components/Grid'
 import HeaderNavigation, { navs as HeaderNavigationNavs } from './HeaderNavigation'
 
 import Logo from 'app/icon.png'

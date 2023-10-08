@@ -1,8 +1,8 @@
 ---
-title: Design Engineer
-company: Renishaw
+title: Analyst / Engineer
+company: Credera
 startYear: 2022
-endYear: 2022
+endYear: 2023
 ---
 
 # Title

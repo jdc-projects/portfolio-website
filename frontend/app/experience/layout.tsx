@@ -19,12 +19,12 @@ export default async function Layout({ children }: { children: React.ReactNode }
 
   return (
     <Flex direction='row' mx={20} >
-      <Container miw={200} >
+      <Container miw={200} maw={300} >
         <Flex direction='column' >
           <Sidebar navs={navs} />
         </Flex>
       </Container>
-      <Container w={800} ml={20} mt={5} >
+      <Container w={900} ml={20} mt={5} >
         {children}
       </Container>
     </Flex>

@@ -1,5 +1,5 @@
 ---
-title: BEng Electronic & Computer Engineering
+title: BEng (Hons) Electronic & Computer Engineering
 company: University of the West of England
 startYear: 2017
 endYear: 2022

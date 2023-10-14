@@ -1,6 +1,7 @@
 import { Flex, Container } from "@mantine/core"
 import Sidebar, { navs } from "components/Sidebar"
 import { getExperiencesInfo, ExperienceInfo } from "utils/experience"
+import Collapse from "components/Collapse"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const experiences = sortExperiences(await getExperiencesInfo())
@@ -18,15 +19,23 @@ export default async function Layout({ children }: { children: React.ReactNode }
   })
 
   return (
-    <Flex direction='row' mx={20} >
-      <Container miw={200} maw={300} >
-        <Flex direction='column' >
+    <Flex direction='column' >
+      <Container hiddenFrom='sm' >
+        <Collapse buttonText="Navigation" >
           <Sidebar navs={navs} />
-        </Flex>
+        </Collapse>
       </Container>
-      <Container w={900} ml={20} mt={5} >
-        {children}
-      </Container>
+      <Flex direction='row' mx={20} >
+        <Container visibleFrom='sm' miw={200} maw={300} >
+          <Sidebar navs={navs} />
+        </Container>
+        <Container hiddenFrom='sm' w={900} mt={5} >
+          {children}
+        </Container>
+        <Container visibleFrom='sm' w={900} ml={20} mt={5} >
+          {children}
+        </Container>
+      </Flex>
     </Flex>
   )
 }

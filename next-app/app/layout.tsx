@@ -84,13 +84,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Space />
             <Divider />
             <Space />
-            <Center >
-              <Container px='md' mx='xl' >
-                <Space />
-                {children}
-                <Space />
-              </Container>
-            </Center>
+            <Container px={50} >
+              {children}
+            </Container>
+            <Space />
             <Footer />
           </Container>
         </MantineProvider>

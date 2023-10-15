@@ -3,7 +3,6 @@
 import { Flex, Burger, GridCol, Collapse } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import Anchor from 'components/Anchor'
-import { isMobile } from 'utils/viewport'
 
 export type nav = { name: string, route: string, }
 export type navs = Array<nav>

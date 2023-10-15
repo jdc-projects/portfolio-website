@@ -16,19 +16,17 @@ export default async function Page() {
         <Space/>
         <Flex direction='column' align='center' justify='center' gap='xs' >
           <Title order={1} ta='center' >
-            Hello, I'm Jack
+            {"Hello, I'm Jack"}
           </Title>
           <Title order={2} ta='center' >
-            Technology Architecture Consultant
+            {"Technology Architecture Consultant"}
           </Title>
           <Text ta='center' >
-            I'm a quick-learning and adaptable generalist with experience of solution architecture, devops and infrastructure engineering, and software development.
+            {"I'm a quick-learning and adaptable generalist with experience of solution architecture, devops and infrastructure engineering, and software development."}
           </Text>
           <Space h={5} />
           <SocialLinks/>
         </Flex>
-        <Center>
-        </Center>
       </Flex>
     </Center>
   )

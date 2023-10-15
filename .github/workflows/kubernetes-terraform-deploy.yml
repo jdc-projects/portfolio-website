@@ -1,0 +1,71 @@
+on:
+  workflow_call:
+    inputs:
+      terraform-dir:
+        required: true
+        type: string
+      resource-name:
+        required: false
+        type: string
+        default: ''
+      runner-type:
+        required: false
+        type: string
+        default: self-hosted
+      extra-variable:
+        required: false
+        type: string
+        default: ''
+
+env:
+  CLIENT_CERT_DATA: ${{ secrets.KUBE_CLIENT_CERT_DATA }}
+  CLIENT_KEY_DATA: ${{ secrets.KUBE_CLIENT_KEY_DATA }}
+  CLUSTER_CA_CERT_DATA: ${{ secrets.KUBE_CLUSTER_CA_CERT_DATA }}
+  SERVER_KUBE_PORT: ${{ vars.SERVER_KUBE_PORT }}
+  SERVER_BASE_DOMAIN: ${{ vars.SERVER_BASE_DOMAIN }}
+  TF_VAR_server_base_domain: ${{ vars.SERVER_BASE_DOMAIN }}
+  TF_VAR_smtp_host: ${{ vars.SMTP_SERVER }}
+  TF_VAR_smtp_port: ${{ vars.SMTP_PORT }}
+  TF_VAR_smtp_username: ${{ vars.SMTP_USERNAME }}
+  TF_VAR_smtp_password: ${{ secrets.SMTP_PASSWORD }}
+
+jobs:
+  deploy-kubernetes-terraform:
+    runs-on: ${{ inputs.runner-type }}
+
+    defaults:
+      run:
+        working-directory: ${{ inputs.terraform-dir }}
+
+    steps:
+      - name: "Repo checkout"
+        uses: actions/checkout@v3
+      - name: "Add cluster CA certificate"
+        run: "echo $CLUSTER_CA_CERT_DATA > cluster.cert.pem && sudo mkdir /usr/local/share/ca-certificates/extra && sudo cp cluster.cert.pem /usr/local/share/ca-certificates/extra/cluster.cert.crt && sudo update-ca-certificates"
+      - name: "Setup node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: "Terraform setup"
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.6
+      - name: "Generate kubeconfig"
+        working-directory: ./terraform
+        run: |
+          ./cluster-config-write.sh
+          mkdir ~/.kube
+          cp cluster.yml ~/.kube/config
+      - name: "Terraform format check"
+        run: "terraform fmt -check"
+      - name: "Terraform init"
+        run: "terraform init"
+      - name: "Terraform apply all resources"
+        if: "${{ '' == inputs.resource-name }}"
+        run: "terraform apply -auto-approve -input=false"
+      - name: "Terraform apply specific resource"
+        if: "${{ '' != inputs.resource-name }}"
+        run: "terraform apply -auto-approve -input=false -target=${{ inputs.resource-name }}"
+      - name: "Terraform apply extra variable"
+        if: "${{ '' != inputs.extra-variable }}"
+        run: "terraform apply -auto-approve -input=false -var=${{ inputs.extra-variable }}"

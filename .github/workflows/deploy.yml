@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - 'trunk'
+
+jobs:
+  next-app-docker:
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        working-directory: ./next-app
+
+    steps:
+      - name: "Repo checkout"
+        uses: actions/checkout@v3
+      - name: "Setup node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: "Build Docker image"
+        run: "docker build ./ -t portfolio-website-next-app:${{ github.sha }}"

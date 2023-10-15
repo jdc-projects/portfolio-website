@@ -1,10 +1,10 @@
 version: '3.9'
 
 services:
-  frontend:
-    image: frontend
+  next-app:
+    image: portfolio-website-next-app
     build:
-      context: ./frontend
+      context: ./next-app
     ports:
       - "8080:3000"
   smtp-mock:

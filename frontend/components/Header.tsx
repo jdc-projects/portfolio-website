@@ -1,11 +1,10 @@
-import { Container, Grid, GridCol } from '@mantine/core'
+import { Grid, GridCol, Flex, Container } from '@mantine/core'
 import Anchor from 'components/Anchor'
-import Image from 'components/Image'
-import HeaderNavigation, { navs as HeaderNavigationNavs } from './HeaderNavigation'
+import MobileNavigation, { nav as MobileNavigationNav, navs as MobileNavigationNavs } from './MobileNavigation'
+import ColourSchemeToggleButton from './ColourSchemeToggleButton'
 
-import Logo from 'app/icon.png'
-
-export type navs = HeaderNavigationNavs
+export type nav = MobileNavigationNav
+export type navs = MobileNavigationNavs
 
 type HeaderProps = {
   navs: navs,
@@ -16,13 +15,22 @@ export default async function Header(props: HeaderProps) {
     <header>
       <Grid>
         <GridCol span={2} >
-          <Container w={60} ml={100} >
-            <Anchor href='/' underline='never' >
-              <Image src={Logo} alt="Website logo" />
-            </Anchor>
-          </Container>
+          <Flex justify='center' align='center' direction='row' h='100%' ml={50} >
+            <ColourSchemeToggleButton/>
+          </Flex>
         </GridCol>
-        <HeaderNavigation navs={props.navs}/>
+        <GridCol span={8}>
+          <Flex visibleFrom='sm' gap='xl' justify='center' align='center' direction='row' h='100%' >
+            {props.navs.map((nav: nav) => {
+              return (
+                <Anchor href={nav.route} underline='never' c='currentColor' size='xl' fw={500} key={nav.name} >
+                  {nav.name}
+                </Anchor>
+              )
+            })}
+          </Flex>
+        </GridCol>
+        <MobileNavigation navs={props.navs}/>
       </Grid>
     </header>
   )

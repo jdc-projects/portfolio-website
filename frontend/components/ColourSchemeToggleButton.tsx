@@ -10,7 +10,7 @@ export default function ColourSchemeToggleButton(props: ColourSchemeToggleButton
   const { toggleColorScheme } = useMantineColorScheme();
 
   return (
-    <UnstyledButton h={50} w={50} mr={5} {...props} onClick={toggleColorScheme} >
+    <UnstyledButton h={50} w={50} {...props} onClick={toggleColorScheme} >
       <Center>
         <IconShadow size={32} stroke={1.5} />
       </Center>

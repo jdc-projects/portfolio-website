@@ -3,7 +3,7 @@
 import '@mantine/core/styles.css'
 import '@mantine/code-highlight/styles.css'
 
-import { MantineProvider, ColorSchemeScript, Container, Center, Space, Divider } from '@mantine/core'
+import { MantineProvider, ColorSchemeScript, Container, Space, Divider } from '@mantine/core'
 import { Roboto } from 'next/font/google'
 import Header, { navs } from 'components/Header'
 import Footer from 'components/Footer'
@@ -79,16 +79,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           },
         }} >
           <Container mih='100%' pos='relative' >
-            <Space />
+            <Space/>
             <Header navs={navs} />
-            <Space />
-            <Divider />
-            <Space />
-            <Container px={50} >
+            <Space/>
+            <Divider/>
+            <Space/>
+            <Container visibleFrom='xs' px={50} >
               {children}
             </Container>
-            <Space />
-            <Footer />
+            <Container hiddenFrom='xs' px={20} >
+              {children}
+            </Container>
+            <Space/>
+            <Footer/>
           </Container>
         </MantineProvider>
       </body>

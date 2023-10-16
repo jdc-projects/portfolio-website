@@ -25,7 +25,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
           <Sidebar navs={navs} />
         </Collapse>
       </Container>
-      <Flex direction='row' mx={20} >
+      <Flex direction='row' >
         <Container visibleFrom='sm' miw={200} maw={300} >
           <Sidebar navs={navs} />
         </Container>

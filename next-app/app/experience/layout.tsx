@@ -19,25 +19,30 @@ export default async function Layout({ children }: { children: React.ReactNode }
   })
 
   return (
-    <Flex direction='column' >
-      <Container hiddenFrom='sm' >
-        <Collapse buttonText="Navigation" >
-          <Sidebar navs={navs} />
-          <Space/>
-        </Collapse>
-      </Container>
-      <Flex direction='row' >
-        <Container visibleFrom='sm' miw={200} maw={300} >
-          <Sidebar navs={navs} />
+    <>
+      <Space visibleFrom='sm' />
+      <Flex direction='column' align='center' >
+        <Container hiddenFrom='sm' >
+          <Collapse buttonText="Navigation" >
+            <Sidebar navs={navs} />
+            <Space/>
+          </Collapse>
         </Container>
-        <Container hiddenFrom='sm' w={900} mx={10} >
-          {children}
-        </Container>
-        <Container visibleFrom='sm' w={900} ml={20} mt={5} >
-          {children}
+        <Container>
+          <Flex direction='row' >
+            <Container visibleFrom='sm' miw={200} maw={300} >
+              <Sidebar navs={navs} />
+            </Container>
+            <Container hiddenFrom='sm' w={900} mx={10} >
+              {children}
+            </Container>
+            <Container visibleFrom='sm' w={900} ml={20} mt={5} >
+              {children}
+            </Container>
+          </Flex>
         </Container>
       </Flex>
-    </Flex>
+    </>
   )
 }
 

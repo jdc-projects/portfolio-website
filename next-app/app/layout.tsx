@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header navs={navs} />
             <Space/>
             <Divider/>
-            <Space/>
+            <Space h='lg' />
             <Container visibleFrom='xs' px={50} >
               {children}
             </Container>

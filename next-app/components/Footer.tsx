@@ -5,7 +5,7 @@ export default function Footer() {
     <Container pos='sticky' top='100%' >
       <footer>
         <Center>
-          <Text ta='center' mb={15} >
+          <Text ta='center' mb={15} px={5} >
             © Copyright Jack Chapman {new Date().getFullYear()}. All rights reserved.
           </Text>
         </Center>

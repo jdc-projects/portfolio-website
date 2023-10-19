@@ -1,0 +1,10 @@
+*.lock.hcl
+*.tfstate
+*.tfstate.backup
+.terraform
+cluster.yml
+*-old
+*.tfvars
+*.cert
+*.key
+*.pem

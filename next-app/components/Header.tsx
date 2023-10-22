@@ -2,6 +2,7 @@ import { Grid, GridCol, Flex, Container } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import MobileNavigation, { nav as MobileNavigationNav, navs as MobileNavigationNavs } from './MobileNavigation'
 import ColourSchemeToggleButton from './ColourSchemeToggleButton'
+import { Suspense } from 'react'
 
 export type nav = MobileNavigationNav
 export type navs = MobileNavigationNavs
@@ -30,7 +31,9 @@ export default async function Header(props: HeaderProps) {
             })}
           </Flex>
         </GridCol>
-        <MobileNavigation navs={props.navs}/>
+        <Suspense fallback={null} >
+          <MobileNavigation navs={props.navs}/>
+        </Suspense>
       </Grid>
     </header>
   )

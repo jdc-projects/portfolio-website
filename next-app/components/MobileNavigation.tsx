@@ -17,9 +17,9 @@ export default function MobileNavigation(props: MobileNavigationProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  let lastUrl = ""
 
   useEffect(() => {
+    let lastUrl = ""
     const url = "${pathname}?${searchParams}"
 
     if (lastUrl !== url) {
@@ -27,6 +27,7 @@ export default function MobileNavigation(props: MobileNavigationProps) {
     }
 
     lastUrl = url
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, searchParams])
 
   return (

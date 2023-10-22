@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { Flex, Container, Space } from "@mantine/core"
 import Sidebar, { navs } from "components/Sidebar"
 import { getExperiencesInfo, ExperienceInfo } from "utils/experience"
@@ -23,10 +24,12 @@ export default async function Layout({ children }: { children: React.ReactNode }
       <Space visibleFrom='sm' />
       <Flex direction='column' align='center' >
         <Container hiddenFrom='sm' >
-          <Collapse buttonText="Navigation" >
-            <Sidebar navs={navs} />
-            <Space/>
-          </Collapse>
+          <Suspense fallback={null} >
+            <Collapse buttonText="Navigation" >
+              <Sidebar navs={navs} />
+              <Space/>
+            </Collapse>
+          </Suspense>
         </Container>
         <Container>
           <Flex direction='row' >

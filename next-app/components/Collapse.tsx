@@ -15,9 +15,9 @@ export default function Collapse(props: CollapseProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  let lastUrl = ""
 
   useEffect(() => {
+    let lastUrl = ""
     const url = "${pathname}?${searchParams}"
 
     if (lastUrl !== url) {
@@ -25,6 +25,7 @@ export default function Collapse(props: CollapseProps) {
     }
 
     lastUrl = url
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, searchParams])
 
   return (

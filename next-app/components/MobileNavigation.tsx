@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { Flex, Burger, GridCol, Collapse } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import Anchor from 'components/Anchor'
@@ -12,7 +14,20 @@ type MobileNavigationProps = {
 }
 
 export default function MobileNavigation(props: MobileNavigationProps) {
-  const [opened, { toggle }] = useDisclosure()
+  const [opened, { close, toggle }] = useDisclosure(false);
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  let lastUrl = ""
+
+  useEffect(() => {
+    const url = "${pathname}?${searchParams}"
+
+    if (lastUrl !== url) {
+      close()
+    }
+
+    lastUrl = url
+  }, [pathname, searchParams])
 
   return (
     <>

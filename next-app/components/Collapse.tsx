@@ -1,8 +1,9 @@
 'use client'
 
+import { ReactNode, useEffect } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Button, Flex, Collapse as MantineCollapse, Container, SimpleGrid } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { ReactNode } from "react";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 
 type CollapseProps = {
@@ -11,7 +12,20 @@ type CollapseProps = {
 }
 
 export default function Collapse(props: CollapseProps) {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, { close, toggle }] = useDisclosure(false);
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  let lastUrl = ""
+
+  useEffect(() => {
+    const url = "${pathname}?${searchParams}"
+
+    if (lastUrl !== url) {
+      close()
+    }
+
+    lastUrl = url
+  }, [pathname, searchParams])
 
   return (
     <Flex direction='column' >

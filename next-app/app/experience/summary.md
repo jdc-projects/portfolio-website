@@ -1,1 +1,35 @@
-This is placeholder text for a summary of Jack's experience.
+# Summary
+
+With experience of solution architecture, cloud engineering, and software engineering, along with exposure to multiple industries, Jack is an adaptable and versatile individual. He has a passion for all technologies and absorbs new information quickly and effectively.
+
+## Key Strengths
+
+**Technical leadership** – Demonstrable experience of leading multi-discipline teams through technical change and BAU activities.
+
+**Software development** – Professional experience of software design and development, both independently and as part of large, cross-functional teams.
+
+**Effective communicator & team worker** – Proven experience of effective working in small and large teams, through remote and in-person engagement, with both technical and non-technical colleagues.
+
+## Technical Skills
+
+- UML
+- GIT
+- Terraform
+- JavaScript
+- Python
+- Java
+- GitHub Actions
+- Docker
+- Kubernetes
+- AWS
+- GCP
+- Azure
+
+## Certifications
+
+- Security Clearance – SC [UK Government, 2023]
+- Certified Solutions Architect – Associate [AWS, 2023]
+- GCP Associate Cloud Engineer [Google, 2022]
+- Microsoft Azure Administrator [Microsoft, 2023]
+- Foundation Certificate in Business Analysis [BCS, 2023]
+- Professional Scrum Master (PSM I) [Scrum.org, 2022]

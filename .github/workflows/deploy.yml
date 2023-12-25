@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: "Repo checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Setup node"
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - name: "Build Docker image"
         run: "docker build ./ -t portfolio-website-next-app:${{ github.sha }}"

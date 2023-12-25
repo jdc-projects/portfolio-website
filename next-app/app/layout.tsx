@@ -4,12 +4,12 @@ import '@mantine/core/styles.css'
 import '@mantine/code-highlight/styles.css'
 
 import { MantineProvider, ColorSchemeScript, Container, Space, Divider } from '@mantine/core'
-import { Roboto } from 'next/font/google'
+import { Roboto_Flex } from 'next/font/google'
 import Header, { navs } from 'components/Header'
 import Footer from 'components/Footer'
 
-const font = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
+const font = Roboto_Flex({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900', '1000'],
   subsets: ['latin'],
 })
 

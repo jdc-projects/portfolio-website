@@ -1,0 +1,15 @@
+---
+title: Full Stack Engineer
+company: Credera
+startYear: 2022
+endYear: 2023
+---
+
+# Full Stack Engineer
+
+Jack worked as part of a team of engineers on a project to develop an MVP for a social media platform. He was involved in all elements of the project, including frontend, backend, and infrastructure development, as well as technical and project planning.
+
+- Presented project progress and demonstrated the application to stakeholders and other interested parties as part of sprint reviews
+- Developed Terraform for deployment and management of production and development environments
+- Implemented GitHub Actions pipelines for building container images of the frontend and backend programs
+- Implemented features through full stack development, using React.js and Spring

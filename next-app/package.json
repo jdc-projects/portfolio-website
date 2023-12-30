@@ -13,9 +13,9 @@
     "@mantine/code-highlight": "7.3.2",
     "@mantine/core": "7.3.2",
     "@mantine/hooks": "7.3.2",
-    "@mdx-js/loader": "3.0.0",
-    "@mdx-js/react": "3.0.0",
-    "@next/mdx": "14.0.4",
+    "@mdx-js/loader": "2.3.0",
+    "@mdx-js/react": "2.3.0",
+    "@next/mdx": "13.5.6",
     "@tabler/icons-react": "2.44.0",
     "@types/mdx": "2.0.10",
     "@types/node": "20.10.5",
@@ -37,6 +37,6 @@
   },
   "devDependencies": {
     "eslint": "8.56.0",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-next": "13.5.6"
   }
 }

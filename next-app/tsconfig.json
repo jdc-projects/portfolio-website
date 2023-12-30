@@ -28,6 +28,7 @@
       "app/*": ["./app/*"],
       "public/*": ["./public/*"],
       "utils/*": ["./utils/*"],
+      "content/*": ["./content/*"],
     },
   },
   "include": [

@@ -1,12 +1,9 @@
 import { promises as fs } from 'fs'
 import path from 'path'
-import { readLocalFile } from 'utils/markdown'
 
 export type ProjectInfo = {
   name: string,
   route: string,
-  contentPath: string,
-  content: string,
   title: string,
   description: string,
   thumbnail: string,
@@ -15,40 +12,35 @@ export type ProjectInfo = {
 
 export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
   const projectsDir = path.join(process.cwd(), 'content', 'projects')
-  const projectDirs = (await fs.readdir(projectsDir, { withFileTypes: true }))
+  const projects = (await fs.readdir(projectsDir, { withFileTypes: true }))
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
 
-  return Promise.all(projectDirs.map(async projectDir => {
-    const projectContentPath = path.join(projectsDir, projectDir, 'page.md')
-    const projectData = await readLocalFile(projectContentPath)
+  return Promise.all(projects.map(async project => {
+    // unfortunately import doesn't seem to work if the path is a variable...
+    const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).metadata
 
     return {
-      name: projectDir,
-      route: ('/projects/' + projectDir),
-      contentPath: projectContentPath,
-      content: projectData.content,
-      title: projectData.data.title,
-      description: projectData.data.description,
-      thumbnail: projectData.data.thumbnail,
-      thumbnailAlt: projectData.data.thumbnailAlt,
+      name: project,
+      route: ('/projects/' + project),
+      title: projectMetadata.title,
+      description: projectMetadata.description,
+      thumbnail: projectMetadata.thumbnail,
+      thumbnailAlt: projectMetadata.thumbnailAlt,
     }
   }))
 }
 
 export async function getProjectInfo(project: string): Promise<ProjectInfo> {
-  const projectDir = path.join(process.cwd(), 'content', 'projects', project)
-  const projectContentPath = path.join(projectDir, 'page.md')
-  const projectData = await readLocalFile(projectContentPath)
+  // unfortunately import doesn't seem to work if the path is a variable...
+  const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).metadata
 
   return {
-    name: projectDir,
-    route: ('/projects/' + projectDir),
-    contentPath: projectContentPath,
-    content: projectData.content,
-    title: projectData.data.title,
-    description: projectData.data.description,
-    thumbnail: projectData.data.thumbnail,
-    thumbnailAlt: projectData.data.thumbnailAlt,
+    name: project,
+    route: ('/projects/' + project),
+    title: projectMetadata.title,
+    description: projectMetadata.description,
+    thumbnail: projectMetadata.thumbnail,
+    thumbnailAlt: projectMetadata.thumbnailAlt,
   }
 }

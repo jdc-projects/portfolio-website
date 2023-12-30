@@ -4,18 +4,6 @@ import Image from 'components/Image'
 import Anchor from 'components/Anchor'
 import { CodeHighlight } from '@mantine/code-highlight'
 
-function MD_code(props: any) {
-  const language = props.inline ? undefined: props.className.split("-").at(-1)
-  const code = props.children.join('\n')
-
-  return (
-    props.inline ?
-      <Code>{props.children}</Code>
-    :
-      <CodeHighlight code={code} language={language} />
-  )
-}
-
 function MD_p(props: any) {
   const isChildText = (typeof props.children[0]) === 'string'
 
@@ -24,6 +12,14 @@ function MD_p(props: any) {
       <Text >{props.children}</Text>
     :
       props.children
+  )
+}
+
+function MD_pre(props: any) {
+  const language = props.children.props.className.split("-").at(-1)
+
+  return (
+    <CodeHighlight code={props.children.props.children} language={language} />
   )
 }
 
@@ -45,7 +41,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Allows customizing built-in components, e.g. to add styling.
     a: (props) => <Anchor href={props.href as string} >{props.children}</Anchor>,
     blockquote: (props) => <Blockquote>{props.children}</Blockquote>,
-    code: MD_code,
+    code: (props: any) => <Code>{props.children}</Code>,
     img: (props) => <Image src={props.src as string} alt={props.alt as string} title={props.title} />,
     h1: (props) => <Title order={1} >{props.children}</Title>,
     h2: (props) => <Title order={2} >{props.children}</Title>,
@@ -54,6 +50,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: (props) => <Title order={5} >{props.children}</Title>,
     h6: (props) => <Title order={6} >{props.children}</Title>,
     p: MD_p,
+    pre: MD_pre,
     em: (props) => <Text fs='italic' span={true} >{props.children}</Text>,
     strong: (props) => <Text fw={700} span={true} >{props.children}</Text>,
     li: MD_li,

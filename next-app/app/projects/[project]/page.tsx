@@ -2,7 +2,7 @@ import { Center, Flex, Text, Container, Space } from "@mantine/core"
 import { getProjectsInfo, getProjectInfo } from 'utils/projects'
 import { IconArrowLeft } from "@tabler/icons-react"
 import Anchor from 'components/Anchor'
-import Markdown from 'components/Markdown'
+import dynamic from 'next/dynamic'
 
 type ProjectPageProps = {
   params: {
@@ -12,6 +12,8 @@ type ProjectPageProps = {
 
 export default async function Page(props: ProjectPageProps) {
   const projectInfo = await getProjectInfo(props.params.project)
+
+  const ProjectContent = dynamic(() => import('content/projects/' + projectInfo.name + '/page.mdx'), {})
 
   return (
     <Center>
@@ -24,7 +26,7 @@ export default async function Page(props: ProjectPageProps) {
           </Flex>
         </Anchor>
         <Container m={20} >
-          <Markdown>{projectInfo.content}</Markdown>
+          <ProjectContent />
         </Container>
       </Container>
     </Center>

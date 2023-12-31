@@ -6,6 +6,9 @@ const withMDX = createMDX({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [],
   },
+  experimental: {
+    mdxRs: true,
+  },
 })
 
 /** @type {import('next').NextConfig} */

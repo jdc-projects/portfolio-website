@@ -4,20 +4,62 @@ export const metadata = {
   thumbnail: 'https://images.unsplash.com/photo-1597138768744-9f97be8cdd64',
   thumbnailFit: 'cover',
   thumbnailAlt: 'A server rack',
+  // githubLink: 'https://github.com/jdc-projects/homelab',
 }
 
-# My Homelab
+# Homelab
 
-This is a placeholder text for my homelab.
+My homelab is a platform I use for experimentation and learning.
+I've tried to set it up in way that supports that aim, allowing for easy control and expansion.
+It hosts a number of different services, with potential for expansion and upgrades in the future.
 
-## Why have a homelab?
-
-placeholder
+My aim here is to give a brief overview of the setup for my homelab and justification for that setup.
+Please bear in mind though, since it's constantly changing and evolving, this page may not always be 100% up-to-date or correct at all times.
 
 ## Hardware
 
-placeholder
+My homelab runs on an old Dell R720 server - I picked it up a number of years ago for next to nothing.
+It's an old, but reasonably powerful and versatile server, plenty for my needs.
+It's configured as follows:
+
+- Dual E5-2650L v2s, chosen for their high core counts
+- 256GB of RAM, the configuration the server came with, which can be expanded to 384GB if needed
+- Some leftover SSDs in the front bays for mass storage, setup with ZFS
+- Some M.2 SSDs in converter cards in the rear PCIE slots as boot drives, in a mirrored software raid with LVM
+- An internal USB drive as the initial boot drive, since this server can't boot to M.2 drives directly due to its age
 
 ## Software
 
+### K3s
+
+The server runs on Ubuntu, due to the familiarity and availability or help resources online.
+On top of Ubuntu I run [K3s](https://k3s.io/), a stripped-down, lightweight Kubernetes distribution.
+It's simple installation, easy configuration, and full Kubernetes compatability make it a great platform on which to learn how to use Kubernetes.
+Additionally, it is more than suitable for a simple, single node setup like mine.
+
+So, why Kubernetes?
+I have some previous experience running previous iterations of my homelab on Kubernetes, and I like managing containerised applications using Kubernetes, even if I'm not taking advantage of Kubernetes clustering capabilities.
+
+### Traefik
+
+Traefik is a reverse proxy application and can be used as a Kubernetes ingress controller.
 placeholder
+
+### Applications
+
+I have a variety of tools, services, and applications on my homelab, including:
+
+- [CloudNative-PG operator](https://cloudnative-pg.io/), which provides Postgres databases where needed
+- [Harbor](https://goharbor.io/), a container image repository
+- [Keycloak](https://www.keycloak.org/), an identity / single-signon provider
+- [Loki](https://grafana.com/oss/loki/), a log aggregator which feeds into Grafana
+- [Oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/), an authentication endpoint to add SSO to certain endpoints
+- [OwnCloud Infinite Scale](https://owncloud.com/infinite-scale), 'cloud storage' software
+- [OpenEBS](https://openebs.io/), provides the Kubernetes storage backend
+- [OpenLDAP](https://www.openldap.org/), an identity manager
+- [Prometheus operator](https://prometheus-operator.dev/), providing a Grafana instance
+- [Traefik](https://traefik.io/traefik/), an ingress controller and reverse proxy
+- [Vaultwarden](https://www.vaultwarden.net/), a password manager
+- [Velero](https://velero.io/), the cluster's backup solution
+
+I may add specific project writeups at some point in the future for some of these - if any of these are of particular interest, let me know!

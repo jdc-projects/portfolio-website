@@ -19,7 +19,7 @@ export default function ProjectCard(props: ProjectCardProps) {
         <Paper visibleFrom='sm' withBorder={true} radius='md' w={desktopBaseWidth} h={desktopBaseHeight} >
           <Flex direction='column' align='center' >
             <Container>
-              <Image src={props.projectInfo.thumbnail} mt={12} w={desktopBaseWidth - 30} h={(desktopBaseWidth - 30) * 0.8} radius='sm' fit='cover' alt={props.projectInfo.thumbnailAlt} />
+              <Image src={props.projectInfo.thumbnail} mt={12} w={desktopBaseWidth - 30} h={(desktopBaseWidth - 30) * 0.8} radius='sm' fit={props.projectInfo.thumbnailFit} alt={props.projectInfo.thumbnailAlt} />
             </Container>
             <Text fw={500} size='lg' mt='md' ta='center' mx={20} >
               {props.projectInfo.title}

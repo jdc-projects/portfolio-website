@@ -7,6 +7,7 @@ export type ProjectInfo = {
   title: string,
   description: string,
   thumbnail: string,
+  thumbnailFit: React.CSSProperties['objectFit'],
   thumbnailAlt: string,
 }
 
@@ -28,6 +29,7 @@ export async function getProjectInfo(project: string): Promise<ProjectInfo> {
     title: projectMetadata.title,
     description: projectMetadata.description,
     thumbnail: projectMetadata.thumbnail,
+    thumbnailFit: projectMetadata.thumbnailFit,
     thumbnailAlt: projectMetadata.thumbnailAlt,
   }
 }

@@ -1,6 +1,6 @@
-import { Center, Flex, Text, Container, Space } from "@mantine/core"
+import { Center, Flex, Text, Container, Space, Grid, GridCol } from "@mantine/core"
 import { getProjectsInfo, getProjectInfo } from 'utils/projects'
-import { IconArrowLeft } from "@tabler/icons-react"
+import { IconArrowLeft, IconBrandGithub } from "@tabler/icons-react"
 import Anchor from 'components/Anchor'
 import dynamic from 'next/dynamic'
 
@@ -19,12 +19,28 @@ export default async function Page(props: ProjectPageProps) {
     <Center>
       <Container w={1200} >
         <Space/>
-        <Anchor href='/projects' underline='never' >
-          <Flex direction='row' justify='flex-start' align='center' >
-            <IconArrowLeft stroke={1.5} />
-            <Text>Back to Projects</Text>
-          </Flex>
-        </Anchor>
+        <Grid>
+          <GridCol span={2} >
+            <Anchor href='/projects' underline='never' >
+              <Flex direction='row' justify='flex-start' align='center' >
+                <IconArrowLeft stroke={1.5} />
+                <Text>Back to Projects</Text>
+              </Flex>
+            </Anchor>
+          </GridCol>
+          <GridCol span={8} >
+          </GridCol>
+          <GridCol span={2} >
+            {(undefined === projectInfo.githubLink) ? null :
+              <Anchor href={projectInfo.githubLink} underline='never' >
+                <Flex direction='row' justify='flex-end' align='center' >
+                  <IconBrandGithub stroke={1.5} />
+                  <Text ml={5} >Github Repo</Text>
+                </Flex>
+              </Anchor>
+            }
+          </GridCol>
+        </Grid>
         <Container m={20} >
           <ProjectContent />
         </Container>

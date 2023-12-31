@@ -16,23 +16,10 @@ export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
 
-  return Promise.all(projects.map(async project => {
-    // unfortunately import doesn't seem to work if the path is a variable...
-    const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).metadata
-
-    return {
-      name: project,
-      route: ('/projects/' + project),
-      title: projectMetadata.title,
-      description: projectMetadata.description,
-      thumbnail: projectMetadata.thumbnail,
-      thumbnailAlt: projectMetadata.thumbnailAlt,
-    }
-  }))
+  return Promise.all(projects.map(async project => getProjectInfo(project)))
 }
 
 export async function getProjectInfo(project: string): Promise<ProjectInfo> {
-  // unfortunately import doesn't seem to work if the path is a variable...
   const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).metadata
 
   return {

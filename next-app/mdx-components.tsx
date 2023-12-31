@@ -9,7 +9,7 @@ function MD_p(props: any) {
 
   return (
     isChildText ?
-      <Text >{props.children}</Text>
+      <Text mt={5} >{props.children}</Text>
     :
       props.children
   )
@@ -20,9 +20,9 @@ function MD_li(props: any) {
 
   return (
     isCheckbox ?
-      <Checkbox defaultChecked={props.checked} label={props.children} />
+      <Checkbox defaultChecked={props.checked} label={props.children} ml={10} />
     :
-      <ListItem>{props.children}</ListItem>
+      <ListItem ml={10} >{props.children}</ListItem>
   )
 }
 
@@ -42,12 +42,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: (props: any) => <Title order={5} >{props.children}</Title>,
     h6: (props: any) => <Title order={6} >{props.children}</Title>,
     p: MD_p,
-    pre: (props: any) => <CodeHighlight code={props.children.props.children} language={props.children.props.className.split("-").at(-1)} />,
+    pre: (props: any) => <><Space h='xs' /><CodeHighlight code={props.children.props.children} language={props.children.props.className.split("-").at(-1)} /></>,
     em: (props: any) => <Text fs='italic' span={true} >{props.children}</Text>,
     strong: (props: any) => <Text fw={700} span={true} >{props.children}</Text>,
     li: MD_li,
-    ol: (props: any) => <List type='ordered' >{props.children}</List>,
-    ul: (props: any) => <List type='unordered' >{props.children}</List>,
+    ol: (props: any) => <><Space h='xs' /><List type='ordered' >{props.children}</List></>,
+    ul: (props: any) => <><Space h='xs' /><List type='unordered' >{props.children}</List></>,
     del: (props: any) => <Text td="line-through" span={true} >{props.children}</Text>,
     input: (props: any) => <></>,
     table: (props: any) => <Table>{props.children}</Table>,

@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import { Title, Text, Blockquote, Code, List, ListItem, Checkbox, Table, TableThead, TableTh, TableTr, TableTd } from '@mantine/core'
+import { Title, Text, Blockquote, Code, List, ListItem, Checkbox, Table, TableThead, TableTh, TableTr, TableTd, Space } from '@mantine/core'
 import Image from 'components/Image'
 import Anchor from 'components/Anchor'
 import { CodeHighlight } from '@mantine/code-highlight'
@@ -44,8 +44,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     code: (props: any) => <Code>{props.children}</Code>,
     img: (props) => <Image src={props.src as string} alt={props.alt as string} title={props.title} />,
     h1: (props) => <Title order={1} >{props.children}</Title>,
-    h2: (props) => <Title order={2} >{props.children}</Title>,
-    h3: (props) => <Title order={3} >{props.children}</Title>,
+    h2: (props) => <><Space h='sm' /><Title order={2} >{props.children}</Title></>,
+    h3: (props) => <><Space h='xs' /><Title order={3} >{props.children}</Title></>,
     h4: (props) => <Title order={4} >{props.children}</Title>,
     h5: (props) => <Title order={5} >{props.children}</Title>,
     h6: (props) => <Title order={6} >{props.children}</Title>,

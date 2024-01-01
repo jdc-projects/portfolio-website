@@ -1,11 +1,6 @@
 ARG IMAGE_TAG=20.10.0-alpine3.19
 ARG PM2_VERSION=5.3.0
 
-# debug step
-FROM curlimages/curl:8.5.0 as debug
-
-RUN curl https://images.unsplash.com/photo-1597138768744-9f97be8cdd64 --output test.png
-
 # Install dependencies only when needed
 FROM node:${IMAGE_TAG} AS deps
 WORKDIR /app

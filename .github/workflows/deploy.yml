@@ -19,5 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: "Test curl"
+        run: curl https://images.unsplash.com/photo-1597138768744-9f97be8cdd64 --output test.png
       - name: "Build Docker image"
         run: "docker build ./ -t portfolio-website-next-app:${{ github.sha }}"

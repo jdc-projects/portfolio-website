@@ -4,8 +4,57 @@ export const metadata = {
   thumbnail: '/logo.png',
   thumbnailFit: 'contain',
   thumbnailAlt: 'Favicon for my portfolio website, a cartoon-style CPU with the letters J and C inside',
+  // githubLink: 'https://github.com/jdc-projects/portfolio-website',
 }
 
-# Title
+# Portfolio Website
 
-This is a placeholder text.
+My portfolio website is a public-facing website - this webiste!
+It's designed to give people a view of who am I and what I do, primarily from a professional viewpoint as someone in the IT / engineering industry.
+This post will run through the technology behind the website, along with my thoughts and learning along the way.
+
+## Software
+
+### Next.js
+
+[Next.js](https://nextjs.org/) is an opinionated framework based on React developed and maintained by [Vercel](https://vercel.com/).
+I've been meaning to improve my JS and React knowledge, and had heard good things about Next from friends, so I decided to choose it as the core for this project.
+
+I decided to go with newer App router over the pages router - I've foundthe files structure it leads to is quite nice and readable.
+However, since it was relatively new when I started, I did run into some issues with library compatability, particularly around server-side rendering (SSR).
+Some of this was definitely just the learning curve though, given that I started with fairly limited JS and React knowledge, and no experience with Next.
+
+The opinionated nature of the framework does make development, particularly for simple applications, pretty seamless.
+However, I can't speak to how easy a more complex application would work - this website is primarily just a bunch of static content with.
+
+I used the following file structure:
+
+- `app` - the application code, as mandated by Next
+- `components` - my custom React components
+- `content` - content for the site, e.g. project writeups like this one
+- `public` - public object, as mandated by Next
+- `utils` - utility modules for miscallaneous, reusable functionality
+
+### Mantine
+
+placeholder
+
+### Docker
+
+placeholder
+
+## Architecture
+
+[simple diagram]
+
+## Deployment
+
+### Terraform
+
+placeholder
+
+[per-branch environments]
+
+### GitHub Actions
+
+placeholder

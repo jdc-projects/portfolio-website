@@ -5,6 +5,9 @@ ARG PM2_VERSION=5.3.0
 FROM node:${IMAGE_TAG} AS deps
 WORKDIR /app
 
+# debug
+RUN curl https://images.unsplash.com/photo-1597138768744-9f97be8cdd64 --output test.png
+
 COPY ./package.json ./package-lock.json ./
 RUN npm ci --omit=dev
 

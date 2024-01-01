@@ -52,3 +52,13 @@ On top of Kubernetes I have a variety of tools, services, and applications:
 - [Velero](https://velero.io/), the cluster's backup solution
 
 I may add specific project writeups for some of then above in the future - if any of them are of particular interest, let me know!
+
+## Deployment
+
+All of the software deployment, bar the initial OS deployment and SSH key setup, is defined and ultimately deployed using [Terraform](https://www.terraform.io/).
+Each tool, service, or application is a separate Terraform setup, with all of the state files being stored on the Kubernetes cluster itself, using the Kubernetes backend.
+Terraform is an industry tool, and seemed like the obvious choice given my familiarity with it from work.
+
+Terraform needs to be run somewhere to actually deploy any infrastructure - this is where [GitHub Actions](https://github.com/features/actions), GitHub's builtin CI/CD system, comes in.
+Like Terraform, I have experience using GitHub Actions in a professional context, and given I'm already using GitHub to host my code, it seemed like a nice, simple solution.
+The only difference, as you may have noticed above, is that I'm using self-hosted runners where possible, so that I don't need to worry about runner usage (and a potentially large bill) on private repos.

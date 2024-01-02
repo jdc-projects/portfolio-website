@@ -3,6 +3,9 @@
 import '@mantine/core/styles.css'
 import '@mantine/code-highlight/styles.css'
 
+// fix for the width of the page always being slightly greater than 100%
+import './width-fix.css'
+
 import { MantineProvider, ColorSchemeScript, Container, Space, Divider } from '@mantine/core'
 import { Roboto_Flex } from 'next/font/google'
 import Header, { navs } from 'components/Header'

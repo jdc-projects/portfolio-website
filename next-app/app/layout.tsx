@@ -79,6 +79,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 size: 'md'
               },
             },
+            ListItem: {
+              defaultProps: {
+                ml: 10,
+                mr: 20,
+              }
+            }
           },
         }} >
           <Container mih='100%' pos='relative' >

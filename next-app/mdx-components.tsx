@@ -22,7 +22,7 @@ function MD_li(props: any) {
     isCheckbox ?
       <Checkbox defaultChecked={props.checked} label={props.children} ml={10} />
     :
-      <ListItem ml={10} >{props.children}</ListItem>
+      <ListItem>{props.children}</ListItem>
   )
 }
 

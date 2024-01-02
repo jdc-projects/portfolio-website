@@ -84,10 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Space/>
             <Divider/>
             <Space h='lg' />
-            <Container visibleFrom='xs' px={50} >
-              {children}
-            </Container>
-            <Container hiddenFrom='xs' px={20} >
+            <Container px={20} >
               {children}
             </Container>
             <Space/>

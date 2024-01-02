@@ -36,10 +36,8 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <Container visibleFrom='sm' miw={200} maw={300} >
               <Sidebar navs={navs} />
             </Container>
-            <Container hiddenFrom='sm' w={900} mx={10} >
-              {children}
-            </Container>
-            <Container visibleFrom='sm' w={900} ml={20} mt={5} >
+            <Container w={900} mx={20} >
+              <Space visibleFrom="sm" h={5} />
               {children}
             </Container>
           </Flex>

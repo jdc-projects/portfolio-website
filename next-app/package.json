@@ -15,17 +15,17 @@
     "@mantine/hooks": "7.3.2",
     "@mdx-js/loader": "3.0.0",
     "@mdx-js/react": "3.0.0",
-    "@next/mdx": "13.5.6",
-    "@tabler/icons-react": "2.44.0",
+    "@next/mdx": "14.0.4",
+    "@tabler/icons-react": "2.45.0",
     "@types/mdx": "2.0.10",
     "@types/node": "20.10.6",
     "@types/react": "18.2.46",
     "@types/react-dom": "18.2.18",
     "axios": "1.6.3",
-    "next": "13.5.6",
+    "next": "14.0.4",
     "path": "0.12.7",
     "postcss": "8.4.32",
-    "postcss-preset-mantine": "1.12.2",
+    "postcss-preset-mantine": "1.12.3",
     "postcss-simple-vars": "7.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "eslint": "8.56.0",
-    "eslint-config-next": "13.5.6"
+    "eslint-config-next": "14.0.4"
   }
 }

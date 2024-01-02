@@ -23,7 +23,7 @@ export default async function Page(props: ProjectPageProps) {
           <Anchor href='/projects' underline='never' >
             <Flex direction='row' justify='flex-start' align='center' >
               <IconArrowLeft stroke={1.5} />
-              <Text>Back to Projects</Text>
+              <Text>Projects</Text>
             </Flex>
           </Anchor>
           {(undefined === projectInfo.githubLink) ? null :
@@ -35,9 +35,16 @@ export default async function Page(props: ProjectPageProps) {
             </Anchor>
           }
         </Group>
-        <Container m={20} >
-          <ProjectContent />
-        </Container>
+        <Flex direction='row' >
+          <Space visibleFrom="sm" w={20} />
+          <Space hiddenFrom="sm" w={10} />
+          <Container>
+            <Space/>
+            <ProjectContent />
+          </Container>
+          <Space visibleFrom="sm" w={20} />
+          <Space hiddenFrom="sm" w={10} />
+        </Flex>
       </Container>
     </Center>
   )

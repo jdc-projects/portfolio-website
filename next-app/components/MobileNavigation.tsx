@@ -2,9 +2,10 @@
 
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { Flex, Burger, GridCol, Collapse } from '@mantine/core'
+import { Flex, Burger, GridCol, Collapse, Center } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import Anchor from 'components/Anchor'
+import ContactButton from './ContactButton'
 
 export type nav = { name: string, route: string, }
 export type navs = Array<nav>
@@ -33,6 +34,9 @@ export default function MobileNavigation(props: MobileNavigationProps) {
   return (
     <>
       <GridCol span={2}>
+        <Center visibleFrom='sm' >
+          <ContactButton/>
+        </Center>
         <Flex hiddenFrom='sm' justify='center' align='center' direction='row' h='100%' mr={50} >
           <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" />
         </Flex>
@@ -47,6 +51,7 @@ export default function MobileNavigation(props: MobileNavigationProps) {
                 </Anchor>
               )
             })}
+            <ContactButton/>
           </Flex>
         </Collapse>
       </GridCol>

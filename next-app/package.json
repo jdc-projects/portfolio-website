@@ -12,6 +12,7 @@
   "dependencies": {
     "@mantine/code-highlight": "7.3.2",
     "@mantine/core": "7.3.2",
+    "@mantine/form": "7.3.2",
     "@mantine/hooks": "7.3.2",
     "@mdx-js/loader": "3.0.0",
     "@mdx-js/react": "3.0.0",
@@ -19,10 +20,12 @@
     "@tabler/icons-react": "2.45.0",
     "@types/mdx": "2.0.10",
     "@types/node": "20.10.6",
+    "@types/nodemailer": "6.4.14",
     "@types/react": "18.2.46",
     "@types/react-dom": "18.2.18",
     "axios": "1.6.3",
     "next": "14.0.4",
+    "nodemailer": "6.9.8",
     "path": "0.12.7",
     "postcss": "8.4.32",
     "postcss-preset-mantine": "1.12.3",
@@ -31,7 +34,8 @@
     "react-dom": "18.2.0",
     "remark-gfm": "4.0.0",
     "sharp": "0.33.1",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "yn": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "8.56.0",

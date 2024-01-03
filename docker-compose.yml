@@ -5,8 +5,17 @@ services:
     image: portfolio-website-next-app
     build:
       context: ./next-app
+    links:
+      - smtp-mock
     ports:
       - "8080:3000"
+    environment:
+      - SMTP_HOST=smtp-mock
+      - SMTP_PORT=1025
+      - SMTP_SECURE=false
+      - SMTP_USERNAME=
+      - SMTP_PASSWORD=
+      - SMTP_CONTACT_TO=jack.chapman@sky.com
   smtp-mock:
     restart: on-failure
     image: dockage/mailcatcher:0.8.2

@@ -1,5 +1,6 @@
 'use server'
 
+import { assert } from 'console'
 import { createTransport } from 'nodemailer'
 import yn from 'yn'
 
@@ -14,6 +15,10 @@ const transporter = createTransport({
 });
 
 export async function sendContactEmail(senderName: string, senderEmail: string, senderMessage: string): Promise<boolean> {
+  assert(/^[a-zA-Z ]+$/.test(senderName))
+  assert(/^\S+@\S+$/.test(senderEmail))
+  assert(/^[a-zA-Z ]+$/.test(senderMessage))
+
   const info = await transporter.sendMail({
     from: '"Portfolio Website Contact" <' + process.env.SMTP_FROM + '>',
     to: process.env.SMTP_CONTACT_TO,

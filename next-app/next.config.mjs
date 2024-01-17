@@ -33,6 +33,9 @@ const nextConfig = {
       '@mantine/core',
     ],
     mdxRs: true,
+    outputFileTracingIncludes: {
+      '/**': ['./node_modules/@img/**'],
+    },
   },
 }
 

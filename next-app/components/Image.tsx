@@ -15,11 +15,12 @@ type Dimensions = {
 
 export default async function Image(props: ImageProps) {
   const isFilePathImage = props.src.src !== undefined
+  const isSvg = props.src.src.endsWith('.svg')
   const dimensions : Dimensions = isFilePathImage ? {width: props.src.width, height: props.src.height} : await getImageDimensions(props.src)
 
   return (
     <MantineImage component={NextImage} {...dimensions}
-      placeholder={isFilePathImage ? 'blur' : 'empty'}
+      placeholder={isFilePathImage && !isSvg ? 'blur' : 'empty'}
       {...props} />
   )
 }

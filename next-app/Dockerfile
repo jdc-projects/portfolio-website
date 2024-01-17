@@ -1,4 +1,4 @@
-ARG IMAGE_TAG=20.10.0-alpine3.19
+ARG IMAGE_TAG=20.11.0-alpine3.19
 ARG PM2_VERSION=5.3.0
 
 # Install dependencies only when needed
@@ -26,7 +26,7 @@ ARG PM2_VERSION
 WORKDIR /app
 
 # Install PM2 to manage node processes
-RUN npm install pm2@${PM2_VERSION} --location=global
+RUN npm i pm2@${PM2_VERSION} --location=global
 
 # Disable telemetry during runtime
 ENV NEXT_TELEMETRY_DISABLED 1

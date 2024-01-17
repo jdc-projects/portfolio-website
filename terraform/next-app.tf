@@ -47,6 +47,18 @@ resource "kubernetes_deployment" "next_app" {
           image = "${var.container_registry_url}/${var.next_app_image_name}:${var.next_app_image_tag}"
           name  = "next-app"
 
+          resources {
+            requests = {
+              cpu = "50m"
+              memory = "128Mi"
+            }
+
+            limits = {
+              cpu = "100m"
+              memory = "256Mi"
+            }
+          }
+
           liveness_probe {
             http_get {
               path = "/"

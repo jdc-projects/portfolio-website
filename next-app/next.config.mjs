@@ -13,10 +13,9 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
   output: 'standalone',
-  pageExtensions: ['jsx', 'tsx', 'mdx'],
+  pageExtensions: ['tsx', 'mdx'],
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -28,6 +27,12 @@ const nextConfig = {
         hostname: 'placehold.co',
       },
     ],
+  },
+  experimental: {
+    optimizePackageImports: [
+      '@mantine/core',
+    ],
+    mdxRs: true,
   },
 }
 

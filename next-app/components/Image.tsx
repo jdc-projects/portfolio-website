@@ -15,7 +15,7 @@ type Dimensions = {
 
 export default async function Image(props: ImageProps) {
   const isFilePathImage = props.src.src !== undefined
-  const isSvg = props.src.src.endsWith('.svg')
+  const isSvg = isFilePathImage ? props.src.src.endsWith('.svg') : false
   const dimensions : Dimensions = isFilePathImage ? {width: props.src.width, height: props.src.height} : await getImageDimensions(props.src)
 
   return (

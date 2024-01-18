@@ -1,5 +1,7 @@
 import createMDX from '@next/mdx'
+import createBundleAnalyzer from '@next/bundle-analyzer'
 import remarkGfm from 'remark-gfm'
+import yn from 'yn'
 
 const withMDX = createMDX({
   options: {
@@ -9,6 +11,10 @@ const withMDX = createMDX({
   experimental: {
     mdxRs: true,
   },
+})
+
+const withBundleAnalyser = createBundleAnalyzer({
+  enabled: yn(process.env.ENABLE_BUNDLE_ANALYZER, { default: false }),
 })
 
 /** @type {import('next').NextConfig} */
@@ -38,4 +44,4 @@ const nextConfig = {
   },
 }
 
-export default withMDX(nextConfig)
+export default withBundleAnalyser(withMDX(nextConfig))

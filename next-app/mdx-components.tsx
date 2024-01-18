@@ -50,7 +50,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: (props: any) => <><Space h='xs' /><List type='unordered' >{props.children}</List></>,
     del: (props: any) => <Text td="line-through" span={true} >{props.children}</Text>,
     input: (props: any) => <></>,
-    table: (props: any) => <Table>{props.children}</Table>,
+    table: (props: any) => <Table mb={10} >{props.children}</Table>,
     td: (props: any) => <TableTd align={props.style?.textAlign as TableAlign} >{props.children}</TableTd>,
     th: (props: any) => <TableTh align={props.style?.textAlign as TableAlign} >{props.children}</TableTh>,
     thead: (props: any) => <TableThead>{props.children}</TableThead>,

@@ -1,5 +1,4 @@
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
+// css files for Mantine packages must be imported here
 import '@mantine/core/styles.css'
 import '@mantine/code-highlight/styles.css'
 

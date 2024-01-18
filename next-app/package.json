@@ -7,7 +7,7 @@
     "build": "next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
     "start": "node .next/standalone/server.js",
     "lint": "next lint",
-    "analyze": "ENABLE_BUNDLE_ANALYZER=true next build",
+    "analyze": "ENABLE_BUNDLE_ANALYZER=true next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
     "clean": "rm -rf .next out node_modules next-env.d.ts"
   },
   "dependencies": {

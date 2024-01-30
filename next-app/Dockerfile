@@ -1,5 +1,5 @@
 ARG IMAGE_TAG=20.11.0-alpine3.19
-ARG PM2_VERSION=5.3.0
+ARG PM2_VERSION=5.3.1
 
 # Install dependencies only when needed
 FROM node:${IMAGE_TAG} AS deps

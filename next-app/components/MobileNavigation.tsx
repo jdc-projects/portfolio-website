@@ -34,9 +34,9 @@ export default function MobileNavigation(props: MobileNavigationProps) {
   return (
     <>
       <GridCol span={2}>
-        <Center visibleFrom='sm' >
+        <Flex visibleFrom='sm' justify='center' align='center' direction='row' h='100%' mr={40} >
           <ContactButton/>
-        </Center>
+        </Flex>
         <Flex hiddenFrom='sm' justify='center' align='center' direction='row' h='100%' mr={50} >
           <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" />
         </Flex>

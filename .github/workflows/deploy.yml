@@ -1,8 +1,6 @@
 name: Deploy
 on:
-  push:
-    branches:
-      - 'trunk'
+  workflow_dispatch:
 
 jobs:
   next-app-docker:

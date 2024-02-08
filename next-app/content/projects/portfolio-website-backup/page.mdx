@@ -1,0 +1,27 @@
+export const metadata = {
+  title: 'Portfolio Website Backup',
+  description: 'The backup solution for my portfolio website',
+  thumbnail: 'https://static-00.iconduck.com/assets.00/google-cloud-icon-2048x1646-7admxejz.png',
+  thumbnailFit: 'contain',
+  thumbnailAlt: "Logo for the Google Cloud Platform, a cartoon cloud outline in Google's colours",
+  // githubLink: 'https://github.com/jdc-projects/portfolio-website',
+}
+
+import ArchitectureDiagram from './architecture.drawio.svg'
+import Image from 'components/Image'
+import { Stack, Text } from '@mantine/core'
+
+# Portfolio Website Backup
+
+[not backup data, there isn't any] [backup solution for availability]
+
+[server can be turned off] [portfolio website is still available]
+
+## Architecture
+
+[simple diagram]
+
+<Stack align='center' gap='xs' mt={25} >
+  <Image src={ArchitectureDiagram} alt='Architecture for my portfolio website' w='80%' />
+  <Text c='dimmed' >Architecture for my portfolio website</Text>
+</Stack>

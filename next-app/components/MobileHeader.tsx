@@ -1,20 +1,28 @@
 'use client'
 
+import { Grid, GridCol, Flex, Burger, Collapse, Space } from '@mantine/core'
+import Anchor from 'components/Anchor'
+import ColourSchemeToggleButton from './ColourSchemeToggleButton'
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { Flex, Burger, GridCol, Collapse, Center } from '@mantine/core'
+import { Suspense } from 'react'
 import { useDisclosure } from '@mantine/hooks'
-import Anchor from 'components/Anchor'
 import ContactButton from './ContactButton'
+import { nav, navs } from 'components/DesktopHeader'
 
-export type nav = { name: string, route: string, }
-export type navs = Array<nav>
-
-type MobileNavigationProps = {
+type MobileHeaderProps = {
   navs: navs,
 }
 
-export default function MobileNavigation(props: MobileNavigationProps) {
+export default function MobileHeader(props: MobileHeaderProps) {
+  return(
+    <Suspense>
+      <MobileHeaderComponent navs={props.navs} />
+    </Suspense>
+  )
+}
+
+function MobileHeaderComponent(props: MobileHeaderProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -32,18 +40,22 @@ export default function MobileNavigation(props: MobileNavigationProps) {
   }, [pathname, searchParams])
 
   return (
-    <>
-      <GridCol span={2}>
-        <Flex visibleFrom='sm' justify='center' align='center' direction='row' h='100%' mr={40} >
-          <ContactButton/>
+    <Grid>
+      <GridCol span={2} >
+        <Flex justify='center' align='center' direction='row' h='100%' ml={50} >
+          <ColourSchemeToggleButton />
         </Flex>
-        <Flex hiddenFrom='sm' justify='center' align='center' direction='row' h='100%' mr={50} >
+      </GridCol>
+      <GridCol span={8}>
+      </GridCol>
+      <GridCol span={2} >
+        <Flex justify='center' align='center' direction='row' h='100%' mr={50} >
           <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" />
         </Flex>
       </GridCol>
-      <GridCol hiddenFrom='sm' span={12} m={0} p={0} >
+      <GridCol span={12} m={0} p={0} >
         <Collapse in={opened} >
-          <Flex gap='md' justify='center' align='center' direction='column' h='100%' mb={10} >
+          <Flex gap='md' justify='center' align='center' direction='column' >
             {props.navs.map((nav: nav) => {
               return (
                 <Anchor href={nav.route} underline='never' c='currentColor' size='xl' fw={500} key={nav.name} >
@@ -51,10 +63,11 @@ export default function MobileNavigation(props: MobileNavigationProps) {
                 </Anchor>
               )
             })}
-            <ContactButton/>
+            <ContactButton />
           </Flex>
+          <Space h={10} />
         </Collapse>
       </GridCol>
-    </>
+    </Grid>
   )
 }

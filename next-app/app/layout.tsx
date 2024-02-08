@@ -7,7 +7,8 @@ import './width-fix.css'
 
 import { MantineProvider, ColorSchemeScript, Container, Space, Divider } from '@mantine/core'
 import { Roboto_Flex } from 'next/font/google'
-import Header, { navs } from 'components/Header'
+import DesktopHeader, { navs } from 'components/DesktopHeader'
+import MobileHeader from 'components/MobileHeader'
 import Footer from 'components/Footer'
 
 const font = Roboto_Flex({
@@ -87,16 +88,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           },
         }} >
           <Container mih='100%' pos='relative' >
-            <Space/>
-            <Header navs={navs} />
-            <Space/>
-            <Divider/>
+            <Space />
+            <header>
+              <Container visibleFrom='sm' >
+                <DesktopHeader navs={navs} />
+              </Container>
+              <Container hiddenFrom='sm' >
+                <MobileHeader navs={navs} />
+              </Container>
+            </header>
+            <Space />
+            <Divider />
             <Space h='lg' />
             <Container px={20} >
               {children}
             </Container>
-            <Space/>
-            <Footer/>
+            <Space />
+            <Footer />
           </Container>
         </MantineProvider>
       </body>

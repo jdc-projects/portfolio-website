@@ -1,15 +1,15 @@
-ARG IMAGE_TAG=20.11.0-alpine3.19
+ARG NODE_IMAGE_TAG=20.11.0-alpine3.19
 ARG PM2_VERSION=5.3.1
 
 # Install dependencies only when needed
-FROM node:${IMAGE_TAG} AS deps
+FROM node:${NODE_IMAGE_TAG} AS deps
 WORKDIR /app
 
 COPY ./package.json ./package-lock.json ./
 RUN npm ci --omit=dev
 
 # Rebuild the source code only when needed
-FROM node:${IMAGE_TAG} AS builder
+FROM node:${NODE_IMAGE_TAG} AS builder
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
@@ -21,7 +21,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
 
 # Production image, copy all the files and run next
-FROM node:${IMAGE_TAG} AS runner
+FROM node:${NODE_IMAGE_TAG} AS runner
 ARG PM2_VERSION
 WORKDIR /app
 

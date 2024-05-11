@@ -1,3 +1,3 @@
 #!/bin/sh
-podman compose build --no-cache
-podman compose up -d
+podman compose down
+podman compose up -d --build

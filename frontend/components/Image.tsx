@@ -21,7 +21,7 @@ export default async function Image(props: ImageProps) {
   return (
     <MantineImage component={NextImage} {...dimensions}
       placeholder={isFilePathImage && !isSvg ? 'blur' : 'empty'}
-      {...props} />
+      {...props} unoptimized />
   )
 }
 

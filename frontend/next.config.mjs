@@ -19,7 +19,7 @@ const withBundleAnalyser = createBundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   pageExtensions: ['tsx', 'mdx'],
   poweredByHeader: false,
   images: {

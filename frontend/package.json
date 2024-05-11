@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
-    "start": "node .next/standalone/server.js",
+    "build": "next build",
+    "start": "echo 'Unsupported for now'",
     "lint": "next lint",
-    "analyze": "ENABLE_BUNDLE_ANALYZER=true next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
+    "analyse": "ENABLE_BUNDLE_ANALYZER=true next build",
     "clean": "rm -rf .next out node_modules next-env.d.ts"
   },
   "dependencies": {
@@ -22,12 +22,10 @@
     "@tabler/icons-react": "2.47.0",
     "@types/mdx": "2.0.11",
     "@types/node": "20.11.16",
-    "@types/nodemailer": "6.4.14",
     "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
     "axios": "1.6.7",
     "next": "14.1.0",
-    "nodemailer": "6.9.9",
     "path": "0.12.7",
     "postcss": "8.4.35",
     "postcss-preset-mantine": "1.13.0",

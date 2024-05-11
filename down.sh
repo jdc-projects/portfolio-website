@@ -1,1 +1,2 @@
-docker-compose down
+#!/bin/sh
+podman compose down

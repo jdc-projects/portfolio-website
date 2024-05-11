@@ -1,2 +1,3 @@
-docker-compose build --no-cache
-docker-compose up -d
+#!/bin/sh
+podman compose build --no-cache
+podman compose up -d

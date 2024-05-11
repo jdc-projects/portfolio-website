@@ -3,6 +3,8 @@ services:
     image: portfolio-website-frontend
     build:
       context: ./frontend
+      args:
+        BACKEND_URL: http://localhost:8081/
     links:
       - smtp-mock
     ports:

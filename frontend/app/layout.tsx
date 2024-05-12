@@ -7,7 +7,8 @@ import './width-fix.css'
 
 import { MantineProvider, ColorSchemeScript, Container, Space, Divider } from '@mantine/core'
 import { Roboto_Flex } from 'next/font/google'
-import DesktopHeader, { navs } from 'components/DesktopHeader'
+import DesktopHeader from 'components/DesktopHeader'
+import type { navs } from 'components/DesktopHeader'
 import MobileHeader from 'components/MobileHeader'
 import Footer from 'components/Footer'
 

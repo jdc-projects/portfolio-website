@@ -16,7 +16,7 @@ export default async function Page() {
         <Space/>
         <Flex direction='column' align='center' justify='center' gap='xs' >
           <Title order={1} ta='center' >
-            {process.env.NEXT_PUBLIC_BACKEND_URL}
+            {"Hello, I'm Jack"}
           </Title>
           <Title order={2} ta='center' >
             {"Technology Architecture Consultant"}

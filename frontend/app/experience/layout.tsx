@@ -23,7 +23,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
     <>
       <Space visibleFrom='sm' />
       <Flex direction='column' align='center' >
-        <Container hiddenFrom='sm' >
+        <Container hiddenFrom='sm' miw={200} maw={300} >
           <Suspense fallback={null} >
             <Collapse buttonText="Navigation" >
               <Sidebar navs={navs} />

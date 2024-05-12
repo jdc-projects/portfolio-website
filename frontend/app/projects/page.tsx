@@ -6,7 +6,7 @@ export default async function Page() {
   const projects = await getProjectsInfo();
 
   const projectCards = projects.map(project => {
-    return <ProjectCard projectInfo={project} key={project.route} />
+    return project.hidden ? null : <ProjectCard projectInfo={project} key={project.route} />
   })
 
   return (

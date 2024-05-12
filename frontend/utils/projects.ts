@@ -10,6 +10,7 @@ export type ProjectInfo = {
   thumbnailFit: React.CSSProperties['objectFit'],
   thumbnailAlt: string,
   githubLink: string | undefined,
+  hidden: boolean,
 }
 
 export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
@@ -33,5 +34,6 @@ export async function getProjectInfo(project: string): Promise<ProjectInfo> {
     thumbnailFit: (undefined === projectMetadata.thumbnailFit) ? 'cover' : projectMetadata.thumbnailFit,
     thumbnailAlt: projectMetadata.thumbnailAlt,
     githubLink: projectMetadata.githubLink,
+    hidden: undefined === projectMetadata.hidden ? false : projectMetadata.hidden
   }
 }

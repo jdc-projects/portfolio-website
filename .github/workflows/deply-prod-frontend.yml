@@ -21,9 +21,6 @@ jobs:
       run:
         working-directory: ./frontend
 
-    outputs:
-      artifact_id: ${{ steps.upload-artifact.outputs.artifact_id }}
-
     steps:
       - name: Repo checkout
         uses: actions/checkout@v4
@@ -40,15 +37,19 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .next/cache
+            ./.next/cache
           key: ${{ runner.os }}-github-pages-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-github-pages-${{ hashFiles('**/package-lock.json') }}-
-      - name: Node modules install
+      - name: Install dependencies
         run: npm ci --omit=dev
       # backend URL definition *****
-      - name: Next build
+      - name: Build frontend
         run: npm run build
+      - name: Debugging
+        run: |
+          ls -al ./
+          ls -al ./.next
       - name: Archive artifact
         run: |
           echo ::group::Archive artifact
@@ -61,7 +62,6 @@ jobs:
             .
           echo ::endgroup::
       - name: Upload artifact
-        id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages

@@ -42,8 +42,8 @@ jobs:
         run: npm ci
       - name: Build frontend
         env:
-          BACKEND_URL: https://api.${{ vars.SERVER_BASE_DOMAIN }}
-        run: NEXT_PUBLIC_BACKEND_URL="$BACKEND_URL" npm run build
+          NEXT_PUBLIC_BACKEND_URL: https://api.${{ vars.SERVER_BASE_DOMAIN }}
+        run: npm run build
       - name: Debugging
         run: |
           ls -al ./

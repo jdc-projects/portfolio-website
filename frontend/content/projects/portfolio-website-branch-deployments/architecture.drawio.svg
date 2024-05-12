@@ -1,4 +1,4 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="121px" height="61px" viewBox="-0.5 -0.5 121 61" content="&lt;mxfile&gt;&lt;diagram id=&quot;T1C-LPHfRpuvti8uUc3J&quot; name=&quot;Page-1&quot;&gt;jZJNb4QgEIZ/jXeR7Nq91m7bS0826ZnIVEhQDI5V++uLy+BHNpv0Qmae+WDmhYQXzfTmRKc+rASTZKmcEv6SZNmF5/5cwBzAKT8FUDstA2IbKPUvEEyJDlpCf0hEaw3q7ggr27ZQ4YEJ5+x4TPu25nhrJ2q4A2UlzD390hJVoE9ZvvF30LWKN7PzJUQaEZNpk14Jaccd4teEF85aDFYzFWAW7aIuoe71QXQdzEGL/ynIQsGPMAPt9gk96rZeJI3WbVCc4/bODq2EpUGa8OdRaYSyE9USHf1ze6awMd5j3qT+4BCmhzOydXP/Y8A2gG72KVTAUxKLfgvLyR837VkUVO10PxMT9Nz12npTxBskSnQ38W+x3Q/m1z8=&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="121px" height="61px" viewBox="-0.5 -0.5 121 61" content="&lt;mxfile&gt;&lt;diagram id=&quot;T1C-LPHfRpuvti8uUc3J&quot; name=&quot;Page-1&quot;&gt;jZLBboMwDIafJncgGqzHjbL20GnTOOwcEY9ECgSlocCefmFxCghN2gXZ328T+08IzZvxZFgnXjUHRZKIj4QeSZIcaOa+M5g8eMhSD2ojuUfxAkr5DQgjpL3kcN0UWq2Vld0WVrptobIbxozRw7bsS6vtqR2rYQfKiqk9/ZTcCk8fk2zhZ5C1CCfH6cErDQvFuMlVMK6HFaIFobnR2vqoGXNQs3fBF9/38od6H8xAa//TkPiGG1M97vZ+ecqL89vlWHzgiHYKexvdtxzm1ojQ50FIC2XHqlkd3EU7JmyjXBa7cD8KTncDY2FcIRztBLoBayZXgiqN0CZ8J3GG+bC4HgcrxcrxFBnDi67vv168cAHaEdLF9l9t9XZp8QM=&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs/>
     <g>
         <rect x="0" y="0" width="120" height="60" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
@@ -8,13 +8,13 @@
                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 30px; margin-left: 1px;">
                         <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
                             <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-                                Testing testing
+                                PLACEHOLDER
                             </div>
                         </div>
                     </div>
                 </foreignObject>
                 <text x="60" y="34" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
-                    Testing testing
+                    PLACEHOLDER
                 </text>
             </switch>
         </g>

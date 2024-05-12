@@ -13,7 +13,7 @@ RUN npm ci --omit=dev
 
 # Build project
 FROM node:${NODE_IMAGE_TAG} AS builder
-ARG SMTP_RELAY_URL
+ARG BACKEND_URL
 WORKDIR /app
 
 # Copy node modules from deps

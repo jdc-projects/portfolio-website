@@ -38,7 +38,7 @@ export default async function Page(props: ProjectPageProps) {
         <Flex direction='row' >
           <Space visibleFrom="sm" w={20} />
           <Space hiddenFrom="sm" w={10} />
-          <Container>
+          <Container w='100%' >
             <Space/>
             <ProjectContent />
           </Container>

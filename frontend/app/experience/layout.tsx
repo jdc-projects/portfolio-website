@@ -40,7 +40,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
               <Space visibleFrom="sm" h={5} />
               <Flex direction='row' >
                 <Space visibleFrom="sm" w={20} />
-                <Container>
+                <Container w='100%' >
                   {children}
                 </Container>
               </Flex>

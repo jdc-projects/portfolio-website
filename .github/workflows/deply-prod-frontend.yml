@@ -1,6 +1,17 @@
 name: Deploy Production Frontend
 on:
+  push:
+    branches: ["trunk"]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -20,7 +31,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      # cache restore *****
+          # cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-github-pages-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-github-pages-${{ hashFiles('**/package-lock.json') }}-
       - name: Node modules install
         run: npm ci --omit=dev
       # backend URL definition *****
@@ -49,10 +72,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
-    permissions:
-      pages: write
-      id-token: write
 
     environment:
       name: github-pages

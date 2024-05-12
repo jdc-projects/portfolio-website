@@ -11,11 +11,11 @@ jobs:
         working-directory: ./frontend
 
     steps:
-      - name: "Repo checkout"
+      - name: Repo checkout
         uses: actions/checkout@v4
-      - name: "Setup node"
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: "Build Docker image"
-        run: "docker build ./ -t portfolio-website-next-app:${{ github.sha }}"
+      - name: Build Docker image
+        run: docker build ./ -t portfolio-website-next-app:${{ github.sha }}

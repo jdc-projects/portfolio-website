@@ -43,6 +43,7 @@ jobs:
       - name: Build frontend
         env:
           NEXT_PUBLIC_BACKEND_URL: https://api.${{ vars.SERVER_BASE_DOMAIN }}
+          NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
       - name: Debugging
         run: |

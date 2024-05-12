@@ -4,7 +4,7 @@ import { useForm } from '@mantine/form';
 type ContactFormProps = {
 }
 
-function tempOnSubmit(name: string, email: string, message: string) {
+function onSubmit(name: string, email: string, message: string) {
   console.log(name + "\n" + email + "\n" + message)
 }
 
@@ -24,7 +24,7 @@ export default function ContactForm(props: ContactFormProps) {
   });
 
   return (
-    <form onSubmit={form.onSubmit((values) => tempOnSubmit(values.name, values.email, values.message))}>
+    <form onSubmit={form.onSubmit((values) => onSubmit(values.name, values.email, values.message))}>
       <Stack gap='xs' >
         <TextInput withAsterisk label="Name" placeholder="John Smith" {...form.getInputProps('name')} />
         <TextInput withAsterisk label="Email" placeholder="john.smith@email.com" {...form.getInputProps('email')} />

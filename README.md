@@ -1,4 +1,3 @@
-# personal-website
-Personal website host at www.jack-chapman.co.uk
+# portfolio-website
 
-Inspiration taken from [dgelineau/next-mantine-blog-template](https://github.com/dgelineau/next-mantine-blog-template)
+Portfolio website hosted at [jd-chapman.dev](jd-chapman.dev)

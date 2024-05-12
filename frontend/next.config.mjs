@@ -36,6 +36,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.iconduck.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
     ],
   },
   experimental: {

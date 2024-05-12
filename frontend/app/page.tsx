@@ -19,7 +19,7 @@ export default async function Page() {
             {"Hello, I'm Jack"}
           </Title>
           <Title order={2} ta='center' >
-            {"Technology Architecture Consultant"}
+            {"Technology Consultant"}
           </Title>
           <Text ta='center' >
             {"I'm a quick-learning and adaptable generalist with experience of solution architecture, devops and infrastructure engineering, and software development."}

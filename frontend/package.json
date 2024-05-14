@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "echo 'Unsupported for now'",
+    "start": "npx serve ./out",
     "lint": "next lint",
     "analyse": "ENABLE_BUNDLE_ANALYZER=true next build",
     "clean": "rm -rf .next out node_modules next-env.d.ts"
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "eslint": "8.57.0",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "serve": "14.2.3"
   }
 }

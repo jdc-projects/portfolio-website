@@ -2,7 +2,7 @@ import Image from 'components/Image'
 import { Center, Flex, Space, Title, Text } from '@mantine/core'
 import SocialLinks from 'components/SocialLinks'
 
-import WorkProfilePhoto from './work-profile-photo.jpg'
+import ProfilePhoto from './profile-photo.jpg'
 
 export default async function Page() {
   return (
@@ -10,8 +10,8 @@ export default async function Page() {
       <Flex direction='column' w={600} >
         <Space/>
         <Center>
-          <Image visibleFrom='xs' src={WorkProfilePhoto} alt="Work profile / professional style image of Jack" w={400} radius='50%' />
-          <Image hiddenFrom='xs' src={WorkProfilePhoto} alt="Work profile / professional style image of Jack" w={300} radius='50%' />
+          <Image visibleFrom='xs' src={ProfilePhoto} alt="Work profile / professional style image of Jack" w={400} radius='50%' />
+          <Image hiddenFrom='xs' src={ProfilePhoto} alt="Work profile / professional style image of Jack" w={300} radius='50%' />
         </Center>
         <Space/>
         <Flex direction='column' align='center' justify='center' gap='xs' >

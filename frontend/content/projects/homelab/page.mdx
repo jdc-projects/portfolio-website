@@ -8,6 +8,7 @@ export const metadata = {
 
 import ArchitectureDiagram from './architecture.drawio.svg'
 import CaptionedImage from 'components/CaptionedImage'
+import ImageCollage from 'components/ImageCollage'
 
 # Homelab
 
@@ -51,6 +52,8 @@ Additionally, the provisioning and management of the cluster through GitHub Acti
 
 ## Skills
 
-- Terraform
-- Kubernetes
-- GitHub Actions
+<ImageCollage imagesProps={[
+  {src: 'https://www.svgrepo.com/show/374122/terraform.svg', alt: "Terraform logo" },
+  {src: 'https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg', alt: "Kubernetes logo" },
+  {src: 'https://cdn.worldvectorlogo.com/logos/github-icon-2.svg', alt: "Github logo" },
+]} />

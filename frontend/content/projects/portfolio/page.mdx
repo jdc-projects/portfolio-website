@@ -9,6 +9,7 @@ export const metadata = {
 
 import ArchitectureDiagram from './architecture.drawio.svg'
 import CaptionedImage from 'components/CaptionedImage'
+import ImageCollage from 'components/ImageCollage'
 
 # Portfolio
 
@@ -36,9 +37,11 @@ The GitHub Pages deployment is provisioned and updated using GitHub Actions, pro
 
 ## Skills
 
-- Javascript / Typescript
-- NPM
-- Frontend development
-- React / Next.js
-- Github Actions
-- Github Pages
+<ImageCollage imagesProps={[
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg', alt: "Javascript logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg', alt: "Typescript logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg', alt: "React logo" },
+  {src: 'https://www.svgrepo.com/show/342062/next-js.svg', alt: "Next.js logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg', alt: "NPM logo" },
+  {src: 'https://cdn.worldvectorlogo.com/logos/github-icon-2.svg', alt: "Github logo" },
+]} />

@@ -13,100 +13,36 @@ import { Stack, Text } from '@mantine/core'
 
 # Portfolio
 
-My portfolio website is a public-facing website - this webiste!
-It's designed to give people a view of who am I and what I do, primarily from a professional viewpoint as someone in the IT / engineering industry.
-This post will run through the technology behind the website, along with my thoughts and learning along the way.
+## Goal
 
-## Software
+To create a professional, personal website which shows off my skills, experience, and relevant personal projects.
+It also needs to be modern and easy to maintain and expand.
 
-### Next.js
+Additionally, I want to gain Javascript / Typescript and frontend experience.
 
-[Next.js](https://nextjs.org/) is an opinionated framework based on React developed and maintained by [Vercel](https://vercel.com/).
-I've been meaning to improve my JavaScript and React knowledge, and had heard good things about Next from friends, so I decided to choose it as the core for this project.
+## Technology
 
-[does this add anything?]
-I also decided to go with newer app router over the pages router - I've found the file structure it leads to is quite nice and understandable.
-However, since it was relatively new when I started, I did run into some issues with library compatability, particularly around server-side rendering (SSR).
-Some of this was definitely just the learning curve though, given that I started with fairly limited JS and React knowledge, and no experience with Next.
-
-[need a disclaimer in the first sentence somewhere...]
-The opinionated nature of the framework does make development, particularly for simple applications, pretty seamless.
-However, I can't speak to how easy a more complex application would work - this website is primarily static content.
-
-I used the following file structure for the project:
-
-- `app` - the application code, as mandated by Next
-- `components` - my custom React components
-- `content` - content for the site, e.g. project writeups like this one
-- `public` - public object, as mandated by Next
-- `utils` - utility modules for miscallaneous, reusable functionality (but not React components)
+- [Next.js](https://nextjs.org/), a React based frontend framework
+- [Mantine](https://mantine.dev/), a React components library
+- [MDX](https://mdxjs.com/) / Markdown, an easier way to write content
+- [GitHub Actions](https://github.com/features/actions), a CI/CD platform
+- [Github Pages](https://pages.github.com/), static website hosting
 
 ## Architecture
 
-[simple diagram]
+GitHub Pages hosts and serves the Next.js application, and Cloudflare's Content Deliver Network (CDN) provides caching to improve performance.
+The GitHub Pages deployment is provisioned and updated using GitHub Actions, providing automated deployments on push.
 
 <Stack align='center' gap='xs' mt={20} >
-  <Image src={ArchitectureDiagram} alt='Architecture for my portfolio website' w='80%' />
+  <Image src={ArchitectureDiagram} alt='Architecture for my portfolio website' w='60%' />
   <Text c='dimmed' >Architecture for my portfolio website</Text>
 </Stack>
 
-[single container image with whole application] [could split frontend and backend in the future]
+## Skills
 
-## Workflow
-
-[could use this sectiont to talk the entire workflow for the project]
-
-[local development]
-[npm and next]
-[docker and docker-compose]
-
-[branches and per-branch deployment] [link back to architecture diagram, namespace per env]
-[merging for prod site deployment]
-
-## 'Content' Deep-Dive
-
-I'm quite proud of how content for this website, like the [experience](/experience) sections or the [project](/projects) writeup you're reading now, are generated.
-For this reason, I want to talk through the functionality, doing a deeper dive on the technical aspects - if that isn't your cup of tea, feel free to skip this section.
-
-They start as [MDX](https://mdxjs.com/) files: essentially markdown with the added option of Javascript or React elements to add more complicated or custom functionality.
-They're a slightly more natural way of writing long-form content like this, rather than writing all of it using HTML or JSX.
-For example, in the source file the 'Architecture' section looks like this:
-
-```md
-## Architecture
-
-[simple diagram]
-
-<Stack align='center' gap='xs' mt={25} >
-  <Image src={ArchitectureDiagram} alt='Architecture for my portfolio website' w='80%' />
-  <Text c='dimmed' >Architecture for my portfolio website</Text>
-</Stack>
-```
-
-[configuration for mdx] [formatting]
-
-[about how content is stored, then used to create these pages]
-[mdx files]
-[metadata - e.g. project thumbnails]
-
-### Contact Button
-
-[next fetch API]
-[smtp]
-
-### Mantine
-
-[is this section really adding anything?]
-
-After some searching and research I settled on using [Mantine](https://mantine.dev/) as my primary UI library.
-It seemed well considered within the community, offered all the elements I needed (plus many more), is fully open source, and is compatible with Next and its app router.
-
-The ability to easily set default props for each component came in handy in a few different situations, and the library was nice and simple to use.
-The documentation for each component is also good and easy to follow - plus the plug-and-play of the light and dark mode colour schemes is quite neat.
-
-### Docker
-
-I used [Docker](https://www.docker.com/) to create a container of the Next application, which I am then able to deploy on the Kubernetes cluster on my [homelab](/projects/homelab).
-This process was fairly simple, with plenty of guides online about how to build
-
-[next's dependency tracing for a minimal sized image]
+- Javascript / Typescript
+- NPM
+- Frontend development
+- React / Next.js
+- Github Actions
+- Github Pages

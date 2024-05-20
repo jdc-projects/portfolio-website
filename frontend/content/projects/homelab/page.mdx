@@ -6,38 +6,27 @@ export const metadata = {
   // githubLink: 'https://github.com/jdc-projects/homelab',
 }
 
+import ArchitectureDiagram from './architecture.drawio.svg'
+import Image from 'components/Image'
+import { Stack, Text } from '@mantine/core'
+
 # Homelab
 
-My homelab is a platform I use for experimentation, learning, and hosting a few services for personal use.
-I've tried to set it up in way that supports that aim, allowing for easy control and expansion.
+## Goal
 
-My aim here is to give a brief overview of the setup for my homelab and justification for that setup.
-Please bear in mind though, since it's constantly changing and evolving, this page may not always be 100% up-to-date or correct at all times.
+To set up a lab primarily for testing and experimentation.
+It also needs to be able to host some useful services, such as file hosting / sync.
 
-## Hardware
+I already have a server to use, so it the solution needs to work on that.
+It also means I can turn it off when not needed, and save compared to cloud hosting.
 
-My homelab runs on an old Dell R720 server - I picked it up a number of years ago for next to nothing.
-It's an old but reasonably powerful and versatile server, plenty for my needs.
-It's configured as follows:
+It also needs to be maleable and adaptable to suit constant changes and evolution.
 
-- Dual E5-2650L v2s, chosen for their high core counts
-- 256GB of RAM, the configuration the server came with, which can be expanded to 384GB if needed
-- Some leftover SSDs in the front bays for mass storage, setup with ZFS
-- Some M.2 SSDs in converter cards in the rear PCIE slots as boot drives, in a mirrored software raid with LVM
-- An internal USB drive as the initial boot drive, since this server can't boot to M.2 drives directly due to its age
+## Technology
 
-## Software
-
-The server runs on Ubuntu, due to the familiarity and availability or help resources online.
-On top of Ubuntu I run [K3s](https://k3s.io/), a stripped-down, lightweight Kubernetes distribution.
-It's simple installation, easy configuration, and full Kubernetes compatability make it a great platform on which to learn how to use Kubernetes.
-Additionally, it is more than suitable for a simple, single node setup like mine.
-
-So, why Kubernetes?
-I have some previous experience running previous iterations of my homelab on Kubernetes, and I like managing containerised applications using it - even if I'm not taking advantage of its clustering capabilities.
-
-On top of Kubernetes I have a variety of tools, services, and applications:
-
+- [Terraform](https://www.terraform.io/), an infrastructure-as-code (IaC) system
+- [Kubernetes](https://kubernetes.io/), a container orchestration / cluster platform
+- [GitHub Actions](https://github.com/features/actions), a CI/CD platform
 - [CloudNative-PG operator](https://cloudnative-pg.io/), which provides Postgres databases where needed
 - [Harbor](https://goharbor.io/), a container image repository
 - [Keycloak](https://www.keycloak.org/), an identity / single-signon provider
@@ -51,14 +40,21 @@ On top of Kubernetes I have a variety of tools, services, and applications:
 - [Vaultwarden](https://www.vaultwarden.net/), a password manager
 - [Velero](https://velero.io/), the cluster's backup solution
 
-I may add specific project writeups for some of then above in the future - if any of them are of particular interest, let me know!
+## Architecture
 
-## Deployment
+Each service / project will have a namespace, so that they will be reasonably separate.
+This diagram is a highly simplified view of that architecture.
 
-All of the software deployment, bar the initial OS deployment and SSH key setup, is defined and ultimately deployed using [Terraform](https://www.terraform.io/).
-Each tool, service, or application is a separate Terraform setup, with all of the state files being stored on the Kubernetes cluster itself, using the Kubernetes backend.
-Terraform is an industry tool, and seemed like the obvious choice given my familiarity with it from work.
+The only service that is explicitly included is Traefik - as it is the ingress controller, it provides access to the other services and projects.
+Additionally, the provisioning and management of the cluster through GitHub Actions and Terraform is included.
 
-Terraform needs to be run somewhere to actually deploy any infrastructure - this is where [GitHub Actions](https://github.com/features/actions), GitHub's builtin CI/CD system, comes in.
-Like Terraform, I have experience using GitHub Actions in a professional context, and given I'm already using GitHub to host my code, it seemed like a nice, simple solution.
-The only difference, as you may have noticed above, is that I'm using self-hosted runners where possible, so that I don't need to worry about runner usage (and a potentially large bill) on private repos.
+<Stack align='center' gap='xs' mt={20} >
+  <Image src={ArchitectureDiagram} alt='Architecture for my homelab' w='80%' />
+  <Text c='dimmed' >Architecture for my homelab</Text>
+</Stack>
+
+## Skills
+
+- Terraform
+- Kubernetes
+- GitHub Actions

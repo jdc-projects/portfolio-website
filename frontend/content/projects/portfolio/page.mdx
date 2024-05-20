@@ -8,8 +8,7 @@ export const metadata = {
 }
 
 import ArchitectureDiagram from './architecture.drawio.svg'
-import Image from 'components/Image'
-import { Stack, Text } from '@mantine/core'
+import CaptionedImage from 'components/CaptionedImage'
 
 # Portfolio
 
@@ -33,10 +32,7 @@ Additionally, I want to gain Javascript / Typescript and frontend experience.
 GitHub Pages hosts and serves the Next.js application, and Cloudflare's Content Deliver Network (CDN) provides caching to improve performance.
 The GitHub Pages deployment is provisioned and updated using GitHub Actions, providing automated deployments on push.
 
-<Stack align='center' gap='xs' mt={20} >
-  <Image src={ArchitectureDiagram} alt='Architecture for my portfolio website' w='60%' />
-  <Text c='dimmed' >Architecture for my portfolio website</Text>
-</Stack>
+<CaptionedImage src={ArchitectureDiagram} caption='Architecture for my portfolio website' w='60%' />
 
 ## Skills
 

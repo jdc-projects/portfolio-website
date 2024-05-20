@@ -4,7 +4,7 @@ import sharp, { Metadata } from 'sharp'
 import axios from 'axios'
 import { assert } from 'console'
 
-type ImageProps = NextImageProps & MantineImageProps & {
+export type ImageProps = NextImageProps & MantineImageProps & {
   alt: string,
 }
 
@@ -21,7 +21,7 @@ export default async function Image(props: ImageProps) {
   return (
     <MantineImage component={NextImage} {...dimensions}
       placeholder={isFilePathImage && !isSvg ? 'blur' : 'empty'}
-      {...props} unoptimized />
+      unoptimized {...props} />
   )
 }
 

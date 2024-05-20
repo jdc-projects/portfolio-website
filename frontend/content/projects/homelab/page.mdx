@@ -7,8 +7,7 @@ export const metadata = {
 }
 
 import ArchitectureDiagram from './architecture.drawio.svg'
-import Image from 'components/Image'
-import { Stack, Text } from '@mantine/core'
+import CaptionedImage from 'components/CaptionedImage'
 
 # Homelab
 
@@ -48,10 +47,7 @@ This diagram is a highly simplified view of that architecture.
 The only service that is explicitly included is Traefik - as it is the ingress controller, it provides access to the other services and projects.
 Additionally, the provisioning and management of the cluster through GitHub Actions and Terraform is included.
 
-<Stack align='center' gap='xs' mt={20} >
-  <Image src={ArchitectureDiagram} alt='Architecture for my homelab' w='80%' />
-  <Text c='dimmed' >Architecture for my homelab</Text>
-</Stack>
+<CaptionedImage src={ArchitectureDiagram} w='80%' caption='Architecture for my homelab' />
 
 ## Skills
 

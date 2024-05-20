@@ -1,5 +1,5 @@
 
-import Image, { ImageProps as ImageProps } from 'components/Image'
+import Image, { ImageProps } from 'components/Image'
 import { Stack, Text } from '@mantine/core'
 
 type CaptionedImageeProps = ImageProps & {

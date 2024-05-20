@@ -38,7 +38,19 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'github.com',
+        hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.svgrepo.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.worldvectorlogo.com',
       },
     ],
   },

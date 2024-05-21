@@ -16,7 +16,7 @@ export default function ImageCollage(props: ImageCollageProps) {
   })
 
   return (
-    <Grid my={20} justify='center' align='center' gutter={{ base: 30 }} >
+    <Grid my={20} mx={20} justify='center' align='center' gutter={{ base: 30 }} >
       {Images}
     </Grid>
   )

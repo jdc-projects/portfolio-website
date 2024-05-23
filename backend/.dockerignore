@@ -1,0 +1,6 @@
+.gitignore
+.dockerignore
+debug/
+target/
+**/*.rs.bk
+*.pdb

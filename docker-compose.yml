@@ -5,10 +5,22 @@ services:
       context: ./frontend
       args:
         BACKEND_URL: http://localhost:8081/
-    links:
-      - smtp-mock
     ports:
       - "8080:8080"
+
+  backend:
+    image: portfolio-website-backend
+    build:
+      context: ./backend
+      args:
+        SMTP_DOMAIN: localhost
+        SMTP_PORT: 1025
+        SMTP_SECURE: false
+        SMTP_USERNAME: PLACEHOLDER
+        SMTP_PASSWORD: PLACEHOLDER
+    ports:
+      - "8081:8080"
+
   smtp-mock:
     restart: on-failure
     image: dockage/mailcatcher:0.8.2

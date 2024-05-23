@@ -37,7 +37,7 @@ WORKDIR /usr/share/nginx/frontend
 COPY --from=builder --chown=nginx /app/out ./
 
 # Add nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 8080 for nginx
 EXPOSE 8080

@@ -7,5 +7,7 @@ type AnchorProps = NextLinkProps & MantineAnchorProps & {
 }
 
 export default function Anchor(props: AnchorProps) {
-  return <MantineAnchor component={NextLink} target='_blank' {...props} >{props.children}</MantineAnchor>
+  const target = '/' === String(props.href)[0] ? undefined : '_blank'
+
+  return <MantineAnchor component={NextLink} target={target} {...props} >{props.children}</MantineAnchor>
 }

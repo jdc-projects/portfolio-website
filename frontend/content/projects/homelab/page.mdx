@@ -14,13 +14,13 @@ import ImageCollage from 'components/ImageCollage'
 
 ## Goal
 
-To set up a lab primarily for testing and experimentation.
-It also needs to be able to host some useful services, such as file hosting / sync.
+To set up a software / infrastructure lab primarily for testing, experimentation, and learning.
+It also needs to be able to host some useful services, such as file hosting and synchronisation.
 
-I already have a server to use, so it the solution needs to work on that.
-It also means I can turn it off when not needed, and save compared to cloud hosting.
+I already have a server to use, so the solution needs to work on that.
+This also means I can turn it off when not needed, and save compared to cloud hosting.
 
-It also needs to be maleable and adaptable to suit constant changes and evolution.
+The system should also be maleable and adaptable to support changes, experimentation, and evolution.
 
 ## Technology
 
@@ -38,15 +38,16 @@ It also needs to be maleable and adaptable to suit constant changes and evolutio
 - [Prometheus operator](https://prometheus-operator.dev/), providing a Grafana instance
 - [Traefik](https://traefik.io/traefik/), an ingress controller and reverse proxy
 - [Vaultwarden](https://www.vaultwarden.net/), a password manager
+- [Outline](https://www.getoutline.com/), a note taking / knowledge base application
 - [Penpot](https://penpot.app/), a UI design tool
 - [Velero](https://velero.io/), the cluster's backup solution
 
 ## Architecture
 
-Each service / project will have a namespace, so that they will be reasonably separate.
+Each service / project will have its own namespace, keeping them reasonably separate.
 This diagram is a highly simplified view of that architecture.
 
-The only service that is explicitly included is Traefik - as it is the ingress controller, it provides access to the other services and projects.
+The only service that is explicitly included in the diagram is Traefik - as it is the ingress controller, it provides access to the other services and projects.
 Additionally, the provisioning and management of the cluster through GitHub Actions and Terraform is included.
 
 <CaptionedImage src={ArchitectureDiagram} caption='Architecture for my homelab' maw={800} />

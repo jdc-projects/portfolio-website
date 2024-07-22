@@ -8,10 +8,15 @@ export default async function Layout({ children }: { children: React.ReactNode }
   const experiences = sortExperiences(await getExperiencesInfo())
 
   const navs: navs = experiences.map(experience => {
+    const dateFormatOptions: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+    }
+
     return {
       name: experience.title,
       route: experience.route,
-      description: experience.company + ', ' + experience.startDate.getFullYear() as unknown as string + '-' + (!(experience.endDate) ? 'Present' : (experience.endDate?.getFullYear() as unknown as string))
+      description: experience.company + ', ' + experience.startDate.toLocaleDateString('en-UK', dateFormatOptions) + ' - ' + (!(experience.endDate) ? 'Present' : (experience.endDate.toLocaleDateString('en-UK', dateFormatOptions)))
     }
   })
   navs.unshift({

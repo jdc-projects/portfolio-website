@@ -11,7 +11,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
     return {
       name: experience.title,
       route: experience.route,
-      description: experience.company + ', ' + experience.startYear as unknown as string + '-' + (experience.endYear === null ? 'present' : experience.endYear as unknown as string)
+      description: experience.company + ', ' + experience.startDate.getFullYear() as unknown as string + '-' + (!(experience.endDate) ? 'Present' : (experience.endDate?.getFullYear() as unknown as string))
     }
   })
   navs.unshift({
@@ -53,34 +53,17 @@ export default async function Layout({ children }: { children: React.ReactNode }
 }
 
 function sortExperiences(experiences: Array<ExperienceInfo>): Array<ExperienceInfo> {
-  const sortedExperiences: Array<ExperienceInfo> = []
-
-  experiences.forEach(experience => {
-    let isSorted = false
-
-    for (let i = 0; (i < sortedExperiences.length) && !isSorted; i++) {
-      const experienceStartYear = experience.startYear as unknown as number
-      const sortedExperienceStartYear = sortedExperiences[i].startYear as unknown as number
-      const experienceEndYear = experience.endYear !== null ? experience.endYear as unknown as number : 10000
-      const sortedExperienceEndYear = sortedExperiences[i].endYear !== null ? sortedExperiences[i].endYear as unknown as number : 10000
-
-      if (experienceEndYear > sortedExperienceEndYear) {
-        sortedExperiences.splice(i, 0, experience)
-        isSorted = true
-      } else if (experienceEndYear === sortedExperienceEndYear) {
-        // if we have nothing to differentiate them just put it here
-        if (experienceStartYear >= sortedExperienceStartYear) {
-          sortedExperiences.splice(i, 0, experience)
-          isSorted = true
-        }
-      }
-    }
-
-    // if the experience hasn't been put in the sorted array by now, that means it needs to go at the end
-    if (!isSorted) {
-      sortedExperiences.push(experience)
+  experiences.sort((a, b) => {
+    if (!(b.endDate)) {
+      return 1
+    } else if (!(a.endDate)) {
+      return -1
+    } else if (b.endDate.getTime() !== a.endDate.getTime()){
+      return b.endDate.getTime() - a.endDate.getTime()
+    } else {
+      return b.startDate.getTime() - a.startDate.getTime()
     }
   })
 
-  return sortedExperiences
+  return experiences
 }

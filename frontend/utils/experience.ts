@@ -6,8 +6,8 @@ export type ExperienceInfo = {
   route: string,
   title: string,
   company: string
-  startYear: number,
-  endYear: number,
+  startDate: Date,
+  endDate: Date | undefined,
 }
 
 export async function getExperiencesInfo(): Promise<Array<ExperienceInfo>> {
@@ -27,7 +27,7 @@ export async function getExperienceInfo(experience: string): Promise<ExperienceI
     route: ('/experience/' + experience),
     title: experienceMetadata.title,
     company: experienceMetadata.company,
-    startYear: experienceMetadata.startYear,
-    endYear: experienceMetadata.endYear,
+    startDate: experienceMetadata.startDate,
+    endDate: experienceMetadata.endDate,
   }
 }

@@ -19,7 +19,7 @@ export default async function Page() {
             Jack Chapman
           </Title>
           <Title order={2} ta='center' >
-            Technology Consultant
+            Solution Architect
           </Title>
           <Text ta='center' >
             With experience of solution architecture, cloud engineering, and software engineering, along with exposure to multiple industries, Jack is

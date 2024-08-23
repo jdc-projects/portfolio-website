@@ -1,5 +1,5 @@
-ARG RUST_IMAGE_TAG=1.78.0-bookworm
-ARG DEBIAN_IMAGE_TAG=bookworm-20240513-slim
+ARG RUST_IMAGE_TAG=1.80.1-bookworm
+ARG DEBIAN_IMAGE_TAG=bookworm-20240812-slim
 
 FROM rust:${RUST_IMAGE_TAG} AS builder
 WORKDIR /app

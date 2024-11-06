@@ -1,0 +1,34 @@
+export const metadata = {
+  title: 'GitHub Runner',
+  description: 'Customised self-hosted runner image for Github Actions',
+  thumbnail: 'https://images.unsplash.com/photo-1590595906931-81f04f0ccebb?ixlib=rb-4.0.3',
+  thumbnailAlt: 'Github on a computer screen',
+  githubLink: 'https://github.com/jdc-projects/runner',
+}
+
+import ImageCollage from 'components/ImageCollage'
+
+# GitHub Runner
+
+## Goal
+
+To create a customised Docker image for running GitHub Actions pipelines on my homelab.
+The image will based on the existing GitHub [runner image](https://github.com/actions/runner), with some extra tools and utilities installed:
+
+- [Node.js](https://nodejs.org/), runtime used by multiple GitHub Actions actions
+- [yq](https://github.com/mikefarah/yq), a yaml and json query tool
+
+The image will be run on my homelab, on Kubernetes, using the GitHub [Actions Runner Controller (ARC)](https://github.com/actions/actions-runner-controller).
+
+## Technology
+
+- [Docker](https://www.docker.com/), software for building and running containers
+- [GitHub Actions](https://github.com/features/actions), a CI/CD platform
+- GitHub [Actions Runner Controller](https://github.com/actions/actions-runner-controller), hosting GitHub Actions runners on Kubernetes
+
+## Skills
+
+<ImageCollage imagesProps={[
+  {src: 'https://www.svgrepo.com/show/353659/docker-icon.svg', alt: "Docker Logo" },
+  {src: 'https://cdn.worldvectorlogo.com/logos/github-icon-2.svg', alt: "Github logo" },
+]} />

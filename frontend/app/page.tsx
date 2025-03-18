@@ -19,11 +19,11 @@ export default async function Page() {
             Jack Chapman
           </Title>
           <Title order={2} ta='center' >
-            Solution Architect
+            Solutions Architect
           </Title>
           <Text ta='center' >
-            With experience of solution architecture, cloud engineering, and software engineering, along with exposure to multiple industries, Jack is
-            an adaptable and versatile individual. He has a passion for all technologies and absorbs new information quickly and effectively.
+            With experience of solution architecture and software engineering, alongside exposure to multiple industries, Jack is an adaptable and versatile architect.
+            He has a passion for all technologies, absorbing new information quickly and effectively to produce practical solutions for technical and non-technical challenges.
           </Text>
           <Space h={5} />
           <SocialLinks/>

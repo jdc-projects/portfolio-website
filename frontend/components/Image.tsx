@@ -2,7 +2,7 @@ import NextImage, { ImageProps as NextImageProps } from 'next/image'
 import { Image as MantineImage, ImageProps as MantineImageProps } from '@mantine/core'
 import sharp, { Metadata } from 'sharp'
 import axios from 'axios'
-import { assert } from 'console'
+import tunnel from 'tunnel'
 
 export type ImageProps = NextImageProps & MantineImageProps & {
   alt: string,
@@ -28,14 +28,28 @@ export default async function Image(props: ImageProps) {
 async function getImageDimensions(src: string): Promise<Dimensions> {
   let image: string | Buffer
 
-  const isLocalPublicPath = (src.at(0) === '/')
-  const isRemotePath = (src.slice(0, 4) === 'http')
+  const isLocalPublicPath = src.startsWith('/')
 
   if (isLocalPublicPath) {
     image = 'public' + src
   } else {
-    assert(isRemotePath)
-    image = (await axios({ url: src, responseType: "arraybuffer" })).data as Buffer;
+    try {
+      const axiosConfig: any = { responseType: 'arraybuffer' }
+      const proxyUrl = process.env.HTTP_PROXY || process.env.http_proxy
+      if (proxyUrl) {
+        const url = new URL(proxyUrl)
+        axiosConfig.httpsAgent = tunnel.httpsOverHttp({
+          proxy: { host: url.hostname, port: Number(url.port) }
+        })
+      }
+      const response = await axios.get(src, axiosConfig)
+      image = response.data as Buffer
+    } catch (err) {
+      if (process.env.NODE_ENV === 'production') {
+        return { width: 600, height: 400 }
+      }
+      throw err
+    }
   }
 
   const metadata: Metadata = await sharp(image).metadata()

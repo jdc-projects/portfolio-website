@@ -1,5 +1,6 @@
 import { Center, Flex, Text, Container, Space, Group } from "@mantine/core"
 import { getProjectsInfo, getProjectInfo } from 'utils/projects'
+import { notFound } from 'next/navigation'
 import { IconArrowLeft, IconBrandGithub } from "@tabler/icons-react"
 import Anchor from 'components/Anchor'
 import dynamic from 'next/dynamic'
@@ -12,6 +13,10 @@ type ProjectPageProps = {
 
 export default async function Page(props: ProjectPageProps) {
   const projectInfo = await getProjectInfo(props.params.project)
+
+  if (projectInfo.hidden) {
+    notFound()
+  }
 
   const ProjectContent = dynamic(() => import('content/projects/' + projectInfo.name + '/page.mdx'), {})
 
@@ -51,7 +56,7 @@ export default async function Page(props: ProjectPageProps) {
 }
 
 export async function generateStaticParams() {
-  const projects = await getProjectsInfo()
+  const projects = (await getProjectsInfo()).filter(p => !p.hidden)
 
   return projects.map(project => {
     return {

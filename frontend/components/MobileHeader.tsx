@@ -58,7 +58,7 @@ function MobileHeaderComponent(props: MobileHeaderProps) {
           <Flex gap='md' justify='center' align='center' direction='column' >
             {props.navs.map((nav: nav) => {
               return (
-                <Anchor href={nav.route} underline='never' c='currentColor' size='xl' fw={500} key={nav.name} >
+                <Anchor href={nav.route} underline='never' c='currentColor' size='xl' fw={500} key={nav.route} >
                   {nav.name}
                 </Anchor>
               )

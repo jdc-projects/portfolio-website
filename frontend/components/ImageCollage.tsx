@@ -8,7 +8,7 @@ type ImageCollageProps = {
 export default function ImageCollage(props: ImageCollageProps) {
   const Images = props.imagesProps.map( imageProps => {
     return (
-      <GridCol span={4} key={imageProps.alt} >
+      <GridCol span={4} key={imageProps.src} >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image {...imageProps} radius={0} />
       </GridCol>

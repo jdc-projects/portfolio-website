@@ -19,7 +19,7 @@ export default function Sidebar(props: SidebarProps) {
         const isFirstItem = nav === props.navs[0]
 
         return (
-          <Flex direction='column' gap='xs' key={nav.name} >
+          <Flex direction='column' gap='xs' key={nav.route} >
             {!isFirstItem ? <Divider mx={5} /> : null}
             <Anchor href={nav.route} underline='never' c='currentColor' >
               <Flex direction='column' mx={15} >

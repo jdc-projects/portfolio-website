@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Button, Flex, Collapse as MantineCollapse, Container, SimpleGrid } from "@mantine/core";
+import { Text, Button, Flex, Collapse as MantineCollapse, Container, SimpleGrid } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 
@@ -34,7 +34,7 @@ export default function Collapse(props: CollapseProps) {
         <SimpleGrid cols={3} >
           <Container />
           <Flex direction='row' align='center' justify='center' >
-            {props.buttonText}
+            <Text fw={600} >{props.buttonText}</Text>
           </Flex>
           <Flex direction='row' align='center' justify='flex-end' >
             {opened ? <IconChevronUp size={32} stroke={1.5} /> : <IconChevronDown size={32} stroke={1.5} />}

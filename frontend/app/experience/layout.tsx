@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import { Flex, Container, Space } from "@mantine/core"
 import Sidebar, { navs } from "components/Sidebar"
 import { getExperiencesInfo, ExperienceInfo } from "utils/experience"
-import Collapse from "components/Collapse"
+import MobileSidebar from "components/MobileSidebar"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const experiences = sortExperiences(await getExperiencesInfo())
@@ -30,10 +30,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
       <Flex direction='column' align='center' >
         <Container hiddenFrom='sm' miw={200} maw={300} >
           <Suspense fallback={null} >
-            <Collapse buttonText="Navigation" >
-              <Sidebar navs={navs} />
-              <Space/>
-            </Collapse>
+            <MobileSidebar navs={navs} />
           </Suspense>
         </Container>
         <Container>

@@ -9,5 +9,5 @@ test('mobile header displays burger menu', async ({ page }) => {
 
 test('mobile experience sidebar toggle visible', async ({ page }) => {
   await page.goto('/experience')
-  await expect(page.getByRole('button', { name: 'Navigation' }).first()).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Summary' }).first()).toBeVisible()
 })

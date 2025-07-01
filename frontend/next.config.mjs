@@ -54,13 +54,13 @@ const nextConfig = {
       },
     ],
   },
+  outputFileTracingIncludes: {
+    '/**': ['./node_modules/@img/**'],
+  },
   experimental: {
     optimizePackageImports: [
       '@mantine/core',
     ],
-    outputFileTracingIncludes: {
-      '/**': ['./node_modules/@img/**'],
-    },
   },
 }
 

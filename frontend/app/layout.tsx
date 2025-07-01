@@ -5,7 +5,9 @@ import '@mantine/code-highlight/styles.css'
 // fix for the width of the page always being slightly greater than 100%
 import './width-fix.css'
 
-import { MantineProvider, ColorSchemeScript, Container, Space, Divider } from '@mantine/core'
+import { MantineProvider, ColorSchemeScript, mantineHtmlProps, Container, Space, Divider } from '@mantine/core'
+import { CodeHighlightAdapterProvider } from '@mantine/code-highlight'
+import { codeHighlightAdapter } from 'utils/codehighlight'
 import { Roboto_Flex } from 'next/font/google'
 import DesktopHeader from 'components/DesktopHeader'
 import type { navs } from 'components/DesktopHeader'
@@ -38,13 +40,15 @@ const navs: navs = [
 ]
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const defaultColorScheme = 'light'
+
   return (
-    <html lang='en'>
+    <html lang='en' {...mantineHtmlProps} >
       <head>
-        <ColorSchemeScript defaultColorScheme='light' />
+        <ColorSchemeScript defaultColorScheme={defaultColorScheme} />
       </head>
       <body>
-        <MantineProvider defaultColorScheme='light' theme={{
+        <MantineProvider defaultColorScheme={defaultColorScheme} theme={{
           fontFamily: font.style.fontFamily,
 
           defaultRadius: 'md',
@@ -88,25 +92,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }
           },
         }} >
-          <Container mih='100%' pos='relative' >
-            <Space />
-            <header>
-              <Container visibleFrom='sm' >
-                <DesktopHeader navs={navs} />
+          <CodeHighlightAdapterProvider adapter={codeHighlightAdapter}>
+            <Container mih='100%' pos='relative' >
+              <Space />
+              <header>
+                <Container visibleFrom='sm' >
+                  <DesktopHeader navs={navs} />
+                </Container>
+                <Container hiddenFrom='sm' >
+                  <MobileHeader navs={navs} />
+                </Container>
+              </header>
+              <Space />
+              <Divider />
+              <Space h='lg' />
+              <Container px={20} >
+                {children}
               </Container>
-              <Container hiddenFrom='sm' >
-                <MobileHeader navs={navs} />
-              </Container>
-            </header>
-            <Space />
-            <Divider />
-            <Space h='lg' />
-            <Container px={20} >
-              {children}
+              <Space />
+              <Footer />
             </Container>
-            <Space />
-            <Footer />
-          </Container>
+          </CodeHighlightAdapterProvider>
         </MantineProvider>
       </body>
     </html>

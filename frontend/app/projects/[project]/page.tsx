@@ -6,13 +6,14 @@ import Anchor from 'components/Anchor'
 import dynamic from 'next/dynamic'
 
 type ProjectPageProps = {
-  params: {
+  params: Promise<{
     project: string,
-  }
+  }>
 }
 
 export default async function Page(props: ProjectPageProps) {
-  const projectInfo = await getProjectInfo(props.params.project)
+  const params = await props.params
+  const projectInfo = await getProjectInfo(params.project)
 
   if (projectInfo.hidden) {
     notFound()

@@ -42,7 +42,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: (props: any) => <Title order={5} >{props.children}</Title>,
     h6: (props: any) => <Title order={6} >{props.children}</Title>,
     p: MD_p,
-    pre: (props: any) => <><Space h='xs' /><CodeHighlight code={props.children.props.children} language={props.children.props.className.split("-").at(-1)} /></>,
+    pre: (props: any) => <><Space h='xs' /><CodeHighlight code={props.children.props.children} language={props.children.props.className.split("-").at(-1)} radius='md' /></>,
     em: (props: any) => <Text fs='italic' span={true} >{props.children}</Text>,
     strong: (props: any) => <Text fw={700} span={true} >{props.children}</Text>,
     li: MD_li,

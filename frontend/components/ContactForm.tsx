@@ -17,9 +17,9 @@ export default function ContactForm(props: ContactFormProps) {
     },
 
     validate: {
-      name: (value) => (/^[a-zA-Z ]+$/.test(value) ? null : 'Invalid name, please only use the letters a-z and spaces'),
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email, please enter a valid email address'),
-      message: (value) => (/^[a-zA-Z ]+$/.test(value) ? null : 'Invalid message, please only use the letters a-z and spaces'),
+      name: (value: string) => (/^[a-zA-Z ]+$/.test(value) ? null : 'Invalid name, please only use the letters a-z and spaces'),
+      email: (value: string) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email, please enter a valid email address'),
+      message: (value: string) => (/^[a-zA-Z ]+$/.test(value) ? null : 'Invalid message, please only use the letters a-z and spaces'),
     },
   });
 

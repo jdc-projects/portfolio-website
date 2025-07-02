@@ -4,7 +4,9 @@ import path from 'path'
 
 function getProjects() {
   const dir = path.join(__dirname, '..', 'content', 'projects')
-  return fs.readdirSync(dir).map(name => {
+  return fs.readdirSync(dir)
+    .filter(f => fs.statSync(path.join(dir, f)).isDirectory())
+    .map(name => {
     const file = fs.readFileSync(path.join(dir, name, 'page.mdx'), 'utf8')
     const headingMatch = file.match(/^#\s+(.*)$/m)
     const heading = headingMatch ? headingMatch[1] : name

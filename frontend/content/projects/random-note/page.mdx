@@ -1,0 +1,115 @@
+export const metadata = {
+  title: 'Random Note',
+  description: '*****',
+  thumbnail: 'https://random-note.jdc-projects.dev/favicon.svg',
+  thumbnailFit: 'contain',
+  thumbnailAlt: 'Favicon for the random note app, a quaver note on a staff',
+  githubLink: 'https://github.com/jdc-projects/random-note',
+}
+
+import CaptionedImage from 'components/CaptionedImage'
+import ImageCollage from 'components/ImageCollage'
+
+# Portfolio
+
+## Goal
+
+To create a web app, suitable for desktop and mobile use, that generates random musical notes.
+They needed to be in a variety of clefs, keys, pitches for reading and playing practice.
+Other features, such as sound output and a timer, were also included.
+
+This project was also used as an opportunity to test the new GLM 5.1 model from Z.ai with OpenCode.
+
+Available at [https://random-note.jdc-projects.dev/](https://random-note.jdc-projects.dev/).
+
+## Technology
+
+- [OpenCode](https://opencode.ai/), an AI agent harness
+- [GLM 5.1](https://docs.z.ai/guides/llm/glm-5.1), an LLM from Z.ai
+- [Next.js](https://nextjs.org/), a React based frontend framework
+- [GitHub Actions](https://github.com/features/actions), a CI/CD platform
+- [Github Pages](https://pages.github.com/), static website hosting
+
+## Prompts
+
+These two prompts produced the majority of the functionality:
+
+```md
+I want to create a tool that generates a random note on a stave when prompted. Generate a markdown spec doc (or docs if more appropriate) for the product outlined below. The markdown spec document(s) should be detailed enough that another agent without your context can pick it up and implement the app without having to make significant assumptions. Also create (or update) the README and AGENTS.md to reflect the setup and intent of the project, and any good practice or rules that should be followed.
+
+Requirements:
+1. Home / config screen
+    1. Ability to choose clef
+    2. Ability to choose key signature (in selected pitch, not concert)
+    3. Ability to include / exclude accidentals
+        1. Separate toggle for double accidentals
+    4. Ability to choose pitch (concert / C, Bb, etc.)
+    5. Ability to choose timer (options are no timer, or time in seconds up to a maximum of 60s)
+    6. Start button that moves onto the next screen
+    7. Settings should be remembered - i.e. when opened in a new tab / window, or when navigating back to this screen from the random notes screen
+2. Random notes screen
+    1. Random note on a stave, in the chosen clef and key signature
+    2. If accidentals are enabled, both normal and accidental notes should be generated / displayed
+    3. 'Next' button that generates the next random note
+    4. Section that says what the note is (in concert pitch, and the chosen pitch if different)
+        1. In an expand that is closed by default
+        2. Expand should retain state when pressing next, but a new 'run' (i.e. after pressing start on the config screen) should close it again
+    5. 'Change Settings' button that goes back to the home / config screen
+    6. If the timer is active:
+        1. When it expires the app should act as if the 'next' button is pressed
+        2. If the next button is pressed, that resets the timer
+3. Responsive layout - should work equally well on a desktop and mobile devices
+
+Keep the UI simple and modern.
+
+Tech stack:
+* Next.js app
+    * Static output mode
+    * Use NPM
+    * Typescript
+* Mantine for general UI elements
+* Tabler for icons
+* Vitest for unit / integration tests
+* Playwright for e2e / UI testing
+
+Select other libraries / technology yourself as required - use libraries wherever possible to reduce the amount of custom code. Perform any research needed before starting. Particularly the display of music on a stave will likely benefit from a library. Libraries for enabling testing may also be helpful (e.g. fuzzing).
+
+Test strategy: all features and functionality should be fully covered by unit / integration tests and e2e / UI tests. Tests should be run before any work is completed, and if any failures are encountered they should be fixed before finishing. If only tests are changed, only failing / changed tests need to be run again, otherwise the full test suite must be run.
+
+Deployment:
+* Github Pages
+    * Use `ubuntu-latest` runner type
+* Using Github Actions
+* On push to default branch (`trunk`)
+* Domain will be `random-notes.jdc-projects.dev`, with web app served from the root of that subdomain (no path prefix)
+
+If you need to clarify anything, ask questions before you start writing anything - make sure you have all the information you need before you get started. If you make any assumptions, present them to me for evaluation before using them in the specification. Be thorough, think hard, be concise in your writing without losing information.
+```
+
+```md
+Some new features to add - make sure the docs are updated as well:
+1. Add a toggle option for sound output
+    1. When enabled, a continuous drone of the note shown should be output
+2. Add a toggle option for '8vb' (play notes one octave lower than they are written)
+    1. Ideally this should be reflected on the clef, but if that will be difficult feed that back before starting work and give options
+    2. Pitches / notes in the expand section should match the octave shift
+3. Add an advanced settings expand in config screen (at the bottom) and add these settings
+    1. Chance of single and double accidentals occurring, by default set to 20% and 5% respectively (only used when single or double accidentals are enabled)
+4. Set timer values to be (in seconds): No timer, 1, 2, 3, 4, 5, 10, 20, 30, 60
+    1. Put them on a slider rather than the searchable entry box at the moment.
+```
+
+## Architecture
+
+The same architecture is used as for this portfolio website - see [here](https://jd-chapman.dev/projects/portfolio-website) for more information.
+
+## Skills
+
+<ImageCollage imagesProps={[
+  {src: 'https://api.everydev.ai/storage/v1/object/public/tool-media/tools/opencode/icons/icon.png', alt: "OpenCode logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Z.ai_%28company_logo%29.svg', alt: "Z.ai logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg', alt: "Typescript logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg', alt: "React logo" },
+  {src: 'https://www.svgrepo.com/show/342062/next-js.svg', alt: "Next.js logo" },
+  {src: 'https://cdn.worldvectorlogo.com/logos/github-icon-2.svg', alt: "Github logo" },
+]} />

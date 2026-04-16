@@ -7,6 +7,7 @@ async function loadShiki() {
   const shiki = await createHighlighter({
     langs: [
       'js',
+      'md',
     ],
     themes: [],
   });

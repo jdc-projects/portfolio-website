@@ -1,7 +1,6 @@
 import { Grid, GridCol, Flex } from '@mantine/core'
 import Anchor from 'components/Anchor'
 import ColourSchemeToggleButton from './ColourSchemeToggleButton'
-import ContactButton from './ContactButton'
 
 export type nav = {
   name: string,
@@ -30,11 +29,6 @@ export default function DesktopHeader(props: DesktopHeaderProps) {
               </Anchor>
             )
           })}
-        </Flex>
-      </GridCol>
-      <GridCol span={2} >
-        <Flex visibleFrom='sm' justify='center' align='center' direction='row' h='100%' mr={40} >
-          <ContactButton/>
         </Flex>
       </GridCol>
     </Grid>

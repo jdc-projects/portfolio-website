@@ -7,7 +7,6 @@ import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { useDisclosure } from '@mantine/hooks'
-import ContactButton from './ContactButton'
 import { nav, navs } from 'components/DesktopHeader'
 
 type MobileHeaderProps = {
@@ -63,7 +62,6 @@ function MobileHeaderComponent(props: MobileHeaderProps) {
                 </Anchor>
               )
             })}
-            <ContactButton />
           </Flex>
           <Space h={10} />
         </Collapse>

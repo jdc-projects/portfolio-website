@@ -1,6 +1,6 @@
-import { test, expect, devices } from '@playwright/test'
+import { test, expect } from '@playwright/test'
 
-test.use({ ...devices['iPhone SE'] })
+test.use({ viewport: { width: 375, height: 667 } })
 
 test('mobile header displays burger menu', async ({ page }) => {
   await page.goto('/')

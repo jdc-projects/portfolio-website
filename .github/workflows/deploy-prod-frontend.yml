@@ -80,7 +80,7 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
         run: |
-          npm run test:playwright
+          npm run test
 
   deploy:
     needs: [build, playwright-tests]

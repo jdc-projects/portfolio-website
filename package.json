@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "analyse": "ENABLE_BUNDLE_ANALYZER=true next build --webpack",
     "clean": "rm -rf .next out node_modules next-env.d.ts playwright-*",
+    "test": "playwright test",
     "test:playwright": "playwright test"
   },
   "dependencies": {

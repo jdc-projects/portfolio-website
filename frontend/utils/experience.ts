@@ -1,5 +1,4 @@
-import { promises as fs } from 'fs'
-import path from 'path'
+import { allExperiences } from 'content-collections'
 
 export type ExperienceInfo = {
   name: string,
@@ -10,24 +9,22 @@ export type ExperienceInfo = {
   endDate: Date | undefined,
 }
 
-export async function getExperiencesInfo(): Promise<Array<ExperienceInfo>> {
-  const experiencesDir = path.join(process.cwd(), 'content', 'experiences')
-  const experiences = (await fs.readdir(experiencesDir, { withFileTypes: true }))
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-
-  return Promise.all(experiences.map(async experience => getExperienceInfo(experience)))
+function parseDate(dateStr: string): Date {
+  const [year, month] = dateStr.split('-').map(Number)
+  return new Date(year, month - 1)
 }
 
-export async function getExperienceInfo(experience: string): Promise<ExperienceInfo> {
-  const experienceMetadata = (await import('content/experiences/' + experience + '/page.mdx')).meta
+export function getExperiencesInfo(): Array<ExperienceInfo> {
+  return allExperiences.map(experience => ({
+    name: experience.slug,
+    route: experience.route,
+    title: experience.title,
+    company: experience.company,
+    startDate: parseDate(experience.startDate),
+    endDate: experience.endDate ? parseDate(experience.endDate) : undefined,
+  }))
+}
 
-  return {
-    name: experience,
-    route: ('/experience/' + experience),
-    title: experienceMetadata.title,
-    company: experienceMetadata.company,
-    startDate: experienceMetadata.startDate,
-    endDate: experienceMetadata.endDate,
-  }
+export function getExperienceInfo(experience: string): ExperienceInfo | undefined {
+  return getExperiencesInfo().find(e => e.name === experience)
 }

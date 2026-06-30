@@ -1,11 +1,14 @@
+import { withContentCollections } from '@content-collections/next'
 import createMDX from '@next/mdx'
 import createBundleAnalyzer from '@next/bundle-analyzer'
 import remarkGfm from 'remark-gfm'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import yn from 'yn'
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
     rehypePlugins: [],
   },
   experimental: {
@@ -92,4 +95,4 @@ const nextConfig = {
   },
 }
 
-export default withBundleAnalyser(withMDX(nextConfig))
+export default withContentCollections(withBundleAnalyser(withMDX(nextConfig)))

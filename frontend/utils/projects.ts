@@ -1,5 +1,4 @@
-import { promises as fs } from 'fs'
-import path from 'path'
+import { allProjects } from 'content-collections'
 
 export type ProjectInfo = {
   name: string,
@@ -13,27 +12,20 @@ export type ProjectInfo = {
   hidden: boolean,
 }
 
-export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
-  const projectsDir = path.join(process.cwd(), 'content', 'projects')
-  const projects = (await fs.readdir(projectsDir, { withFileTypes: true }))
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-
-  return Promise.all(projects.map(async project => getProjectInfo(project)))
+export function getProjectsInfo(): Array<ProjectInfo> {
+  return allProjects.map(project => ({
+    name: project.slug,
+    route: project.route,
+    title: project.title,
+    description: project.description,
+    thumbnail: project.thumbnail,
+    thumbnailFit: (project.thumbnailFit ?? 'cover') as React.CSSProperties['objectFit'],
+    thumbnailAlt: project.thumbnailAlt,
+    githubLink: project.githubLink,
+    hidden: project.hidden ?? false,
+  }))
 }
 
-export async function getProjectInfo(project: string): Promise<ProjectInfo> {
-  const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).meta
-
-  return {
-    name: project,
-    route: ('/projects/' + project),
-    title: projectMetadata.title,
-    description: projectMetadata.description,
-    thumbnail: projectMetadata.thumbnail,
-    thumbnailFit: (undefined === projectMetadata.thumbnailFit) ? 'cover' : projectMetadata.thumbnailFit,
-    thumbnailAlt: projectMetadata.thumbnailAlt,
-    githubLink: projectMetadata.githubLink,
-    hidden: undefined === projectMetadata.hidden ? false : projectMetadata.hidden
-  }
+export function getProjectInfo(project: string): ProjectInfo | undefined {
+  return getProjectsInfo().find(p => p.name === project)
 }

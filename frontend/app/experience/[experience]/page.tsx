@@ -1,4 +1,5 @@
-import { getExperienceInfo, getExperiencesInfo } from 'utils/experience'
+import { allExperiences } from 'content-collections'
+import { notFound } from 'next/navigation'
 
 type ExperiencePageProps = {
   params: Promise<{
@@ -8,20 +9,19 @@ type ExperiencePageProps = {
 
 export default async function Page(props: ExperiencePageProps) {
   const params = await props.params
-  const experience = await getExperienceInfo(params.experience)
-  const { default: ExperienceContent } = await import('content/experiences/' + experience.name + '/page.mdx')
+  const experience = allExperiences.find(e => e.slug === params.experience)
+
+  if (!experience) {
+    notFound()
+  }
+
+  const MDXContent = experience.mdxContent
 
   return (
-    <ExperienceContent/>
+    <MDXContent/>
   )
 }
 
-export async function generateStaticParams() {
-  const experiences = await getExperiencesInfo()
-
-  return experiences.map(experience => {
-    return {
-      experience: experience.name,
-    }
-  })
+export function generateStaticParams() {
+  return allExperiences.map(e => ({ experience: e.slug }))
 }

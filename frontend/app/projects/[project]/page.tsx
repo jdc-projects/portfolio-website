@@ -1,5 +1,5 @@
 import { Center, Flex, Text, Container, Space, Group } from "@mantine/core"
-import { getProjectsInfo, getProjectInfo } from 'utils/projects'
+import { allProjects } from 'content-collections'
 import { notFound } from 'next/navigation'
 import { IconArrowLeft, IconBrandGithub } from "@tabler/icons-react"
 import Anchor from 'components/Anchor'
@@ -12,13 +12,13 @@ type ProjectPageProps = {
 
 export default async function Page(props: ProjectPageProps) {
   const params = await props.params
-  const projectInfo = await getProjectInfo(params.project)
+  const project = allProjects.find(p => p.slug === params.project)
 
-  if (projectInfo.hidden) {
+  if (!project || project.hidden) {
     notFound()
   }
 
-  const { default: ProjectContent } = await import('content/projects/' + projectInfo.name + '/page.mdx')
+  const MDXContent = project.mdxContent
 
   return (
     <Center>
@@ -31,8 +31,8 @@ export default async function Page(props: ProjectPageProps) {
               <Text>Projects</Text>
             </Flex>
           </Anchor>
-          {(undefined === projectInfo.githubLink) ? null :
-            <Anchor href={projectInfo.githubLink} underline='never' >
+          {project.githubLink === undefined ? null :
+            <Anchor href={project.githubLink} underline='never' >
               <Flex direction='row' justify='flex-end' align='center' >
                 <IconBrandGithub stroke={1.5} />
                 <Text ml={5} >Github Repo</Text>
@@ -45,7 +45,7 @@ export default async function Page(props: ProjectPageProps) {
           <Space hiddenFrom="sm" w={10} />
           <Container w='100%' >
             <Space/>
-            <ProjectContent />
+            <MDXContent />
           </Container>
           <Space visibleFrom="sm" w={20} />
           <Space hiddenFrom="sm" w={10} />
@@ -55,12 +55,8 @@ export default async function Page(props: ProjectPageProps) {
   )
 }
 
-export async function generateStaticParams() {
-  const projects = (await getProjectsInfo()).filter(p => !p.hidden)
-
-  return projects.map(project => {
-    return {
-      project: project.name,
-    }
-  })
+export function generateStaticParams() {
+  return allProjects
+    .filter(p => !p.hidden)
+    .map(p => ({ project: p.slug }))
 }

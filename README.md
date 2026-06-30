@@ -12,7 +12,7 @@ Built with [Next.js](https://nextjs.org/) (static export), [Mantine](https://man
 ## Development
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 

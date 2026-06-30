@@ -1,4 +1,7 @@
 import { test, expect } from '@playwright/test'
+import { getProjects } from './_helpers'
+
+const projectWithGithub = getProjects().find(p => !p.hidden && p.githubLink)
 
 test('external links open in new tab', async ({ page }) => {
   await page.goto('/')
@@ -13,7 +16,11 @@ test('internal links do not open in new tab', async ({ page }) => {
 })
 
 test('project page GitHub links open in new tab', async ({ page }) => {
-  await page.goto('/projects/github-runner')
+  if (!projectWithGithub) {
+    test.skip()
+    return
+  }
+  await page.goto(projectWithGithub.route)
   const repoLink = page.getByRole('link', { name: /Github Repo/i })
   await expect(repoLink).toHaveAttribute('target', '_blank')
 })

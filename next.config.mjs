@@ -11,9 +11,6 @@ const withMDX = createMDX({
     remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
     rehypePlugins: [],
   },
-  experimental: {
-    mdxRs: true,
-  },
 })
 
 const withBundleAnalyser = createBundleAnalyzer({
@@ -24,7 +21,6 @@ const withBundleAnalyser = createBundleAnalyzer({
 const nextConfig = {
   output: 'export',
   pageExtensions: ['tsx', 'mdx'],
-  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -57,9 +53,6 @@ const nextConfig = {
       },
     ],
   },
-  outputFileTracingIncludes: {
-    '/**': ['./node_modules/@img/**'],
-  },
   experimental: {
     optimizePackageImports: [
       '@mantine/core',
@@ -67,7 +60,6 @@ const nextConfig = {
   },
   webpack: (
     config,
-    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
   ) => {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg'),

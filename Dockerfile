@@ -1,4 +1,4 @@
-ARG NODE_IMAGE_TAG=20.17.0-alpine3.20
+ARG NODE_IMAGE_TAG=26.4.0-alpine
 ARG NGINX_IMAGE_TAG=1.27.1-alpine3.20-slim
 
 # Get dependencies

@@ -6,7 +6,7 @@ Built with [Next.js](https://nextjs.org/) (static export), [Mantine](https://man
 
 ## Prerequisites
 
-- Node.js 20+
+- Node.js 26.4.0 (use `nvm use` with the `.nvmrc` file)
 - npm
 
 ## Development

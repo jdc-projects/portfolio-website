@@ -54,7 +54,7 @@ function MobileHeaderComponent(props: MobileHeaderProps) {
         </Flex>
       </GridCol>
       <GridCol span={12} m={0} p={0} >
-        <Collapse in={opened} >
+        <Collapse expanded={opened} >
           <Flex gap='md' justify='center' align='center' direction='column' >
             {props.navs.map((nav: nav) => {
               return (

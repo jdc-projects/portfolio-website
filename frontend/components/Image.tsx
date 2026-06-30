@@ -1,5 +1,6 @@
 import NextImage, { ImageProps as NextImageProps } from 'next/image'
-import { Image as MantineImage, ImageProps as MantineImageProps } from '@mantine/core'
+import { ImageProps as MantineImageProps } from '@mantine/core'
+import MantineNextImage from 'components/MantineNextImage'
 import sharp, { Metadata } from 'sharp'
 import axios from 'axios'
 import tunnel from 'tunnel'
@@ -19,7 +20,7 @@ export default async function Image(props: ImageProps) {
   const dimensions : Dimensions = isFilePathImage ? {width: props.src.width, height: props.src.height} : await getImageDimensions(props.src)
 
   return (
-    <MantineImage component={NextImage} {...dimensions}
+    <MantineNextImage {...dimensions}
       placeholder={isFilePathImage && !isSvg ? 'blur' : 'empty'}
       unoptimized {...props} />
   )

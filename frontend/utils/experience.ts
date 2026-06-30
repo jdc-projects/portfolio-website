@@ -20,7 +20,7 @@ export async function getExperiencesInfo(): Promise<Array<ExperienceInfo>> {
 }
 
 export async function getExperienceInfo(experience: string): Promise<ExperienceInfo> {
-  const experienceMetadata = (await import('content/experiences/' + experience + '/page.mdx')).metadata
+  const experienceMetadata = (await import('content/experiences/' + experience + '/page.mdx')).meta
 
   return {
     name: experience,

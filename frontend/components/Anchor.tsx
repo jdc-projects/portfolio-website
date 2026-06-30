@@ -1,3 +1,5 @@
+'use client'
+
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { Anchor as MantineAnchor, AnchorProps as MantineAnchorProps } from '@mantine/core'
 import { ReactNode } from 'react'

@@ -41,7 +41,7 @@ export default function Collapse(props: CollapseProps) {
           </Flex>
         </SimpleGrid>
       </Button>
-      <MantineCollapse in={opened}>
+      <MantineCollapse expanded={opened}>
         {props.children}
       </MantineCollapse>
     </Flex>

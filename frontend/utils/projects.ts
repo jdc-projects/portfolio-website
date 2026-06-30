@@ -23,7 +23,7 @@ export async function getProjectsInfo(): Promise<Array<ProjectInfo>> {
 }
 
 export async function getProjectInfo(project: string): Promise<ProjectInfo> {
-  const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).metadata
+  const projectMetadata = (await import('content/projects/' + project + '/page.mdx')).meta
 
   return {
     name: project,

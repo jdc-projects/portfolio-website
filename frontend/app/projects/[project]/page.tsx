@@ -3,7 +3,6 @@ import { getProjectsInfo, getProjectInfo } from 'utils/projects'
 import { notFound } from 'next/navigation'
 import { IconArrowLeft, IconBrandGithub } from "@tabler/icons-react"
 import Anchor from 'components/Anchor'
-import dynamic from 'next/dynamic'
 
 type ProjectPageProps = {
   params: Promise<{
@@ -19,7 +18,7 @@ export default async function Page(props: ProjectPageProps) {
     notFound()
   }
 
-  const ProjectContent = dynamic(() => import('content/projects/' + projectInfo.name + '/page.mdx'), {})
+  const { default: ProjectContent } = await import('content/projects/' + projectInfo.name + '/page.mdx')
 
   return (
     <Center>

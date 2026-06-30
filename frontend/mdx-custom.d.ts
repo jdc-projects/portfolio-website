@@ -1,4 +1,4 @@
 declare module '*.mdx' {
-  // every file could have metadata, but it may not always be the same format
-  export const metadata: any;
+  // every file could have meta, but it may not always be the same format
+  export const meta: any;
 }

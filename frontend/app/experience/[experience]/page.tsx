@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import { getExperienceInfo, getExperiencesInfo } from 'utils/experience'
 
 type ExperiencePageProps = {
@@ -10,7 +9,7 @@ type ExperiencePageProps = {
 export default async function Page(props: ExperiencePageProps) {
   const params = await props.params
   const experience = await getExperienceInfo(params.experience)
-  const ExperienceContent = dynamic(() => import('content/experiences/' + experience.name + '/page.mdx'), {})
+  const { default: ExperienceContent } = await import('content/experiences/' + experience.name + '/page.mdx')
 
   return (
     <ExperienceContent/>

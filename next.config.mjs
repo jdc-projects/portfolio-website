@@ -1,14 +1,18 @@
 import { withContentCollections } from '@content-collections/next'
 import createMDX from '@next/mdx'
 import createBundleAnalyzer from '@next/bundle-analyzer'
-import remarkGfm from 'remark-gfm'
-import remarkFrontmatter from 'remark-frontmatter'
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import yn from 'yn'
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
+    // String format required for Turbopack compatibility — function refs
+    // can't be serialized to the Rust compiler.
+    // https://nextjs.org/docs/app/guides/mdx#using-plugins-with-turbopack
+    remarkPlugins: [
+      'remark-gfm',
+      'remark-frontmatter',
+      'remark-mdx-frontmatter',
+    ],
     rehypePlugins: [],
   },
 })
@@ -57,33 +61,6 @@ const nextConfig = {
     optimizePackageImports: [
       '@mantine/core',
     ],
-  },
-  webpack: (
-    config,
-  ) => {
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg'),
-    )
-
-    config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/, // *.svg?url
-      },
-      // Convert all other *.svg imports using url-loader
-      {
-        test: /\.svg$/i,
-        issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: [
-          'url-loader',
-        ],
-      },
-    )
-
-    return config
   },
 }
 

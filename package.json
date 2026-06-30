@@ -6,11 +6,11 @@
     "node": ">=26.4.0"
   },
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "npx serve ./out",
     "lint": "eslint .",
-    "analyse": "ENABLE_BUNDLE_ANALYZER=true next build --webpack",
+    "analyse": "ENABLE_BUNDLE_ANALYZER=true next build",
     "clean": "rm -rf .next out node_modules next-env.d.ts playwright-*",
     "test": "playwright test",
     "test:playwright": "playwright test"
@@ -51,7 +51,6 @@
     "shiki": "^4",
     "tunnel": "^0.0.6",
     "typescript": "^6",
-    "url-loader": "^4",
     "yn": "^5",
     "zod": "^4"
   }

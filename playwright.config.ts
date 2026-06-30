@@ -5,6 +5,9 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   outputDir: './playwright-results',
+  reporter: process.env.CI
+    ? [['github'], ['html', { open: 'never' }]]
+    : 'list',
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000',
     trace: 'on-first-retry',

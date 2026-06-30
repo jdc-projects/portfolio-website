@@ -21,14 +21,14 @@ jobs:
 
     steps:
       - name: Repo checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 26.4.0
           cache: npm
       - name: Restore cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             ./.next/cache
@@ -66,9 +66,9 @@ jobs:
 
     steps:
       - name: Repo checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 26.4.0
           cache: npm

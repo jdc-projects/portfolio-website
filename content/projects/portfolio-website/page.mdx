@@ -1,0 +1,47 @@
+---
+title: Portfolio Website
+description: The technology behind this website, my portfolio website
+thumbnail: /logo.png
+thumbnailFit: contain
+thumbnailAlt: 'Favicon for my portfolio website, a pixel-art-style CPU with the letters J and C inside'
+githubLink: 'https://github.com/jdc-projects/portfolio-website'
+---
+
+import ArchitectureDiagram from './architecture.drawio.svg'
+import CaptionedImage from 'components/CaptionedImage'
+import ImageCollage from 'components/ImageCollage'
+
+# Portfolio
+
+## Goal
+
+To create a professional, personal website that advertises my skills, experience, and relevant personal projects.
+It also needs to be modern and easy to maintain and expand.
+
+Additionally, to gain Javascript / Typescript and frontend development experience.
+
+## Technology
+
+- [Next.js](https://nextjs.org/), a React based frontend framework
+- [Mantine](https://mantine.dev/), a React components library
+- [MDX](https://mdxjs.com/) / Markdown, an easier way to write content
+- [GitHub Actions](https://github.com/features/actions), a CI/CD platform
+- [Github Pages](https://pages.github.com/), static website hosting
+
+## Architecture
+
+GitHub Pages hosts and serves the Next.js application, and Cloudflare's Content Deliver Network (CDN) provides caching to improve performance.
+The GitHub Pages deployment is provisioned and updated using GitHub Actions, providing automated deployments on push to the `trunk` branch.
+
+<CaptionedImage src={ArchitectureDiagram} caption='Architecture for my portfolio website' maw={600} />
+
+## Skills
+
+<ImageCollage imagesProps={[
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg', alt: "Javascript logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg', alt: "Typescript logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg', alt: "React logo" },
+  {src: 'https://www.svgrepo.com/show/342062/next-js.svg', alt: "Next.js logo" },
+  {src: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg', alt: "NPM logo" },
+  {src: 'https://cdn.worldvectorlogo.com/logos/github-icon-2.svg', alt: "Github logo" },
+]} />

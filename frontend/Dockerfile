@@ -1,8 +1,6 @@
 ARG NODE_IMAGE_TAG=20.17.0-alpine3.20
 ARG NGINX_IMAGE_TAG=1.27.1-alpine3.20-slim
 
-ARG BACKEND_URL
-
 # Get dependencies
 FROM node:${NODE_IMAGE_TAG} AS deps
 WORKDIR /app
@@ -13,7 +11,6 @@ RUN npm ci --omit=dev
 
 # Build project
 FROM node:${NODE_IMAGE_TAG} AS builder
-ARG BACKEND_URL
 WORKDIR /app
 
 # Copy node modules from deps
@@ -22,9 +19,6 @@ COPY ./ ./
 
 # Next.js collects anonymous telemetry data about general usage, which we opt out from
 ENV NEXT_TELEMETRY_DISABLED 1
-
-# Define the smtp relay URL
-ENV NEXT_PUBLIC_BACKEND_URL $BACKEND_URL
 
 # Run the build
 RUN npm run build

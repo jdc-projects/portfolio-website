@@ -23,7 +23,7 @@ export default async function Page() {
           </Title>
           <Text ta='center' >
             With experience of solution architecture and software engineering, alongside exposure to multiple industries, Jack is an adaptable and versatile architect.
-            He has a passion for all technologies, absorbing new information quickly and effectively to produce practical solutions for technical and non-technical challenges.
+            Expertise in modern agentic AI delivery, including proof-of-concepts, deployed production applications, and enablement of new and existing teams with AI tooling, means Jack is ready to solve challenges across technical and business contexts.
           </Text>
           <Space h={5} />
           <SocialLinks/>

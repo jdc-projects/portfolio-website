@@ -14,6 +14,7 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
     if (!POSTHOG_KEY) return
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
+      ui_host: POSTHOG_HOST,
       capture_pageview: false,
       capture_exceptions: true,
     })

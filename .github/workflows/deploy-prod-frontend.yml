@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Repo checkout
@@ -74,7 +74,7 @@ jobs:
 
   playwright-tests:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Repo checkout
@@ -103,7 +103,7 @@ jobs:
 
   deploy:
     needs: [build, playwright-tests]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     environment:
       name: github-pages

@@ -40,7 +40,19 @@ jobs:
       - name: Build
         env:
           NEXT_TELEMETRY_DISABLED: 1
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
         run: npm run build
+      - name: Inject & upload source maps to PostHog
+        # Uploads source maps so error-tracking stack traces are readable.
+        # Skips silently if upload secrets are absent; never blocks deploys.
+        continue-on-error: true
+        uses: PostHog/upload-source-maps@v2
+        with:
+          directory: ./out
+          project-id: ${{ secrets.POSTHOG_PROJECT_ID }}
+          api-key: ${{ secrets.POSTHOG_CLI_API_KEY }}
+          host: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
       - name: Archive artifact
         run: |
           echo ::group::Archive artifact

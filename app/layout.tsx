@@ -13,6 +13,7 @@ import DesktopHeader from 'components/DesktopHeader'
 import type { navs } from 'components/DesktopHeader'
 import MobileHeader from 'components/MobileHeader'
 import Footer from 'components/Footer'
+import { PHProvider } from 'components/PHProvider'
 
 const font = Roboto_Flex({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900', '1000'],
@@ -92,27 +93,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }
           },
         }} >
-          <CodeHighlightAdapterProvider adapter={codeHighlightAdapter}>
-            <Container mih='100%' pos='relative' >
-              <Space />
-              <header>
-                <Container visibleFrom='sm' >
-                  <DesktopHeader navs={navs} />
+          <PHProvider>
+            <CodeHighlightAdapterProvider adapter={codeHighlightAdapter}>
+              <Container mih='100%' pos='relative' >
+                <Space />
+                <header>
+                  <Container visibleFrom='sm' >
+                    <DesktopHeader navs={navs} />
+                  </Container>
+                  <Container hiddenFrom='sm' >
+                    <MobileHeader navs={navs} />
+                  </Container>
+                </header>
+                <Space />
+                <Divider />
+                <Space h='lg' />
+                <Container px={20} >
+                  {children}
                 </Container>
-                <Container hiddenFrom='sm' >
-                  <MobileHeader navs={navs} />
-                </Container>
-              </header>
-              <Space />
-              <Divider />
-              <Space h='lg' />
-              <Container px={20} >
-                {children}
+                <Space />
+                <Footer />
               </Container>
-              <Space />
-              <Footer />
-            </Container>
-          </CodeHighlightAdapterProvider>
+            </CodeHighlightAdapterProvider>
+          </PHProvider>
         </MantineProvider>
       </body>
     </html>

@@ -19,8 +19,10 @@
     "@mantine/code-highlight": "^9",
     "@mantine/core": "^9",
     "@mantine/hooks": "^9",
+    "@posthog/react": "^1",
     "@tabler/icons-react": "^3",
     "next": "^16",
+    "posthog-js": "^1",
     "react": "^19",
     "react-dom": "^19"
   },

@@ -25,6 +25,7 @@ const withBundleAnalyser = createBundleAnalyzer({
 const nextConfig = {
   output: 'export',
   pageExtensions: ['tsx', 'mdx'],
+  productionBrowserSourceMaps: true,
   images: {
     remotePatterns: [
       {

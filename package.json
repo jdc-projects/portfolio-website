@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "analyse": "ENABLE_BUNDLE_ANALYZER=true next build",
     "clean": "rm -rf .next out node_modules next-env.d.ts playwright-*",
-    "test": "playwright test",
+    "test": "npm run test:unit && npm run test:playwright",
     "test:playwright": "playwright test",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest"

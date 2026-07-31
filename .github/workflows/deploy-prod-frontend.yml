@@ -88,9 +88,7 @@ jobs:
         run: |
           npm ci
           npx playwright install --with-deps
-      - name: Run unit tests
-        run: npm run test:unit
-      - name: Run Playwright tests
+      - name: Run tests
         env:
           NEXT_TELEMETRY_DISABLED: 1
         run: |

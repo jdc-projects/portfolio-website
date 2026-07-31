@@ -17,6 +17,7 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
       ui_host: POSTHOG_HOST,
       capture_pageview: false,
       capture_exceptions: true,
+      cookieless_mode: 'always',
     })
   }, [])
 

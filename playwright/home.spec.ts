@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { EMAIL } from '../utils/site'
 
 test('home page renders name and title', async ({ page }) => {
   await page.goto('/')
@@ -15,6 +16,7 @@ test('home page shows social links', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('a[href*="github.com"]').first()).toBeVisible()
   await expect(page.locator('a[href*="linkedin.com"]')).toBeVisible()
+  await expect(page.locator(`a[href="mailto:${EMAIL}"]`)).toBeVisible()
 })
 
 test('footer shows copyright with current year', async ({ page }) => {

@@ -6,10 +6,13 @@ import { ReactNode } from 'react'
 
 type AnchorProps = NextLinkProps & MantineAnchorProps & {
   children: ReactNode,
+  newTab?: boolean,
 }
 
-export default function Anchor(props: AnchorProps) {
-  const target = '/' === String(props.href)[0] ? undefined : '_blank'
+export default function Anchor({ newTab, ...props }: AnchorProps) {
+  const href = String(props.href)
+  const isInternal = href.startsWith('/') || href.startsWith('mailto:') || href.startsWith('tel:')
+  const openInNewTab = newTab ?? !isInternal
 
-  return <MantineAnchor component={NextLink} target={target} {...props} >{props.children}</MantineAnchor>
+  return <MantineAnchor component={NextLink} target={openInNewTab ? '_blank' : undefined} {...props} >{props.children}</MantineAnchor>
 }

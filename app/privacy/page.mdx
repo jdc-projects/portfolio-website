@@ -1,0 +1,43 @@
+import { EMAIL } from 'utils/site'
+import Anchor from 'components/Anchor'
+
+export const metadata = {
+  title: 'Privacy Policy',
+  description: 'How this website handles analytics and your data.',
+}
+
+# Privacy Policy
+
+This website is operated by Jack Chapman ("I", "me"). This policy explains what data is collected and why. It is written in plain English, is accurate to how this site is built, and is general guidance rather than legal advice.
+
+## Hosting and delivery
+
+This is a static site hosted on GitHub Pages and delivered through Cloudflare (a content-delivery network). Those providers process only the network requests needed to load the site.
+
+## Analytics (PostHog)
+
+I use [PostHog](https://posthog.com), self-hosted on infrastructure I manage, to understand how the site is used.
+
+**Analytics runs cookieless — it does not store cookies or anything else in your browser.** To count visits without cookies, PostHog generates a short-lived, privacy-preserving identifier by hashing your IP address, browser type and the site's hostname with a salt that changes daily and is deleted once that day's events are processed. The hash is irreversible and rotates daily, so it can't identify you or follow you across days or devices.
+
+It may collect:
+
+- The pages you view and how you move around the site.
+- Error information if something on the site breaks, to help me fix it.
+- Basic technical details (browser, device).
+
+## Legal basis
+
+Because analytics runs cookieless and the visitor identifier is a non-identifying, daily-rotating hash rather than personal data, this site does not seek consent for analytics. Your IP address is used only transiently to compute the hash.
+
+## Retention
+
+Analytics data is kept in line with PostHog's default behaviour — it is not deleted on a fixed schedule.
+
+## Your rights
+
+Depending on where you are, you may have rights including access, correction, deletion, restriction, objection and data portability, and the right to complain to a data-protection authority. To exercise any of these, or to ask a question, email <Anchor href={`mailto:${EMAIL}`}>{EMAIL}</Anchor>.
+
+## Changes
+
+I may update this policy if how the site works changes. Last updated: {new Date().getFullYear()}.

@@ -17,13 +17,14 @@ function MD_p(props: any) {
 
 function MD_li(props: any) {
   const isCheckbox = props.className === 'task-list-item'
+  if (!isCheckbox) {
+    return <ListItem>{props.children}</ListItem>
+  }
 
-  return (
-    isCheckbox ?
-      <Checkbox defaultChecked={props.checked} label={props.children} ml={10} />
-    :
-      <ListItem>{props.children}</ListItem>
-  )
+  const children = Array.isArray(props.children) ? props.children : [props.children]
+  const checkedInput = children.find((c: any) => c?.props?.type === 'checkbox')
+
+  return <Checkbox defaultChecked={checkedInput?.props?.checked ?? false} label={props.children} ml={10} />
 }
 
 type TableAlign = "center" | "justify" | "left" | "right" | "char" | undefined

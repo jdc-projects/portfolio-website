@@ -19,7 +19,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'NEXT_PUBLIC_POSTHOG_KEY= NEXT_PUBLIC_POSTHOG_HOST= npm run build && npm run start -- -l 3000',
+    command: 'NEXT_PUBLIC_POSTHOG_KEY= NEXT_PUBLIC_POSTHOG_HOST= ENABLE_MDX_TEST_PAGE=true npm run build && npm run start -- -l 3000',
     port: 3000,
     reuseExistingServer: !process.env.CI,
   },

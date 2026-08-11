@@ -24,6 +24,8 @@ const withBundleAnalyser = createBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  // Bust the prerender cache when ENABLE_MDX_TEST_PAGE changes — see app/mdx-test/page.tsx.
+  generateBuildId: () => yn(process.env.ENABLE_MDX_TEST_PAGE, { default: false }) ? 'mdx-test-on' : 'mdx-test-off',
   pageExtensions: ['tsx', 'mdx'],
   productionBrowserSourceMaps: true,
   images: {

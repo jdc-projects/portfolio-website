@@ -19,11 +19,11 @@ export default async function Page() {
             Jack Chapman
           </Title>
           <Title order={2} ta='center' >
-            Solutions Architect
+            Solutions Architect & AI Engineer
           </Title>
           <Text ta='center' >
-            With experience of solution architecture and software engineering, alongside exposure to multiple industries, Jack is an adaptable and versatile architect.
-            Expertise in modern agentic AI delivery, including proof-of-concepts, deployed production applications, and enablement of new and existing teams with AI tooling, means Jack is ready to solve challenges across technical and business contexts.
+            Jack is a hands-on solutions architect and engineer who embeds with client teams to take AI-enabled systems from discovery and proof-of-concept through to production.
+            He designs and leads delivery of full-stack applications, RAG systems, and agentic AI, working directly with stakeholders from engineers to executives.
           </Text>
           <Space h={5} />
           <SocialLinks/>

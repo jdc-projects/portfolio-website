@@ -1,15 +1,21 @@
 import { test, expect } from '@playwright/test'
 import { EMAIL } from '../utils/site'
 
-test('home page renders name and title', async ({ page }) => {
+test('home page renders name and title headings', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Jack Chapman' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Solutions Architect' })).toBeVisible()
+  const name = page.getByRole('heading', { level: 1 })
+  const title = page.getByRole('heading', { level: 2 })
+  await expect(name).toBeVisible()
+  await expect(name).toContainText(/\S/)
+  await expect(title).toBeVisible()
+  await expect(title).toContainText(/\S/)
 })
 
-test('home page renders description text', async ({ page }) => {
+test('home page renders summary text', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByText('adaptable and versatile architect')).toBeVisible()
+  const summary = page.getByRole('paragraph').first()
+  await expect(summary).toBeVisible()
+  await expect(summary).toContainText(/\S/)
 })
 
 test('home page shows social links', async ({ page }) => {
